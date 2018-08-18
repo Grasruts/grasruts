@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g stroke-width="2" transform="translate(0, 0)"><polyline fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="40,9 46,9 46,38 
+	19,38 " stroke-linejoin="miter"></polyline>
+<polyline fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="8,38 2,38 2,9 
+	23,9 " stroke-linejoin="miter"></polyline>
+<path data-color="color-2" fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M39,23H24
+	c-0.552,0-1-0.448-1-1V4c0-0.552,0.448-1,1-1h15c0.552,0,1,0.448,1,1v18C40,22.552,39.552,23,39,23z" stroke-linejoin="miter"></path>
+<path data-color="color-2" fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M18,45H9
+	c-0.552,0-1-0.448-1-1V30c0-0.552,0.448-1,1-1h9c0.552,0,1,0.448,1,1v14C19,44.552,18.552,45,18,45z" stroke-linejoin="miter"></path>
+<line fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="23" y1="43" x2="29" y2="43" stroke-linejoin="miter"></line>
+<line data-color="color-2" fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="13" y1="40" x2="14" y2="40" stroke-linejoin="miter"></line>
+<line data-color="color-2" fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="30" y1="18" x2="33" y2="18" stroke-linejoin="miter"></line></g></svg>

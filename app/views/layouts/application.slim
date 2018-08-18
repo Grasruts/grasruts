@@ -1,0 +1,142 @@
+| <!doctype html>
+meta[http-equiv="X-UA-Compatible" content="IE=Edge"]
+html[lang="en"]
+  head
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
+    title
+      | Grasruts
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+  body.home
+    p.notice
+      = notice
+    p.alert
+      = alert
+    #wrapper
+      header#header.site-header
+        .container
+          .site-brand
+            a href="index.html" 
+              = image_tag 'assets/logo.png'
+          /! .site-brand
+          .right-header
+            nav.main-menu
+              button.c-hamburger.c-hamburger--htx
+                span
+              ul
+                li
+                  a href="#" 
+                    | Home
+                    i.fa.fa-caret-down aria-hidden="true" 
+                  ul.sub-menu
+                    li
+                      a href="index.html"  Home v1
+                    li
+                      a href="index_2.html"  Home v2
+                    li
+                      a href="index_3.html"  Home v3
+                    li
+                      a href="index_gradient.html"  Home Gradient
+                li
+                  a href="#" 
+                    | Explore
+                    i.fa.fa-caret-down aria-hidden="true" 
+                  ul.sub-menu
+                    li
+                      a href="explore_layout_one.html"  Explore Layout One
+                    li
+                      a href="explore_layout_two.html"  Explore Layout Two
+                    li
+                      a href="explore_layout_three.html"  Explore Layout Three
+                li
+                  a href="#" 
+                    | Start a Campaigns
+                    i.fa.fa-caret-down aria-hidden="true" 
+                  ul.sub-menu
+                    li
+                      a href="create_a_campaign.html"  Create a campaign
+                    li
+                      a href="update_a_campaign.html"  Update a campaign
+                li
+                  a href="#" 
+                    | Pages
+                    i.fa.fa-caret-down aria-hidden="true" 
+                  ul.sub-menu
+                    li
+                      a href="coming_soon.html"  Coming Soon
+                    li
+                      a href="about_us.html"  About Us
+                    li
+                      a href="404.html"  404
+                    li
+                      a href="login.html"  Login
+                    li
+                      a href="register.html"  Register
+                    li
+                      a href="faq.html"  Faq
+                    li
+                      a href="campaign_detail.html"  Campaign details
+                li
+                  a href="#" 
+                    | Blog
+                    i.fa.fa-caret-down aria-hidden="true" 
+                  ul.sub-menu
+                    li
+                      a href="blog_grid.html"  Blog Grid
+                    li
+                      a href="blog_list.html"  Blog List
+                    li
+                      a href="blog_list_sidebar.html"  Blog Grid Sidebar
+                    li
+                      a href="blog_details.html"  Blog Details
+                li
+                  a href="#" 
+                    | Shop
+                    i.fa.fa-caret-down aria-hidden="true" 
+                  ul.sub-menu
+                    li
+                      a href="shop-grid.html"  Shop Grid
+                    li
+                      a href="shop-details.html"  Shop Details
+                    li
+                      a href="cart.html"  Cart
+                    li
+                      a href="checkout.html"  Checkout
+                li
+                  a href="contact_us.html"  Contact
+                li
+                  a href="#" 
+                    | Account
+                    i.fa.fa-caret-down aria-hidden="true" 
+                  ul.sub-menu
+                    li
+                      a href="dashboard.html"  Dashboard
+                    li
+                      a href="profile.html"  Profile
+                    li
+                      a href="account_my_campaigns.html"  My Campaigns
+                    li
+                      a href="account_pledges_received.html"  Pledges Received
+                    li
+                      a href="account_backed_campaigns.html"  Backed Campaigns
+                    li
+                      a href="account_rewards.html"  Rewards
+                    li
+                      a href="account_payments.html"  Payments
+            /! .main-menu
+            .search-icon
+              a.ion-ios-search-strong href="#" 
+              .form-search
+              form#searchForm action="#" method="POST" 
+                input name="search" placeholder="Search..." type="text" value="" /
+                button type="submit" value="" 
+                  span.ion-ios-search-strong
+            .login.login-button
+              a.btn-primary href="login.html"  Login
+            /! .login
+          /! . right-header
+        /! .container
+      /! .site-header
+    = yield
