@@ -71,6 +71,10 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     draper (3.0.1)
       actionpack (~> 5.0)
       activemodel (~> 5.0)
@@ -267,6 +271,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   chartkick
   devise
+  dotenv-rails
   draper
   font-awesome-rails
   letter_opener

@@ -32,7 +32,7 @@ gem 'chartkick'
 gem 'pg_search'
 gem 'draper'
 gem 'simple_form'
-
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
