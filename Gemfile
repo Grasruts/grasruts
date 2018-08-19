@@ -33,7 +33,7 @@ gem 'pg_search'
 gem 'draper'
 gem 'simple_form'
 gem 'dotenv-rails'
-
+gem 'flash_rails_messages'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'

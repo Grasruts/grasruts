@@ -10,10 +10,7 @@ html[lang="en"]
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body.home
-    p.notice
-      = notice
-    p.alert
-      = alert
+    = render_flash_messages
     #wrapper
       header#header.site-header
         .container

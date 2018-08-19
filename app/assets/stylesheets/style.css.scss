@@ -169,8 +169,20 @@ textarea:focus {
 .section{
     padding-top: 120px;
 }
+.fb-btn{
+  background-color: #4b6fb8;
+  padding: 0 20px;
+  border-radius: 2px 2px 2px 2px;
+  -moz-border-radius: 2px 2px 2px 2px;
+  -webkit-border-radius: 2px 2px 2px 2px;
+  height: 46px;
+  line-height: 46px;
+  border: none;
+  display: inline-block;
+}
+
 .btn-primary{
-    background-color: #00a6eb;
+    background-color: #7cc142;
     padding: 0 20px;
     border-radius: 2px 2px 2px 2px;
     -moz-border-radius: 2px 2px 2px 2px;

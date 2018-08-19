@@ -4,7 +4,7 @@ main#main.site-main
       .form-login
         h2 Log in with your account
         .inline.clearfix
-          = link_to "Login with facebook", user_facebook_omniauth_authorize_path, class: 'btn btn-primary btn-block'
+          = button_to "Login with facebook", user_facebook_omniauth_authorize_path, class: 'btn btn-block fb-btn'
         hr.hr-text data-content="OR" /
         = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: 'loginForm', class: 'clearfix'}) do |f|
           .field
