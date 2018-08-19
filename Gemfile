@@ -34,6 +34,8 @@ gem 'draper'
 gem 'simple_form'
 gem 'dotenv-rails'
 gem 'flash_rails_messages'
+gem 'discard', '~> 1.0'
+gem "paperclip", "~> 6.0.0"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'

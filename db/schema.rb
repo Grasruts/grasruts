@@ -10,10 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180819070040) do
+ActiveRecord::Schema.define(version: 20180819094954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "campaign_images", force: :cascade do |t|
+    t.string "campaign_image_file_name"
+    t.string "campaign_image_content_type"
+    t.integer "campaign_image_file_size"
+    t.datetime "campaign_image_updated_at"
+    t.bigint "campaigns_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaigns_id"], name: "index_campaign_images_on_campaigns_id"
+  end
+
+  create_table "campaign_updates", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "campaigns_id"
+    t.index ["campaigns_id"], name: "index_campaign_updates_on_campaigns_id"
+  end
+
+  create_table "campaigns", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "uri", default: "", null: false
+    t.text "about"
+    t.decimal "goal", precision: 8, scale: 2
+    t.text "faq"
+    t.string "card_description"
+    t.string "card_image"
+    t.string "category", default: "", null: false
+    t.integer "mode", default: 1
+    t.integer "status", default: 1
+    t.datetime "deadline"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_campaigns_on_discarded_at"
+    t.index ["name"], name: "index_campaigns_on_name"
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price", precision: 8, scale: 2
+    t.text "description"
+    t.integer "total_reward"
+    t.integer "claimed_reward"
+    t.datetime "shipping_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "campaigns_id"
+    t.index ["campaigns_id"], name: "index_rewards_on_campaigns_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,9 +88,16 @@ ActiveRecord::Schema.define(version: 20180819070040) do
     t.string "uid"
     t.string "name"
     t.string "image"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "campaign_images", "campaigns", column: "campaigns_id"
+  add_foreign_key "campaign_updates", "campaigns", column: "campaigns_id"
+  add_foreign_key "rewards", "campaigns", column: "campaigns_id"
 end
