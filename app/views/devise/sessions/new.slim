@@ -3,6 +3,9 @@ main#main.site-main
     .main-content
       .form-login
         h2 Log in with your account
+        .inline.clearfix
+          = link_to "Login with facebook", user_facebook_omniauth_authorize_path, class: 'btn btn-primary btn-block'
+        hr.hr-text data-content="OR" /
         = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: 'loginForm', class: 'clearfix'}) do |f|
           .field
             = f.input :email, autofocus: true, input_html: { autocomplete: "email" }
@@ -14,5 +17,3 @@ main#main.site-main
             p
               | No account yet?
               = link_to "Sign up", new_registration_path(resource_name)
-      p
-        = link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path
