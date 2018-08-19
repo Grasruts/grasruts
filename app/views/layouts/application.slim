@@ -30,11 +30,32 @@ html[lang="en"]
                 li
                   a href="/explore" 
                     | Explore
-                    i.fa.fa-caret-down aria-hidden="true" 
                 li
                   a href="#" 
                     | Start a Campaigns
-                    i.fa.fa-caret-down aria-hidden="true" 
+                li
+                  a href="#" 
+                    | Account
+                    i.fa.fa-caret-down 
+                  ul.sub-menu
+                    li
+                      a href="dashboard.html"  Dashboard
+                    li
+                      a href="profile.html"  Profile
+                    li
+                      a href="account_my_campaigns.html"  My Campaigns
+                    li
+                      a href="account_pledges_received.html"  Pledges Received
+                    li
+                      a href="account_backed_campaigns.html"  Backed Campaigns
+                    li
+                      a href="account_rewards.html"  Rewards
+                    - if user_signed_in?
+                      li
+                        = link_to('Logout', destroy_user_session_path)
+
+
+
             /! .main-menu
             .search-icon
               a.ion-ios-search-strong href="#" 
@@ -43,10 +64,7 @@ html[lang="en"]
                 input name="search" placeholder="Search..." type="text" value="" /
                 button type="submit" value="" 
                   span.ion-ios-search-strong
-            - if user_signed_in?
-              .login.login-button
-                = link_to('Logout', destroy_user_session_path, class: 'btn-primary')
-            -else
+            - unless user_signed_in?
               .login.login-button
                 = link_to('Login', new_user_session_path, class: 'btn-primary')
             /! .login
