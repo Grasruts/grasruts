@@ -25,29 +25,23 @@ html[lang="en"]
                 span
               ul
                 li
-                  a href="/explore" 
-                    | Explore
+                  = link_to 'Explore', explore_path
                 li
-                  a href="#" 
-                    | Start a Campaigns
-                li
-                  a href="#" 
-                    | Account
-                    i.fa.fa-caret-down 
-                  ul.sub-menu
-                    li
-                      a href="dashboard.html"  Dashboard
-                    li
-                      a href="profile.html"  Profile
-                    li
-                      a href="account_my_campaigns.html"  My Campaigns
-                    li
-                      a href="account_pledges_received.html"  Pledges Received
-                    li
-                      a href="account_backed_campaigns.html"  Backed Campaigns
-                    li
-                      a href="account_rewards.html"  Rewards
-                    - if user_signed_in?
+                  = link_to 'Start a campaign', new_campaign_path
+                - if user_signed_in?
+                  li
+                    a href="#" 
+                      | Account
+                      i.fa.fa-caret-down 
+                    ul.sub-menu
+                      li
+                        a href="dashboard.html"  Profile
+                      li
+                        a href="profile.html"  Backed Campaign
+                      li
+                        a href="account_my_campaigns.html"  Created Campaigns
+                      li
+                        a href="account_pledges_received.html"  Settings                      
                       li
                         = link_to('Logout', destroy_user_session_path)
 

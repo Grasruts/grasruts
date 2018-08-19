@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'explore', to: 'home#explore'
+  resources :campaign
 end
