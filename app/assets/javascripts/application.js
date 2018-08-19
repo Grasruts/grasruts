@@ -11,13 +11,13 @@
 // about supported directives.
 //
 //= require jquery/dist/jquery.min.js
-//= require bootstrap/dist/js/bootstrap.min.js
-//= require popper.js
-//= require owl.carousel/dist/owl.carousel.min.js
-//= require jquery.countdown/jquery.countdown.js
-//= require wowjs/dist/wow.min.js
-//= require isotope-layout/dist/isotope.pkgd.min.js
-//= require bxslider/dist/jquery.bxslider.min.js
-//= require magicsuggest-min.js
+//= require bootstrap/js/bootstrap.min.js
+//= require popper/popper.js
+//= require owl-carousel/owl.carousel.min.js
+//= require jquery.countdown/jquery.countdown.min.js
+//= require wow/wow.min.js
+//= require isotope/isotope.pkgd.min.js
+//= require bxslider/jquery.bxslider.min.js
+//= require magicsuggest/magicsuggest-min.js
 //= require main.js
 
