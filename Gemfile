@@ -18,7 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'font-awesome-sass', '~> 5.2.0'
+gem "font-awesome-rails"
 gem 'slim-rails'
 gem 'devise'
 gem 'omniauth-facebook'

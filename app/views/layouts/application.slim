@@ -27,104 +27,13 @@ html[lang="en"]
                 span
               ul
                 li
-                  a href="#" 
-                    | Home
-                    i.fa.fa-caret-down aria-hidden="true" 
-                  ul.sub-menu
-                    li
-                      a href="index.html"  Home v1
-                    li
-                      a href="index_2.html"  Home v2
-                    li
-                      a href="index_3.html"  Home v3
-                    li
-                      a href="index_gradient.html"  Home Gradient
-                li
-                  a href="#" 
+                  a href="/explore" 
                     | Explore
                     i.fa.fa-caret-down aria-hidden="true" 
-                  ul.sub-menu
-                    li
-                      a href="explore_layout_one.html"  Explore Layout One
-                    li
-                      a href="explore_layout_two.html"  Explore Layout Two
-                    li
-                      a href="explore_layout_three.html"  Explore Layout Three
                 li
                   a href="#" 
                     | Start a Campaigns
                     i.fa.fa-caret-down aria-hidden="true" 
-                  ul.sub-menu
-                    li
-                      a href="create_a_campaign.html"  Create a campaign
-                    li
-                      a href="update_a_campaign.html"  Update a campaign
-                li
-                  a href="#" 
-                    | Pages
-                    i.fa.fa-caret-down aria-hidden="true" 
-                  ul.sub-menu
-                    li
-                      a href="coming_soon.html"  Coming Soon
-                    li
-                      a href="about_us.html"  About Us
-                    li
-                      a href="404.html"  404
-                    li
-                      a href="login.html"  Login
-                    li
-                      a href="register.html"  Register
-                    li
-                      a href="faq.html"  Faq
-                    li
-                      a href="campaign_detail.html"  Campaign details
-                li
-                  a href="#" 
-                    | Blog
-                    i.fa.fa-caret-down aria-hidden="true" 
-                  ul.sub-menu
-                    li
-                      a href="blog_grid.html"  Blog Grid
-                    li
-                      a href="blog_list.html"  Blog List
-                    li
-                      a href="blog_list_sidebar.html"  Blog Grid Sidebar
-                    li
-                      a href="blog_details.html"  Blog Details
-                li
-                  a href="#" 
-                    | Shop
-                    i.fa.fa-caret-down aria-hidden="true" 
-                  ul.sub-menu
-                    li
-                      a href="shop-grid.html"  Shop Grid
-                    li
-                      a href="shop-details.html"  Shop Details
-                    li
-                      a href="cart.html"  Cart
-                    li
-                      a href="checkout.html"  Checkout
-                li
-                  a href="contact_us.html"  Contact
-                li
-                  a href="#" 
-                    | Account
-                    i.fa.fa-caret-down aria-hidden="true" 
-                  ul.sub-menu
-                    li
-                      a href="dashboard.html"  Dashboard
-                    li
-                      a href="profile.html"  Profile
-                    li
-                      a href="account_my_campaigns.html"  My Campaigns
-                    li
-                      a href="account_pledges_received.html"  Pledges Received
-                    li
-                      a href="account_backed_campaigns.html"  Backed Campaigns
-                    li
-                      a href="account_rewards.html"  Rewards
-                    li
-                      a href="account_payments.html"  Payments
             /! .main-menu
             .search-icon
               a.ion-ios-search-strong href="#" 
@@ -134,9 +43,115 @@ html[lang="en"]
                 button type="submit" value="" 
                   span.ion-ios-search-strong
             .login.login-button
-              a.btn-primary href="login.html"  Login
+              a.btn-primary href="/users/sign_in"  Login
             /! .login
           /! . right-header
         /! .container
       /! .site-header
-    = yield
+      = yield
+      footer#footer.site-footer
+        .footer-menu
+          .container
+            .row
+              .col-lg-3.col-sm-4.col-4
+                .footer-menu-item
+                  h3 Our company
+                  ul
+                    li
+                      a href="#"  What is Startup Idea
+                    li
+                      a href="#"  About us
+                    li
+                      a href="#"  How It Works
+                    li
+                      a href="#"  What Is This
+                    li
+                      a href="#"  Jobs
+                    li
+                      a href="#"  Press
+                    li
+                      a href="#"  Starts
+              .col-lg-3.col-sm-4.col-4
+                .footer-menu-item
+                  h3 Campaign
+                  ul
+                    li
+                      a href="#"  Start Your Campaign
+                    li
+                      a href="#"  Pricing Campaign
+                    li
+                      a href="#"  Campaign Support
+                    li
+                      a href="#"  Trust &amp; Safety
+                    li
+                      a href="#"  Support
+                    li
+                      a href="#"  Terms of Use
+                    li
+                      a href="#"  Privacy Policy
+              .col-lg-3.col-sm-4.col-4
+                .footer-menu-item
+                  h3 Explore
+                  ul
+                    li
+                      a href="#"  Design &amp; Art
+                    li
+                      a href="#"  Crafts
+                    li
+                      a href="#"  Film &amp; Video
+                    li
+                      a href="#"  Food
+                    li
+                      a href="#"  Book
+                    li
+                      a href="#"  Games
+                    li
+                      a href="#"  Technology
+              .col-lg-3.col-sm-12.col-12
+                .footer-menu-item.newsletter
+                  h3 Newsletter
+                  .newsletter-description Private, secure, spam-free
+                  form#newsletterForm action="s" method="POST" 
+                    input name="s" placeholder=("Enter your email...") type="text" value="" /
+                    button type="submit" value="" 
+                      span.ion-android-drafts
+                  .follow
+                    h3 Follow us
+                    ul
+                      li.facebook
+                        a href="../../www.facebook.com/default.htm" target="_Blank" 
+                          i.fa.fa-facebook aria-hidden="true" 
+                      li.twitter
+                        a href="../../www.twitter.com/default.htm" target="_Blank" 
+                          i.fa.fa-twitter aria-hidden="true" 
+                      li.instagram
+                        a href="../../www.instagram.com/default.htm" target="_Blank" 
+                          i.fa.fa-instagram aria-hidden="true" 
+                      li.google
+                        a href="../../www.google.com/default.htm" target="_Blank" 
+                          i.fa.fa-google-plus aria-hidden="true" 
+                      li.youtube
+                        a href="../../www.youtube.com/default.htm" target="_Blank" 
+                          i.fa.fa-youtube aria-hidden="true" 
+            .footer-top
+              p.payment-img
+                = image_tag 'assets/payment-methods.png'
+              .footer-top-right
+                .dropdow.field-select
+                  select name="s" 
+                    option value=""  $ US Dollar (USD)
+                    option value=""  £ Pound Sterling (GBP)
+                    option value=""  € Euro (EUR)
+                .dropdow.field-select
+                  select name="s" 
+                    option value=""  English
+                    option value=""  Greek (Ελληνικά)
+                    option value=""  Deutsch (German)
+                    option value=""  العربية (Arabic)
+        /! .footer-menu
+        .footer-copyright
+          .container
+            p.copyright 2018 by ideapress. All Rights Reserved.
+            a.back-top href="#" 
+              | Back to top
+              span.ion-android-arrow-up      

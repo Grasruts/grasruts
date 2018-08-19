@@ -1,0 +1,16 @@
+main#main.site-main
+  .container
+    .main-content
+      .form-login
+        h2 Log in with your account
+        = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: 'loginForm', class: 'clearfix'}) do |f|
+          .field
+            = f.input :email, autofocus: true, input_html: { autocomplete: "email" }
+          .field
+            = link_to "I forgot my password", new_password_path(resource_name), class: 'float-right'
+            = f.input :password, input_html: { autocomplete: "current-password" }
+          .inline.clearfix
+            = f.button :submit, "Log in", class: 'btn-primary'
+            p
+              | No account yet?
+              = link_to "Sign up", new_registration_path(resource_name)

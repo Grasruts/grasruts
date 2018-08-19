@@ -10,9 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery/dist/jquery.min.js
-//= require bootstrap/js/bootstrap.min.js
+//= require jquery
 //= require popper/popper.js
+//= require bootstrap/js/bootstrap.min.js
 //= require owl-carousel/owl.carousel.min.js
 //= require jquery.countdown/jquery.countdown.min.js
 //= require wow/wow.min.js
