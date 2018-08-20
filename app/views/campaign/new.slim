@@ -16,29 +16,43 @@ main#main.site-main
         .col-lg-3
           nav.account-bar
             ul
-              li.active
-                a href="dashboard.html"  Basic
-              li
-                a href="profile.html"  Financing
-              li
-                a href="account_my_campaigns.html"  Description
-              li
-                a href="account_backed_campaigns.html"  Video
-              li
-                a href="account_pledges_received.html"  Budget
-              li
-                a href="account_rewards.html"  Project Card
-              li
-                a href="account_payments.html"  Rewards
-              li
-                a href="account_payments.html"  KYC
-              li
+              li class=(params[:section]&.downcase&.strip == 'basic' ? 'active' : '')
+                = link_to 'Basic', new_campaign_path(section: 'basic')
+              li class=(params[:section]&.downcase&.strip == 'financing' ? 'active' : '')
+                = link_to 'Financing', new_campaign_path(section: 'financing')  
+              li class=(params[:section]&.downcase&.strip == 'description' ? 'active' : '')
+                = link_to 'Description', new_campaign_path(section: 'description')  
+              li class=(params[:section]&.downcase&.strip == 'video' ? 'active' : '')
+                = link_to 'Video', new_campaign_path(section: 'video')    
+              li class=(params[:section]&.downcase&.strip == 'project_card' ? 'active' : '')
+                = link_to 'Project Card', new_campaign_path(section: 'project_card')  
+              li class=(params[:section]&.downcase&.strip == 'rewards' ? 'active' : '')
+                = link_to 'Rewards', new_campaign_path(section: 'rewards')  
+              li class=(params[:section]&.downcase&.strip == 'kyc' ? 'active' : '')
+                = link_to 'KYC', new_campaign_path(section: 'kyc')
+              li class=(params[:section]&.downcase&.strip == 'preview' ? 'active' : '')
                 a href="#" Preview
         .col-lg-9
           .account-content.dashboard
             h3.account-title Dashboard
             .account-main
-              = render 'layouts/campaign_basic'
+              - case params[:section]&.downcase&.strip || 'basic'
+              - when 'basic' 
+                = render 'layouts/campaign_basic'
+              - when 'financing'
+                = render 'layouts/campaign_financing'
+              - when 'description'
+                = render 'layouts/campaign_story'
+              - when 'video'
+                = render 'layouts/campaign_video'
+              - when 'project_card'
+                = render 'layouts/campaign_project_card'
+              - when 'rewards'
+                = render 'layouts/campaign_rewards'
+              - when 'kyc'
+                = render 'layouts/campaign_kyc'
+              - else
+                = render 'layouts/campaign_basic'
   /! .container
 
   .main-content
