@@ -2,6 +2,7 @@ main#main.site-main
   section.top-site
     .container
       h1 Our mission is to empower people to unite around ideas that matter to them and together make those ideas come to life.
+      = link_to 'Start a campaign', "#start", class: 'btn btn-primary btn-lg'
   /! .top-site
   .container
     .video
@@ -35,151 +36,17 @@ main#main.site-main
               .statics-item-desc
                 p That exceed their goals are run by women
     /! .statics
-    section.team.section
-      h2.title Meet Our super Heros
-      .description
-        p At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles.
-      .team-content
-        .row
-          .col-lg-3.col-sm-6.col-6
-            .team-item
-              .avatar
-                img alt="" src="images/support_01.jpg" /
-              .team-info
-                ul.socials
-                  li
-                    a href="#" 
-                      i.fa.fa-facebook aria-hidden="true" 
-                  li
-                    a href="#" 
-                      i.fa.fa-twitter aria-hidden="true" 
-                  li
-                    a href="#" 
-                      i.fa.fa-google-plus aria-hidden="true" 
-                  li
-                    a href="#" 
-                      i.fa.fa-linkedin aria-hidden="true" 
-                h3.team-name Marie J. Smith
-                span.team-job Web Developer
-          .col-lg-3.col-sm-6.col-6
-            .team-item
-              .avatar
-                img alt="" src="images/support_02.jpg" /
-              .team-info
-                ul.socials
-                  li
-                    a href="#" 
-                      i.fa.fa-facebook aria-hidden="true" 
-                  li
-                    a href="#" 
-                      i.fa.fa-twitter aria-hidden="true" 
-                  li
-                    a href="#" 
-                      i.fa.fa-google-plus aria-hidden="true" 
-                  li
-                    a href="#" 
-                      i.fa.fa-linkedin aria-hidden="true" 
-                h3.team-name Billy S. Tietjen
-                span.team-job Web Designer
-          .col-lg-3.col-sm-6.col-6
-            .team-item
-              .avatar
-                img alt="" src="images/support_03.jpg" /
-              .team-info
-                ul.socials
-                  li
-                    a href="#" 
-                      i.fa.fa-facebook aria-hidden="true" 
-                  li
-                    a href="#" 
-                      i.fa.fa-twitter aria-hidden="true" 
-                  li
-                    a href="#" 
-                      i.fa.fa-google-plus aria-hidden="true" 
-                  li
-                    a href="#" 
-                      i.fa.fa-linkedin aria-hidden="true" 
-                h3.team-name Edward S. Agosto
-                span.team-job Digital Marketer
-          .col-lg-3.col-sm-6.col-6
-            .team-item
-              .avatar
-                img alt="" src="images/support_04.jpg" /
-              .team-info
-                ul.socials
-                  li
-                    a href="#" 
-                      i.fa.fa-facebook aria-hidden="true" 
-                  li
-                    a href="#" 
-                      i.fa.fa-twitter aria-hidden="true" 
-                  li
-                    a href="#" 
-                      i.fa.fa-google-plus aria-hidden="true" 
-                  li
-                    a href="#" 
-                      i.fa.fa-linkedin aria-hidden="true" 
-                h3.team-name Clara C. Vinson
-                span.team-job Account Manager
-    /! .team
-    section.partners.partners-about
-      h2.title IdeaPress Partners
-      .description
-        p Over 30,000 Charities, Events, and Brands
-      ul
-        li
-          a href="#" 
-            img alt="" src="images/partner-01.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-02.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-03.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-04.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-05.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-06.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-07.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-08.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-09.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-10.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-11.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-12.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-13.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-14.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-15.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-16.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-17.png" /
-        li
-          a href="#" 
-            img alt="" src="images/partner-18.png" /
-    /! .partners
-  /! .container
+    .campaign-form.form-update#start
+      .container
+        = simple_form_for @campaign, url: campaign_index_path, method: :post do |f|
+          .field
+            label Name
+            span.label-desc
+              | some description goes here
+            = f.input :name, label: false
+          .field
+            label Category
+            span.label-desc
+              | some description goes here
+            = f.input :category, label: false
+          input.btn-primary type="submit" value="Save & Continue" /

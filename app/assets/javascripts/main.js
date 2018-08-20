@@ -561,20 +561,7 @@ function  readURL6(input,thumbimage) {
             [ 'video' ],
             ['clean'],
         ];
-		var quill = new Quill('#editor', {
-    		modules: {
-                toolbar: toolbarOptions,
-            },
-            formats: [
-			    'bold',
-			    'size',
-			    'link',
-			    'image',
-			    'video',
-			    'clean',
-			  ],
-		    theme: 'snow'
-		});
+
 		$('.create-perk').on('click', function (e){
 			e.preventDefault();
 			$(this).parent().fadeOut(0);

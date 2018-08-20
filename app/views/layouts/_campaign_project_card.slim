@@ -1,8 +1,8 @@
 .start-form
-  form action="#"
+  = simple_form_for @campaign, url: campaign_path, method: :put do |f|
     .field
       label Short Description
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /  
-    input.btn-primary type="submit" value="Save & Continue" /
+      = f.input :card_description, as: :text, label: false
+    = f.button :submit, 'Save & Continue',class: 'btn-primary'

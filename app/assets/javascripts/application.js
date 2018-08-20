@@ -20,4 +20,10 @@
 //= require bxslider/jquery.bxslider.min.js
 //= require magicsuggest/magicsuggest-min.js
 //= require main.js
+//= require froala_editor.min.js
+
+$(document).ready(function(){
+  $('#story').froalaEditor();
+});
+// })();
 

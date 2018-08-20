@@ -23,7 +23,7 @@ gem 'slim-rails'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-# gem 'wysiwyg-rails'
+gem 'wysiwyg-rails'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 # gem 'elasticemail', git: "git://github.com/klebervirgilio/elasticemail.git"
@@ -36,6 +36,7 @@ gem 'dotenv-rails'
 gem 'flash_rails_messages'
 gem 'discard', '~> 1.0'
 gem "paperclip", "~> 6.0.0"
+gem 'video_info'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'

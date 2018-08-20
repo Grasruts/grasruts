@@ -17,19 +17,19 @@ main#main.site-main
           nav.account-bar
             ul
               li class=(params[:section]&.downcase&.strip == 'basic' ? 'active' : '')
-                = link_to 'Basic', new_campaign_path(section: 'basic')
+                = link_to 'Basic', edit_campaign_path(section: 'basic')
               li class=(params[:section]&.downcase&.strip == 'financing' ? 'active' : '')
-                = link_to 'Financing', new_campaign_path(section: 'financing')  
+                = link_to 'Financing', edit_campaign_path(section: 'financing')  
               li class=(params[:section]&.downcase&.strip == 'description' ? 'active' : '')
-                = link_to 'Description', new_campaign_path(section: 'description')  
+                = link_to 'Description', edit_campaign_path(section: 'description')  
               li class=(params[:section]&.downcase&.strip == 'video' ? 'active' : '')
-                = link_to 'Video', new_campaign_path(section: 'video')    
+                = link_to 'Video', edit_campaign_path(section: 'video')    
               li class=(params[:section]&.downcase&.strip == 'project_card' ? 'active' : '')
-                = link_to 'Project Card', new_campaign_path(section: 'project_card')  
+                = link_to 'Project Card', edit_campaign_path(section: 'project_card')  
               li class=(params[:section]&.downcase&.strip == 'rewards' ? 'active' : '')
-                = link_to 'Rewards', new_campaign_path(section: 'rewards')  
+                = link_to 'Rewards', edit_campaign_path(section: 'rewards')  
               li class=(params[:section]&.downcase&.strip == 'kyc' ? 'active' : '')
-                = link_to 'KYC', new_campaign_path(section: 'kyc')
+                = link_to 'KYC', edit_campaign_path(section: 'kyc')
               li class=(params[:section]&.downcase&.strip == 'preview' ? 'active' : '')
                 a href="#" Preview
         .col-lg-9

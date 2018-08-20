@@ -1,13 +1,13 @@
 .start-form
-  form action="#"
+  = simple_form_for @campaign, url: campaign_path, method: :put do |f|
     .field
       label Goal
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
+      = f.input :goal, id: 'projecttitle', label: false
     .field
       label Collection Period
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
-    input.btn-primary type="submit" value="Save & Continue" /
+      = f.input :deadline, id: 'projecttitle', label: false
+    = f.button :submit, 'Save & Continue',class: 'btn-primary'

@@ -1,5 +1,5 @@
 .start-form
-  = simple_form_for @campaign, url: campaign_index_path, method: :post do |f|
+  = simple_form_for @campaign, url: campaign_path, method: :put do |f|
     .field
       label Name
       span.label-desc
@@ -20,4 +20,4 @@
       span.label-desc
         | some description goes here
       = f.input :location, id: 'projecttitle', label: false
-    input.btn-primary type="submit" value="Save & Continue" /
+    = f.button :submit, 'Save & Continue',class: 'btn-primary'
