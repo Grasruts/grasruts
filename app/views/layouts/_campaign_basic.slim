@@ -1,23 +1,23 @@
 .start-form
-  form action="#"
+  = simple_form_for @campaign, url: campaign_index_path, method: :post do |f|
     .field
       label Name
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
+      = f.input :name, id: 'projecttitle', label: false
     .field
       label Project URL
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
+      = f.input :uri, id: 'projecttitle', label: false
     .field
       label Category
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
+      = f.input :category, id: 'projecttitle', label: false
     .field
       label Project Location
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
+      = f.input :location, id: 'projecttitle', label: false
     input.btn-primary type="submit" value="Save & Continue" /

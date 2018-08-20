@@ -1,0 +1,599 @@
+main#main.site-main
+  .page-title.background-campaign
+    .container
+      h1 Start a campaign
+      .breadcrumbs
+        ul
+          li
+            a href="index.html"  Home
+            span /
+          li Start a campaign
+      /! .breadcrumbs
+  /! .page-title
+  .account-wrapper
+    .container
+      .row
+        .col-lg-3
+          nav.account-bar
+            ul
+              li class=(params[:section]&.downcase&.strip == 'basic' ? 'active' : '')
+                = link_to 'Basic', new_campaign_path(section: 'basic')
+              li class=(params[:section]&.downcase&.strip == 'financing' ? 'active' : '')
+                = link_to 'Financing', new_campaign_path(section: 'financing')  
+              li class=(params[:section]&.downcase&.strip == 'description' ? 'active' : '')
+                = link_to 'Description', new_campaign_path(section: 'description')  
+              li class=(params[:section]&.downcase&.strip == 'video' ? 'active' : '')
+                = link_to 'Video', new_campaign_path(section: 'video')    
+              li class=(params[:section]&.downcase&.strip == 'project_card' ? 'active' : '')
+                = link_to 'Project Card', new_campaign_path(section: 'project_card')  
+              li class=(params[:section]&.downcase&.strip == 'rewards' ? 'active' : '')
+                = link_to 'Rewards', new_campaign_path(section: 'rewards')  
+              li class=(params[:section]&.downcase&.strip == 'kyc' ? 'active' : '')
+                = link_to 'KYC', new_campaign_path(section: 'kyc')
+              li class=(params[:section]&.downcase&.strip == 'preview' ? 'active' : '')
+                a href="#" Preview
+        .col-lg-9
+          .account-content.dashboard
+            h3.account-title Dashboard
+            .account-main
+              - case params[:section]&.downcase&.strip || 'basic'
+              - when 'basic' 
+                = render 'layouts/campaign_basic'
+              - when 'financing'
+                = render 'layouts/campaign_financing'
+              - when 'description'
+                = render 'layouts/campaign_story'
+              - when 'video'
+                = render 'layouts/campaign_video'
+              - when 'project_card'
+                = render 'layouts/campaign_project_card'
+              - when 'rewards'
+                = render 'layouts/campaign_rewards'
+              - when 'kyc'
+                = render 'layouts/campaign_kyc'
+              - else
+                = render 'layouts/campaign_basic'
+  /! .container
+
+  .main-content
+    .container
+      #process-tab.design-process-section
+        ul.nav.nav-tabs.process-model.more-icon-preocess role="tablist" 
+          li
+            a href="dashboard.html" 
+              span
+                img alt="" src="images/assets/log-out.svg.xml" /
+            p Exit Editor
+          li.pm-option.active data-tab="basics" 
+            a href="#" 
+              span
+                img alt="" src="images/assets/single-folded.svg.xml" /
+            p Basics
+          li.pm-option.active data-tab="mode" 
+            a href="#" 
+              span
+                img alt="" src="images/assets/single-folded.svg.xml" /
+            p Financing Mode
+          li.pm-option data-tab="card" 
+            a href="#" 
+              span
+                img alt="" src="images/assets/alert-circle-i.svg.xml" /
+            p Project Card
+          li.pm-option data-tab="rewards" 
+            a href="#" 
+              span
+                img alt="" src="images/assets/award.svg.xml" /
+            p Rewards
+          li.pm-option data-tab="kyc" 
+            a href="#" 
+              span
+                img alt="" src="images/assets/award.svg.xml" /
+            p KYC
+          li
+            a href="campaign_detail.html" 
+              span
+                img alt="" src="images/assets/eye-17.svg.xml" /
+            p Preview
+        .tab-content
+          #basics.tab-pane.active role="tabpanel" 
+            .start-form
+              form action="#"
+                .field
+                  label Name
+                  span.label-desc
+                    | some description goes here
+                  input#projecttitle maxlength="60" type="text" value="" /
+                .field
+                  label Project URL
+                  span.label-desc
+                    | some description goes here
+                  input#projecttitle maxlength="60" type="text" value="" /
+                .field
+                  label Category
+                  span.label-desc
+                    | some description goes here
+                  input#projecttitle maxlength="60" type="text" value="" /
+                .field
+                  label Project Location
+                  span.label-desc
+                    | some description goes here
+                  input#projecttitle maxlength="60" type="text" value="" /
+                .field
+                  label Video
+                  span.label-desc
+                    | some description goes here
+                  input#projecttitle maxlength="60" type="text" value="" /
+                .field
+                  label Goal
+                  span.label-desc
+                    | some description goes here
+                  input#projecttitle maxlength="60" type="text" value="" /
+                .field
+                  label Collection Period
+                  span.label-desc
+                    | some description goes here
+                  input#projecttitle maxlength="60" type="text" value="" /
+                .field
+                  label About
+                  span.label-desc
+                    | some description goes here
+                  input#projecttitle maxlength="60" type="text" value="" /
+                .field
+                  label Short Description
+                  span.label-desc
+                    | some description goes here
+                  input#projecttitle maxlength="60" type="text" value="" /  
+                input.btn-primary type="submit" value="Save & Continue" /
+          #mode.tab-pane role="tabpanel" 
+            .start-form
+              form action="#"
+                .field
+                  label Name
+                  span.label-desc
+                    | some description goes here
+                  input#projecttitle maxlength="60" type="text" value="" /
+                .field
+                  label Project URL
+                  span.label-desc
+                    | some description goes here
+                  input#projecttitle maxlength="60" type="text" value="" /
+                .field
+                  label Category
+                  span.label-desc
+                    | some description goes here
+                  input#projecttitle maxlength="60" type="text" value="" /
+                .field
+                  label Project Location
+                  span.label-desc
+                    | some description goes here
+                  input#projecttitle maxlength="60" type="text" value="" /
+                input.btn-primary type="submit" value="Save & Continue" /
+          #rewards.tab-pane role="tabpanel" 
+            form action="#" 
+              #itemform
+                .start-form
+                  .reward-top
+                    h2.reward-title Reward #0
+                    a.reward-delete href="#"  Delete Reward
+                  .field
+                    label for="rewardtitle"  Title
+                    input#rewardtitle required="" type="text" value="" /
+                  .field
+                    label for="pledge"  Pledge amount
+                    input#pledge required="" type="text" value="" /
+                  .field
+                    label for="rewarddesc"  Description
+                    textarea#rewarddesc cols="30" required="" rows="4" 
+                  .field
+                    label for="estimated"  Estimated delivery
+                    input#estimated type="date" value="" /
+                  .field
+                    label for="shipping"  Shipping details
+                    .field-select
+                      select#shipping name="s" 
+                        option value=""  Select an option
+                        option value="no"  No shipping involved
+                        option value="restricted"  Only ships to certain countries
+                        option value="unrestricted"  Ships anywhere in the world
+                  .field
+                    label for="limit-avai"  Limit availability
+                    #limit.field-checkbox
+                      input#limit-avai type="checkbox" /
+                      label for="limit-avai" 
+                        span
+                        | Enable reward limit
+              #import
+              a.add-reward href="#"  Add a new reward
+              input.btn-primary type="submit" value=("Save & Continue") /
+
+          #story.tab-pane role="tabpanel" 
+            .start-form
+              form action="#" 
+                .field
+                  label for="uploadfile1"  Project Video
+                  span.label-desc
+                    | Have fun – add a video! Projects with a video have a much higher chance of success. For a dose of inspiration, check out the
+                    a href="#"  Creator Handbook.
+                    | Need some help? Visit our
+                    a href="#"  Creator FAQ.
+                  .list-upload
+                    .file-upload
+                      .upload-bg
+                        #myfileupload1
+                          input#uploadfile1 accept="video/*" name="ImageUpload" onchange="readURL1(this);" type="file" /
+                        #thumbbox1
+                          img#thumbimage1 alt=("Thumb image") height="695" src="images/assets/logo.png" width="460" /
+                          a.removeimg1 href="javascript:" 
+                        #boxchoice1
+                          a.choicefile1 href="javascript:" 
+                            i.fa.fa-cloud-upload aria-hidden="true" 
+                            | Upload Video
+                          p
+                        label.filename1
+                .field
+                  label Project description
+                  span.label-desc Use your project description to share more about what you’re raising funds to do and how you plan to pull it off. It’s up to you to make the case for your project.
+                  #editor
+                .start-box
+                  h4 Request help from the community
+                  p List the skills, resources, or expertise from others that could help enhance your project. If someone can contribute, they can start a dialogue directly from your project page.
+                  .field
+                    label for="projectneed"  Project need (optional)
+                    textarea#projectneed cols="30" placeholder="Painting the Sistine Chapel will require extravagant but cost-effective colors. Are you a color mixologist who'd like to help?" rows="3" 
+                  .field
+                    label for="projectneed1"  Project need (optional)
+                    textarea#projectneed1 cols="30" placeholder="Looking for an advanced belayer to hoist us up 68 feet. Otherwise, we’ll have to resort to rickety scaffolding and painting on our backs!" rows="3" 
+                  .field
+                    label for="projectneed2"  Project need (optional)
+                    textarea#projectneed2 cols="30" placeholder="Do you have experience with image projection onto rounded, uneven surfaces? Please get in touch!" rows="3" 
+                .field
+                  label for="risks"  Risks and challenges
+                  span.label-desc What are the risks and challenges that come with completing your project, and how are you qualified to overcome them?
+                  textarea#risks cols="30" rows="4" 
+                .start-box
+                  h4 Project FAQs
+                  p
+                    | You can add frequently asked questions to the FAQ tab on your project page once it goes live.
+                    a href="#"  Learn more
+                input.btn-primary type="submit" value="Save & Continue" /
+          #about.tab-pane role="tabpanel" 
+            .start-form
+              form action="#" 
+                .field
+                  label for="uploadfile2"  Profile photo
+                  span.label-desc JPEG, PNG, GIF, or BMP • 50MB file limit
+                  .list-upload
+                    .file-upload
+                      .upload-bg
+                        #myfileupload2
+                          input#uploadfile2 accept="image/*" name="ImageUpload" onchange="readURL2(this);" type="file" /
+                        #thumbbox2
+                          img#thumbimage2 alt=("Thumb image") height="695" src="images/assets/logo.png" width="460" /
+                          a.removeimg2 href="javascript:" 
+                        #boxchoice2
+                          a.choicefile2 href="javascript:" 
+                            i.fa.fa-cloud-upload aria-hidden="true" 
+                            | Upload Image
+                          p
+                        label.filename2
+                .field
+                  label for="profilename"  Name
+                  span.label-desc Heads up: Once you launch a project, you cannot make changes to your name on Ideapress.
+                  input#profilename type="text" /
+                .field.field-a
+                  label Facebook Connect
+                  a.connect-fb href="#"  Connect to Facebook
+                  .fb-content
+                    | Connected to Facebook -
+                    a href="#"  Disconnect
+                .field
+                  label for="biography"  Biography
+                  textarea#biography cols="30" rows="4" 
+                .field
+                  label for="location"  Your location
+                  input#location type="text" /
+                .field
+                  label Websites
+                  span.label-desc Some suggestions: Link to your blog, portfolio, Twitter, Instagram, etc.
+                  input type="text" /
+                .field
+                  label for="google"  Google Analytics
+                  span.label-desc
+                    | Enter your tracking ID to enable Google Analytics for your project.
+                    a href="#"  Check out our FAQ for more info.
+                  input#google placeholder="UA-XXXXXXXX-X" type="text" /
+                input.btn-primary type="submit" value="Save & Continue" /
+          #account.tab-pane role="tabpanel" 
+            .start-form
+              form action="#" 
+                .field
+                  label for="contactemail"  Contact details
+                  input#contactemail type="email" /
+                .field
+                  label for="individual"  Funds recipient
+                  span.label-desc Enter the account you’d like to use to receive funds if your project is successfully funded. The account should belong to the person or legal entity running this project. Once you launch, this information cannot be changed.
+                  .field-radio
+                    input#individual name="fund" type="radio" /
+                    label for="individual"  Individual
+                  .field-radio
+                    input#legal name="fund" type="radio" /
+                    label for="legal"  Legal entity (company or organization)
+                .start-box
+                  h4 Identity verification
+                  p Please verify your identity with your legal name and details (no nicknames or abbreviations). If you’re running this project as a legal entity, a legal representative of the organization should complete this section.
+                  p
+                    strong Note:
+                    | This name will be displayed publicly on your creator bio.
+                  .field
+                    label for="fname"  First name
+                    input#fname type="text" /
+                  .field
+                    label for="lname"  Last name
+                    input#lname type="text" /
+                  .field
+                    label for="birthday"  Birthday
+                    input#birthday type="date" /
+                  .field
+                    label for="address"  Address
+                    input#address type="text" /
+                  .field
+                    label for="city"  City
+                    input#city type="text" /
+                  .field
+                    label Country:
+                    .field-select
+                      select
+                        option value=""  Select Your Country
+                        option value="AF"  Afghanistan
+                        option value="AX"  Åland Islands
+                        option value="AL"  Albania
+                        option value="DZ"  Algeria
+                        option value="AS"  American Samoa
+                        option value="AD"  Andorra
+                        option value="AO"  Angola
+                        option value="AI"  Anguilla
+                        option value="AQ"  Antarctica
+                        option value="AG"  Antigua and Barbuda
+                        option value="AR"  Argentina
+                        option value="AM"  Armenia
+                        option value="AW"  Aruba
+                        option value="AU"  Australia
+                        option value="AT"  Austria
+                        option value="AZ"  Azerbaijan
+                        option value="BS"  Bahamas
+                        option value="BH"  Bahrain
+                        option value="BD"  Bangladesh
+                        option value="BB"  Barbados
+                        option value="BY"  Belarus
+                        option value="BE"  Belgium
+                        option value="BZ"  Belize
+                        option value="BJ"  Benin
+                        option value="BM"  Bermuda
+                        option value="BT"  Bhutan
+                        option value="BO"  Bolivia, Plurinational State of
+                        option value="BQ"  Bonaire, Sint Eustatius and Saba
+                        option value="BA"  Bosnia and Herzegovina
+                        option value="BW"  Botswana
+                        option value="BV"  Bouvet Island
+                        option value="BR"  Brazil
+                        option value="IO"  British Indian Ocean Territory
+                        option value="BN"  Brunei Darussalam
+                        option value="BG"  Bulgaria
+                        option value="BF"  Burkina Faso
+                        option value="BI"  Burundi
+                        option value="KH"  Cambodia
+                        option value="CM"  Cameroon
+                        option value="CA"  Canada
+                        option value="CV"  Cape Verde
+                        option value="KY"  Cayman Islands
+                        option value="CF"  Central African Republic
+                        option value="TD"  Chad
+                        option value="CL"  Chile
+                        option value="CN"  China
+                        option value="CX"  Christmas Island
+                        option value="CC"  Cocos (Keeling) Islands
+                        option value="CO"  Colombia
+                        option value="KM"  Comoros
+                        option value="CG"  Congo
+                        option value="CD"  Congo, the Democratic Republic of the
+                        option value="CK"  Cook Islands
+                        option value="CR"  Costa Rica
+                        option value="CI"  Côte d'Ivoire
+                        option value="HR"  Croatia
+                        option value="CU"  Cuba
+                        option value="CW"  Curaçao
+                        option value="CY"  Cyprus
+                        option value="CZ"  Czech Republic
+                        option value="DK"  Denmark
+                        option value="DJ"  Djibouti
+                        option value="DM"  Dominica
+                        option value="DO"  Dominican Republic
+                        option value="EC"  Ecuador
+                        option value="EG"  Egypt
+                        option value="SV"  El Salvador
+                        option value="GQ"  Equatorial Guinea
+                        option value="ER"  Eritrea
+                        option value="EE"  Estonia
+                        option value="ET"  Ethiopia
+                        option value="FK"  Falkland Islands (Malvinas)
+                        option value="FO"  Faroe Islands
+                        option value="FJ"  Fiji
+                        option value="FI"  Finland
+                        option value="FR"  France
+                        option value="GF"  French Guiana
+                        option value="PF"  French Polynesia
+                        option value="TF"  French Southern Territories
+                        option value="GA"  Gabon
+                        option value="GM"  Gambia
+                        option value="GE"  Georgia
+                        option value="DE"  Germany
+                        option value="GH"  Ghana
+                        option value="GI"  Gibraltar
+                        option value="GR"  Greece
+                        option value="GL"  Greenland
+                        option value="GD"  Grenada
+                        option value="GP"  Guadeloupe
+                        option value="GU"  Guam
+                        option value="GT"  Guatemala
+                        option value="GG"  Guernsey
+                        option value="GN"  Guinea
+                        option value="GW"  Guinea-Bissau
+                        option value="GY"  Guyana
+                        option value="HT"  Haiti
+                        option value="HM"  Heard Island and McDonald Islands
+                        option value="VA"  Holy See (Vatican City State)
+                        option value="HN"  Honduras
+                        option value="HK"  Hong Kong
+                        option value="HU"  Hungary
+                        option value="IS"  Iceland
+                        option value="IN"  India
+                        option value="ID"  Indonesia
+                        option value="IR"  Iran, Islamic Republic of
+                        option value="IQ"  Iraq
+                        option value="IE"  Ireland
+                        option value="IM"  Isle of Man
+                        option value="IL"  Israel
+                        option value="IT"  Italy
+                        option value="JM"  Jamaica
+                        option value="JP"  Japan
+                        option value="JE"  Jersey
+                        option value="JO"  Jordan
+                        option value="KZ"  Kazakhstan
+                        option value="KE"  Kenya
+                        option value="KI"  Kiribati
+                        option value="KP"  Korea, Democratic People's Republic of
+                        option value="KR"  Korea, Republic of
+                        option value="KW"  Kuwait
+                        option value="KG"  Kyrgyzstan
+                        option value="LA"  Lao People's Democratic Republic
+                        option value="LV"  Latvia
+                        option value="LB"  Lebanon
+                        option value="LS"  Lesotho
+                        option value="LR"  Liberia
+                        option value="LY"  Libya
+                        option value="LI"  Liechtenstein
+                        option value="LT"  Lithuania
+                        option value="LU"  Luxembourg
+                        option value="MO"  Macao
+                        option value="MK"  Macedonia, the former Yugoslav Republic of
+                        option value="MG"  Madagascar
+                        option value="MW"  Malawi
+                        option value="MY"  Malaysia
+                        option value="MV"  Maldives
+                        option value="ML"  Mali
+                        option value="MT"  Malta
+                        option value="MH"  Marshall Islands
+                        option value="MQ"  Martinique
+                        option value="MR"  Mauritania
+                        option value="MU"  Mauritius
+                        option value="YT"  Mayotte
+                        option value="MX"  Mexico
+                        option value="FM"  Micronesia, Federated States of
+                        option value="MD"  Moldova, Republic of
+                        option value="MC"  Monaco
+                        option value="MN"  Mongolia
+                        option value="ME"  Montenegro
+                        option value="MS"  Montserrat
+                        option value="MA"  Morocco
+                        option value="MZ"  Mozambique
+                        option value="MM"  Myanmar
+                        option value="NA"  Namibia
+                        option value="NR"  Nauru
+                        option value="NP"  Nepal
+                        option value="NL"  Netherlands
+                        option value="NC"  New Caledonia
+                        option value="NZ"  New Zealand
+                        option value="NI"  Nicaragua
+                        option value="NE"  Niger
+                        option value="NG"  Nigeria
+                        option value="NU"  Niue
+                        option value="NF"  Norfolk Island
+                        option value="MP"  Northern Mariana Islands
+                        option value="NO"  Norway
+                        option value="OM"  Oman
+                        option value="PK"  Pakistan
+                        option value="PW"  Palau
+                        option value="PS"  Palestinian Territory, Occupied
+                        option value="PA"  Panama
+                        option value="PG"  Papua New Guinea
+                        option value="PY"  Paraguay
+                        option value="PE"  Peru
+                        option value="PH"  Philippines
+                        option value="PN"  Pitcairn
+                        option value="PL"  Poland
+                        option value="PT"  Portugal
+                        option value="PR"  Puerto Rico
+                        option value="QA"  Qatar
+                        option value="RE"  Réunion
+                        option value="RO"  Romania
+                        option value="RU"  Russian Federation
+                        option value="RW"  Rwanda
+                        option value="BL"  Saint Barthélemy
+                        option value="SH"  Saint Helena, Ascension and Tristan da Cunha
+                        option value="KN"  Saint Kitts and Nevis
+                        option value="LC"  Saint Lucia
+                        option value="MF"  Saint Martin (French part)
+                        option value="PM"  Saint Pierre and Miquelon
+                        option value="VC"  Saint Vincent and the Grenadines
+                        option value="WS"  Samoa
+                        option value="SM"  San Marino
+                        option value="ST"  Sao Tome and Principe
+                        option value="SA"  Saudi Arabia
+                        option value="SN"  Senegal
+                        option value="RS"  Serbia
+                        option value="SC"  Seychelles
+                        option value="SL"  Sierra Leone
+                        option value="SG"  Singapore
+                        option value="SX"  Sint Maarten (Dutch part)
+                        option value="SK"  Slovakia
+                        option value="SI"  Slovenia
+                        option value="SB"  Solomon Islands
+                        option value="SO"  Somalia
+                        option value="ZA"  South Africa
+                        option value="GS"  South Georgia and the South Sandwich Islands
+                        option value="SS"  South Sudan
+                        option value="ES"  Spain
+                        option value="LK"  Sri Lanka
+                        option value="SD"  Sudan
+                        option value="SR"  Suriname
+                        option value="SJ"  Svalbard and Jan Mayen
+                        option value="SZ"  Swaziland
+                        option value="SE"  Sweden
+                        option value="CH"  Switzerland
+                        option value="SY"  Syrian Arab Republic
+                        option value="TW"  Taiwan, Province of China
+                        option value="TJ"  Tajikistan
+                        option value="TZ"  Tanzania, United Republic of
+                        option value="TH"  Thailand
+                        option value="TL"  Timor-Leste
+                        option value="TG"  Togo
+                        option value="TK"  Tokelau
+                        option value="TO"  Tonga
+                        option value="TT"  Trinidad and Tobago
+                        option value="TN"  Tunisia
+                        option value="TR"  Turkey
+                        option value="TM"  Turkmenistan
+                        option value="TC"  Turks and Caicos Islands
+                        option value="TV"  Tuvalu
+                        option value="UG"  Uganda
+                        option value="UA"  Ukraine
+                        option value="AE"  United Arab Emirates
+                        option value="GB"  United Kingdom
+                        option value="US"  United States
+                        option value="UM"  United States Minor Outlying Islands
+                        option value="UY"  Uruguay
+                        option value="UZ"  Uzbekistan
+                        option value="VU"  Vanuatu
+                        option value="VE"  Venezuela, Bolivarian Republic of
+                        option value="VN"  Viet Nam
+                        option value="VG"  Virgin Islands, British
+                        option value="VI"  Virgin Islands, U.S.
+                        option value="WF"  Wallis and Futuna
+                        option value="EH"  Western Sahara
+                        option value="YE"  Yemen
+                        option value="ZM"  Zambia
+                        option value="ZW"  Zimbabwe
+                  .field
+                    label for="postal"  Postal code
+                    input#postal type="text" /
+                input.btn-primary type="submit" value="Submit" /
