@@ -27,7 +27,7 @@ main#main.site-main
               li class=(params[:section]&.downcase&.strip == 'project_card' ? 'active' : '')
                 = link_to 'Project Card', edit_campaign_path(section: 'project_card')  
               li class=(params[:section]&.downcase&.strip == 'rewards' ? 'active' : '')
-                = link_to 'Rewards', edit_campaign_path(section: 'rewards')  
+                = link_to 'Rewards', campaign_reward_index_path(params[:id], section: 'rewards')  
               li class=(params[:section]&.downcase&.strip == 'kyc' ? 'active' : '')
                 = link_to 'KYC', edit_campaign_path(section: 'kyc')
               li class=(params[:section]&.downcase&.strip == 'preview' ? 'active' : '')

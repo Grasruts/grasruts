@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20180820145510) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "campaigns_id"
-    t.index ["campaigns_id"], name: "index_campaign_updates_on_campaigns_id"
+    t.bigint "campaign_id"
+    t.index ["campaign_id"], name: "index_campaign_updates_on_campaign_id"
   end
 
   create_table "campaigns", force: :cascade do |t|
@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 20180820145510) do
     t.datetime "shipping_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "campaigns_id"
-    t.index ["campaigns_id"], name: "index_rewards_on_campaigns_id"
+    t.bigint "campaign_id"
+    t.index ["campaign_id"], name: "index_rewards_on_campaign_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20180820145510) do
   end
 
   add_foreign_key "campaign_images", "campaigns", column: "campaigns_id"
-  add_foreign_key "campaign_updates", "campaigns", column: "campaigns_id"
+  add_foreign_key "campaign_updates", "campaigns"
   add_foreign_key "campaigns", "users"
-  add_foreign_key "rewards", "campaigns", column: "campaigns_id"
+  add_foreign_key "rewards", "campaigns"
 end

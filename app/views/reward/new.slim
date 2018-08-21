@@ -1,0 +1,29 @@
+.start-form
+  = simple_form_for @reward, url: campaign_reward_index_path, method: :post do |f|
+    .field
+      label Name
+      span.label-desc
+        | some description goes here
+      = f.input :name, label: false
+    .field
+      label Price
+      span.label-desc
+        | some description goes here
+      = f.input :price, label: false
+    .field
+      label Description
+      span.label-desc
+        | some description goes here
+      = f.input :description, as: :text, label: false
+    .field
+      label Total Reward
+      span.label-desc
+        | some description goes here
+      = f.input :total_reward, label: false
+    .field
+      label Shipping date
+      span.label-desc
+        | some description goes here
+      = f.input :shipping_date, label: false
+    
+    = f.button :submit, 'Save & Continue',class: 'btn-primary'
