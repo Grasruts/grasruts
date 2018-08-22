@@ -1,7 +1,6 @@
 class RewardController < ApplicationController
   def index
-    @campaign = Campaign.find params[:campaign_id]
-    @campaign.rewards
+    @rewards = Campaign.find(params[:campaign_id]).rewards
   end
 
   def new
