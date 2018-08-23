@@ -1,48 +1,49 @@
 .start-form
-  form action="#"
+  = simple_form_for @user, url: user_path, method: :put do |f|
     .field
       label Name
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
+      = f.input :name, label: false
     .field
-      label Project URL
+      label Email
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
+      = f.input :email, label: false
     .field
-      label Category
+      label Country
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
+      = f.input :country, as: :string, label: false
     .field
-      label Project Location
+      label City
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
+      = f.input :city, label: false
     .field
-      label Video
+      label Address
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
+      = f.input :address, label: false
     .field
-      label Goal
+      label Contact No
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
+      = f.input :contact_number, label: false
     .field
-      label Collection Period
+      label PAN
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
+      = f.input :pan, label: false
     .field
-      label About
+      label Facebook
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /
+      = f.input :facebook, label: false
     .field
-      label Short Description
+      label Twitter
       span.label-desc
         | some description goes here
-      input#projecttitle maxlength="60" type="text" value="" /  
-    input.btn-primary type="submit" value="Save & Continue" /
+      = f.input :twitter, label: false
+    
+    = f.button :submit, 'Save & Continue',class: 'btn-primary'

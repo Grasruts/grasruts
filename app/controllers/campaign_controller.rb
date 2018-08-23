@@ -27,6 +27,11 @@ class CampaignController < ApplicationController
     @campaign.update(campaign_param)
   end
 
+  def kyc
+    @user = current_user
+    render 'campaign/edit'
+  end
+
   private
   def campaign_param
     params.require(:campaign).permit(:name, :uri, :location, :category, :goal, :deadline, :about, :users_id)
