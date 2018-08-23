@@ -1,0 +1,49 @@
+.start-form
+  = simple_form_for @user, url: user_path, method: :put do |f|
+    .field
+      label Name
+      span.label-desc
+        | some description goes here
+      = f.input :name, label: false
+    .field
+      label Email
+      span.label-desc
+        | some description goes here
+      = f.input :email, label: false
+    .field
+      label Country
+      span.label-desc
+        | some description goes here
+      = f.input :country, as: :string, label: false
+    .field
+      label City
+      span.label-desc
+        | some description goes here
+      = f.input :city, label: false
+    .field
+      label Address
+      span.label-desc
+        | some description goes here
+      = f.input :address, label: false
+    .field
+      label Contact No
+      span.label-desc
+        | some description goes here
+      = f.input :contact_number, label: false
+    .field
+      label PAN
+      span.label-desc
+        | some description goes here
+      = f.input :pan, label: false
+    .field
+      label Facebook
+      span.label-desc
+        | some description goes here
+      = f.input :facebook, label: false
+    .field
+      label Twitter
+      span.label-desc
+        | some description goes here
+      = f.input :twitter, label: false
+    
+    = f.button :submit, 'Save & Continue',class: 'btn-primary'

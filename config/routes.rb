@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :campaign do
     resources :reward
   end
+  resources :user
 end

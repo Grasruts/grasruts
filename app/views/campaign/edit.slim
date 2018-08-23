@@ -29,7 +29,7 @@ main#main.site-main
               li class=(params[:section]&.downcase&.strip == 'rewards' ? 'active' : '')
                 = link_to 'Rewards', campaign_reward_index_path(params[:id], section: 'rewards')  
               li class=(params[:section]&.downcase&.strip == 'kyc' ? 'active' : '')
-                = link_to 'KYC', edit_campaign_path(section: 'kyc')
+                = link_to 'KYC', edit_user_path(current_user.id, section: 'kyc')
               li class=(params[:section]&.downcase&.strip == 'preview' ? 'active' : '')
                 a href="#" Preview
         .col-lg-9
