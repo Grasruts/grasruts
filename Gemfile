@@ -20,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'capistrano-rails', group: :development
 gem "font-awesome-rails"
 gem 'slim-rails'
+gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'

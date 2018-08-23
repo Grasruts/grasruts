@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require popper/popper.js
 //= require bootstrap/js/bootstrap.min.js
 //= require owl-carousel/owl.carousel.min.js
