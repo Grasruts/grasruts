@@ -1,5 +1,5 @@
 .start-form
-  = simple_form_for @campaign, url: campaign_path(section: params[:section]), method: :put do |f|
+  = simple_form_for @campaign, html: {multipart: true}, url: campaign_path(section: params[:section]), method: :put do |f|
     .field
       label About
       span.label-desc

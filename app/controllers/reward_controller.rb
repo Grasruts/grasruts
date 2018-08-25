@@ -1,5 +1,7 @@
 class RewardController < ApplicationController
 
+  before_action :is_owner_of_campaign?
+
   def new
     @reward = Reward.new
   end

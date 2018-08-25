@@ -4,10 +4,12 @@ Rails.application.routes.draw do
 
   get 'explore', to: 'home#explore'
   resources :campaign do
+
     resources :reward
   end
   get '/campaign/:id/rewards', to: 'campaign#rewards', as: 'campaign_rewards'
   get '/campaign/:id/kyc', to: 'campaign#kyc', as: 'campaign_kyc'
-
+  post '/campaign/froala/upload_image' => 'campaign#froala_upload_image', :as => :froala_upload_image
+  get "/download_file/:name" => "campaign#access_file", :as => :upload_access_file, :name => /.*/
   resources :user
 end

@@ -16,9 +16,23 @@ Primary use:    ThemeDunk.com
 @import url(owl-carousel/assets/carousel.min.css);
 @import url(bxslider/jquery.bxslider.min.css);
 @import url(magicsuggest/magicsuggest-min.css);
-/*@import url(quilljs/css/quill.bubble.css);
-@import url(quilljs/css/quill.core.css);
-@import url(quilljs/css/quill.snow.css);*/
+@import "froala_editor.min";
+@import "froala_style.min";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import 'plugins/char_counter.min.css';
+@import 'plugins/code_view.min.css';
+@import 'plugins/colors.min.css';
+@import 'plugins/emoticons.min.css';
+@import 'plugins/file.min.css';
+@import 'plugins/fullscreen.min.css';
+@import 'plugins/help.min.css';
+@import 'plugins/image.min.css';
+@import 'plugins/line_breaker.min.css';
+@import 'plugins/quick_insert.min.css';
+@import 'plugins/special_characters.min.css';
+@import 'plugins/table.min.css';
+
 /*------------------------------------------------------------------
 [Table of contents]
 
@@ -2236,7 +2250,7 @@ select,.field input{
   -ms-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: 1px solid #ededed;
+  border: 1px solid #A5A0A1;
   background-color: transparent;
 }
 .calculate-shipping .field{

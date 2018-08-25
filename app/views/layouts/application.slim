@@ -10,8 +10,8 @@ html[lang="en"]
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body.home
-    = render_flash_messages
     #wrapper
+      = render 'layouts/flash_messages', :locals => {:flash => flash} unless flash.empty?
       header#header.site-header
         .container
           .site-brand
@@ -39,7 +39,7 @@ html[lang="en"]
                       li
                         a href="profile.html"  Backed Campaign
                       li
-                        a href="account_my_campaigns.html"  Created Campaigns
+                        = link_to 'Created Campaigns', campaign_index_path
                       li
                         a href="account_pledges_received.html"  Settings                      
                       li

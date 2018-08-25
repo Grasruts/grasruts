@@ -10,12 +10,16 @@ class Campaign < ApplicationRecord
 
   belongs_to :user
 
-  validates :name, :category, presence: true, on: :create
+  validates :name, presence: { message: 'Campaign Name can not be empty'}, on: :create
+  validates :category, presence: { message: 'Category can not be empty'}, on: :create
   
-  validates :name, :location, :category, presence: true, on: :basic
-  validates :uri, uniqueness: true, presence: true, on: :basic
+  validates :name, presence: { message: 'Campaign Name can not be empty'}, on: :basic
+  validates :category, presence: { message: 'Category can not be empty'}, on: :basic
+  validates :location, presence: { message: 'Location can not be empty'}, on: :basic
+  validates :uri, uniqueness:{ message: 'Project URL already taken'}, on: :basic
+  validates_presence_of :uri, message: 'Project URL cant be empty', on: :basic 
 
-  validates :goal, numericality: { only_integer: true }, presence: true, on: :financing
+  validates :goal, numericality: { only_integer: true, message: 'Goal must be a number' }, presence: {message: 'Goal must not be empty'}, on: :financing
   validates :deadline, presence: true, on: :financing
 
   validates :about, presence: true, on: :description

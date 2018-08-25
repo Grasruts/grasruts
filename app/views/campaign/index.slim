@@ -1,0 +1,43 @@
+main#main.site-main
+  .page-title.background-page
+    .container
+      h1 Discover projects
+      .breadcrumbs
+        ul
+          li
+            a href="index.html"  Home
+            span /
+          li Layout
+  .campaigns
+    .container
+      .campaign-content
+        .row
+          - @campaigns.each do |campaign|
+            .col-lg-4.col-sm-6.col-6
+              .campaign-item
+                a.overlay href="campaign_detail.html" 
+                  = image_tag 'latest-01.jpg'
+                  span.ion-ios-search-strong
+                .campaign-box
+                  a.category href="#"  Crafts
+                  h3
+                    = link_to campaign.name, edit_campaign_path(campaign.id)
+                  .campaign-description A watch designed to be an heirloom to be passed down to the next generation.
+                  .campaign-author
+                    a.author-icon href="#" 
+                      = image_tag 'author-01.png'
+                    | by
+                    a.author-name href="#"  Sabato Alterio
+                  .process
+                    .raised
+                      span
+                    .process-info
+                      .process-pledged
+                        span> $630
+                        | pledged
+                      .process-funded
+                        span> 26%
+                        | funded
+                      .process-time
+                        span> 2
+                        | days ago

@@ -25,6 +25,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'wysiwyg-rails'
+gem "froala-editor-sdk"
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 # gem 'elasticemail', git: "git://github.com/klebervirgilio/elasticemail.git"
@@ -34,7 +35,6 @@ gem 'pg_search'
 gem 'draper'
 gem 'simple_form'
 gem 'dotenv-rails'
-gem 'flash_rails_messages'
 gem 'discard', '~> 1.0'
 gem "paperclip", "~> 6.0.0"
 gem 'video_info'
