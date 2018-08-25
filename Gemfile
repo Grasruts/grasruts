@@ -25,7 +25,6 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'wysiwyg-rails'
-gem "froala-editor-sdk"
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 # gem 'elasticemail', git: "git://github.com/klebervirgilio/elasticemail.git"

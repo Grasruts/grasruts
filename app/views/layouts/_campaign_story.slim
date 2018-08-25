@@ -4,5 +4,5 @@
       label About
       span.label-desc
         | some description goes here
-      = f.input :about, as: :text, :input_html => { id: 'story'}, label: false
+      = f.input :about, as: :text, input_html: { id: 'story', cols: 50, rows: 50}, label: false
     = f.button :submit, 'Save & Continue',class: 'btn-primary'

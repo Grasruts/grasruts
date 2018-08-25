@@ -56,10 +56,9 @@ $(document).ready(function(){
       requestHeaders: {
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       },
+      height: 300,
       imageUploadURL: '/campaign/froala/upload_image',
-      // imageUploadParam: 'image_param',
       imageAllowedTypes: ['jpeg', 'jpg', 'png', 'gif'],
-      // imageUploadParams: {id: 'my_editor'},
       imageUploadMethod: 'POST',
       imageMaxSize: 5 * 1024 * 1024
     });
