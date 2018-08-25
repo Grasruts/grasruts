@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
   has_many :campaigns, dependent: :destroy
 
+  validates :name, :country, :city, :address, :contact_number, presence: true, on: :kyc
+  validates :email, uniqueness: true, on: :kyc
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email

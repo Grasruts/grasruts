@@ -1,5 +1,5 @@
 .start-form
-  = simple_form_for @user, url: user_path, method: :put do |f|
+  = simple_form_for @user, url: user_path(section: params[:section]), method: :put do |f|
     .field
       label Name
       span.label-desc
