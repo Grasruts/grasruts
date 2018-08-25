@@ -1,7 +1,4 @@
 class RewardController < ApplicationController
-  def index
-    @rewards = Campaign.find(params[:campaign_id]).rewards
-  end
 
   def new
     @reward = Reward.new
@@ -10,7 +7,7 @@ class RewardController < ApplicationController
   def create
     @campaign = Campaign.find params[:campaign_id]
     @reward = @campaign.rewards.create(reward_param)
-    redirect_to campaign_reward_index_path params[:campaign_id]
+    redirect_to campaign_rewards_path(params[:campaign_id], section: 'rewards')
   end
 
   def edit
@@ -20,12 +17,13 @@ class RewardController < ApplicationController
   def update
     @reward = Campaign.find(params[:campaign_id]).rewards.find(params[:id])
     @reward.update(reward_param)
-    redirect_to campaign_reward_index_path params[:campaign_id]
+    redirect_to campaign_rewards_path(params[:campaign_id], section: 'rewards')
   end
 
   def destroy
     @reward = Campaign.find(params[:campaign_id]).rewards.find(params[:id])
     @reward.destroy
+    redirect_to campaign_rewards_path(params[:campaign_id], section: 'rewards')
   end
 
   private

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :campaign do
     resources :reward
   end
+  get '/campaign/:id/rewards', to: 'campaign#rewards', as: 'campaign_rewards'
   get '/campaign/:id/kyc', to: 'campaign#kyc', as: 'campaign_kyc'
 
   resources :user

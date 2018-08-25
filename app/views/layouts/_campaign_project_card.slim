@@ -1,5 +1,5 @@
 .start-form
-  = simple_form_for @campaign, url: campaign_path, method: :put do |f|
+  = simple_form_for @campaign, url: campaign_path(section: params[:section]), method: :put do |f|
     .field
       label Short Description
       span.label-desc
