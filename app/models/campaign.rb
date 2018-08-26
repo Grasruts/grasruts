@@ -20,10 +20,11 @@ class Campaign < ApplicationRecord
   validates_presence_of :uri, message: 'Project URL cant be empty', on: :basic 
 
   validates :goal, numericality: { only_integer: true, message: 'Goal must be a number' }, presence: {message: 'Goal must not be empty'}, on: :financing
-  validates :deadline, presence: true, on: :financing
+  validates :deadline, numericality: { less_than_or_equal_to: 365, only_integer: true, message: 'Collection Period must be a number and less than 365 days' }, presence: { message: 'Collection Period can not be empty'}, on: :financing
 
   validates :about, presence: true, on: :description
 
-  validates :card_description, length: { maximum: 40}, presence: true, on: :project_card
+  validates :card_description, length: { maximum: 40, message: 'Description should not exceed more than 40 words'}, presence: { message: 'Description is required'}, on: :project_card
+  validates :card_image, presence: true, on: :project_card
 
 end

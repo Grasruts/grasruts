@@ -1,5 +1,24 @@
 .start-form
-  = simple_form_for @campaign, url: campaign_path(section: params[:section]), method: :put do |f|
+  = simple_form_for @campaign, html: {multipart: true}, url: campaign_path(section: params[:section]), method: :put do |f|
+    .field
+      label for="uploadfile"  Project Image
+      span.label-desc
+        | This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free.
+        a href="#"  Here are some tips.
+      .list-upload
+        .file-upload
+          .upload-bg
+            #myfileupload
+              = f.input :card_image, as: :file,  input_html: { accept: 'image/*', name: 'ImageUpload', onchange: 'readURL(this)', id: 'uploadfile' },  label: false
+            #thumbbox
+              img#thumbimage alt=("Thumb image") height="695" src="images/assets/logo.png" width="460" /
+              a.removeimg href="javascript:" 
+            #boxchoice
+              a.choicefile href="javascript:" 
+                i.fa.fa-cloud-upload aria-hidden="true" 
+                | Upload Image
+              p
+            label.filename
     .field
       label Short Description
       span.label-desc

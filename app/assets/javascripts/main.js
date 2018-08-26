@@ -1,20 +1,20 @@
 function  readURL(input,thumbimage) {
-   	if  (input.files && input.files[0]) { 
-   	var  reader = new FileReader();
+ 	if  (input.files && input.files[0]) { 
+ 	  var  reader = new FileReader();
     reader.onload = function (e) {
-    $("#thumbimage").attr('src', e.target.result);
-     	}
-     	reader.readAsDataURL(input.files[0]);
-    }
-    else  { // Sử dụng cho IE
-      	$("#thumbimage").attr('src', input.value);
-    }
-    $("#thumbimage").show();
-    $('.filename').text($("#uploadfile").val());
-    $('.choicefile').css('background', '#C4C4C4');
-    $('.choicefile').css('cursor', 'default');
-    $(".removeimg").show();
-    $(".choicefile").hide();       
+      $("#thumbimage").attr('src', e.target.result);
+   	}
+   	reader.readAsDataURL(input.files[0]);
+  }
+  else  { // Sử dụng cho IE
+    	$("#thumbimage").attr('src', input.value);
+  }
+  $("#thumbimage").show();
+  $('.filename').text($("#uploadfile").val());
+  $('.choicefile').css('background', '#C4C4C4');
+  $('.choicefile').css('cursor', 'default');
+  $(".removeimg").show();
+  $(".choicefile").hide();       
 }
 function  readURL1(input,thumbimage) {
    	if  (input.files && input.files[0]) { 
@@ -133,20 +133,20 @@ function  readURL6(input,thumbimage) {
 	$(document).ready(function() {
 
 		$(".choicefile").bind('click', function  () { 
-	    	$("#uploadfile").click();
-	    });
-	   	$(".removeimg").on('click', function() {
-	     	$("#thumbimage").attr('src', '').hide();
-	      	$("#myfileupload").html('<input type="file" id="uploadfile"  onchange="readURL(this);" />');
-	      	$(".removeimg").hide();
-	      	$(".choicefile").show();
-	      	$(".choicefile").bind('click', function  () {
-	       		$("#uploadfile").click();
-	      	});
-	      	$('.choicefile').css('background','#C4C4C4');
-	      	$('.choicefile').css('cursor', 'pointer');
-	      	$(".filename").text("");
-	    });
+	    $("#uploadfile").click();
+	   });
+   	$(".removeimg").on('click', function() {
+     	$("#thumbimage").attr('src', '').hide();
+      	$("#myfileupload").html('<input type="file" id="uploadfile"  onchange="readURL(this);" />');
+      	$(".removeimg").hide();
+      	$(".choicefile").show();
+      	// $(".choicefile").bind('click', function  () {
+       // 		$("#uploadfile").click();
+      	// });
+      	$('.choicefile').css('background','#C4C4C4');
+      	$('.choicefile').css('cursor', 'pointer');
+      	$(".filename").text("");
+    });
 
 	    $(".choicefile1").bind('click', function  () { 
 	    	$("#uploadfile1").click();

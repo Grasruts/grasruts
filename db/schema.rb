@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180825035904) do
+ActiveRecord::Schema.define(version: 20180826040605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,20 +39,24 @@ ActiveRecord::Schema.define(version: 20180825035904) do
     t.string "name"
     t.string "uri"
     t.text "about"
-    t.decimal "goal", precision: 8, scale: 2
     t.text "faq"
     t.string "card_description"
-    t.string "card_image"
     t.string "category"
     t.integer "mode", default: 1
     t.integer "status", default: 1
-    t.datetime "deadline"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "discarded_at"
     t.string "location"
     t.bigint "user_id"
     t.string "video"
+    t.string "video_image"
+    t.integer "deadline"
+    t.integer "goal"
+    t.string "card_image_file_name"
+    t.string "card_image_content_type"
+    t.integer "card_image_file_size"
+    t.datetime "card_image_updated_at"
     t.index ["discarded_at"], name: "index_campaigns_on_discarded_at"
     t.index ["name"], name: "index_campaigns_on_name"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
@@ -68,6 +72,7 @@ ActiveRecord::Schema.define(version: 20180825035904) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "campaign_id"
+    t.boolean "limited"
     t.index ["campaign_id"], name: "index_rewards_on_campaign_id"
   end
 
@@ -104,6 +109,7 @@ ActiveRecord::Schema.define(version: 20180825035904) do
     t.text "about"
     t.string "facebook"
     t.string "twitter"
+    t.boolean "admin"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
