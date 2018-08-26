@@ -70,7 +70,7 @@ class CampaignController < ApplicationController
 
   private
   def campaign_param
-    params.require(:campaign).permit(:name, :uri, :location, :category, :goal, :deadline, :about, :video, :card_description, :file, :users_id)
+    params.require(:campaign).permit(:name, :uri, :location, :category, :goal, :deadline, :about, :video, :card_description, :card_image, :file, :users_id)
   end
 
   def set_initial_section

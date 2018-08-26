@@ -8,6 +8,9 @@ class Campaign < ApplicationRecord
   has_many :campaign_updates, dependent: :destroy
   has_many :campaign_images, dependent: :destroy
 
+  has_attached_file :card_image, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :card_image, content_type: /\Aimage\/.*\z/
+
   belongs_to :user
 
   validates :name, presence: { message: 'Campaign Name can not be empty'}, on: :create
@@ -25,6 +28,7 @@ class Campaign < ApplicationRecord
   validates :about, presence: true, on: :description
 
   validates :card_description, length: { maximum: 40, message: 'Description should not exceed more than 40 words'}, presence: { message: 'Description is required'}, on: :project_card
-  validates :card_image, presence: true, on: :project_card
-
+  validates :card_image, attachment_presence: {message: 'Image is required'}, on: :project_card
+  validates_with AttachmentPresenceValidator, attributes: :card_image, on: :project_card
+  validates_with AttachmentSizeValidator, attributes: :card_image, less_than: 1.megabytes, on: :project_card
 end

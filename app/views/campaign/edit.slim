@@ -34,7 +34,7 @@ main#main.site-main
                 a href="#" Preview
         .col-lg-9
           .account-content.dashboard
-            h3.account-title Dashboard
+            h3.account-title = @campaign.name
             .account-main
               - case params[:section]&.downcase&.strip || 'basic'
               - when 'basic' 

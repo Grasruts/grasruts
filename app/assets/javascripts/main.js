@@ -134,6 +134,7 @@ function  readURL6(input,thumbimage) {
 
 		$(".choicefile").bind('click', function  () { 
 	    $("#uploadfile").click();
+      $('.uploaded_image').remove();
 	   });
    	$(".removeimg").on('click', function() {
      	$("#thumbimage").attr('src', '').hide();

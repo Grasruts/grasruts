@@ -7,9 +7,12 @@
         a href="#"  Here are some tips.
       .list-upload
         .file-upload
+          - if @campaign.card_image.exists?
+            .uploaded_image
+              = image_tag @campaign.card_image.url(:thumb)
           .upload-bg
             #myfileupload
-              = f.input :card_image, as: :file,  input_html: { accept: 'image/*', name: 'ImageUpload', onchange: 'readURL(this)', id: 'uploadfile' },  label: false
+              = f.input :card_image, as: :file,  input_html: { accept: 'image/*', onchange: 'readURL(this)', id: 'uploadfile' },  label: false
             #thumbbox
               img#thumbimage alt=("Thumb image") height="695" src="images/assets/logo.png" width="460" /
               a.removeimg href="javascript:" 
