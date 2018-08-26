@@ -40,12 +40,14 @@ class CampaignController < ApplicationController
   end
 
   def rewards
-    @rewards = Campaign.find_by_id(params[:id]).try(:rewards)
+    @campaign = Campaign.find_by_id(params[:id])
+    @rewards = @campaign.try(:rewards)
     render 'campaign/edit'
   end
 
   def kyc
     @user = current_user
+    @campaign = Campaign.find_by_id(params[:id])
     render 'campaign/edit'
   end
 

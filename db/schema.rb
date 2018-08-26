@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180826040605) do
+ActiveRecord::Schema.define(version: 20180826061331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20180826040605) do
 
   create_table "rewards", force: :cascade do |t|
     t.string "name"
-    t.decimal "price", precision: 8, scale: 2
     t.text "description"
     t.integer "total_reward"
     t.integer "claimed_reward"
@@ -73,6 +72,7 @@ ActiveRecord::Schema.define(version: 20180826040605) do
     t.datetime "updated_at", null: false
     t.bigint "campaign_id"
     t.boolean "limited"
+    t.integer "price"
     t.index ["campaign_id"], name: "index_rewards_on_campaign_id"
   end
 

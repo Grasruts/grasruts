@@ -1,6 +1,19 @@
-= link_to 'Add', new_campaign_reward_path(params[:id])
-
-- @rewards.to_a.each do |reward|
-  = reward.name 
-  = link_to 'Edit', edit_campaign_reward_path(params[:id], reward.id)
-  = link_to 'Delete', campaign_reward_path(params[:id], reward.id), method: :delete
+= link_to 'Add Reward', new_campaign_reward_path(params[:id]), class: 'btn btn-primary'
+table.table
+  thead
+    tr
+      th scope="col"  Name
+      th scope="col"  Price
+      th scope="col"  Shipping Date
+      th scope='col'  Action
+  tbody
+    - @rewards.to_a.each do |reward|
+      tr
+        td = reward.name
+        td = reward.price
+        td = reward.shipping_date
+        td
+          = link_to edit_campaign_reward_path(params[:id], reward.id)
+            i.fa.fa-pencil aria-hidden="true" 
+          = link_to campaign_reward_path(params[:id], reward.id), method: :delete, data: {confirm: "Are you sure?"} 
+            i.fa.fa-trash aria-hidden="true" 

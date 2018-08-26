@@ -62,6 +62,18 @@ $(document).ready(function(){
       imageUploadMethod: 'POST',
       imageMaxSize: 5 * 1024 * 1024
     });
+
+  if($('#limit_reward').val() == 'false' || $('#limit_reward').val() == ''){
+    $('.total_reward').hide();
+  } else{
+    $('.total_reward').show();
+  }
+  $('#limit_reward').on('change', function(){
+    if ($(this).val() == 'true'){
+        $('.total_reward').show();
+    } else {
+        $('.total_reward').hide();
+    }
+  });
 });
-// })();
 
