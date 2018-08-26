@@ -19,3 +19,4 @@
 .byebug_history
 .env
 /public/uploads/files/*
+/public/system/*
