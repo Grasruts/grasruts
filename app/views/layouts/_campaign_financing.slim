@@ -3,11 +3,11 @@
     .field
       label Goal
       span.label-desc
-        | some description goes here
+        | How much do you need to raise? Set a goal consistent with what your campaign proposes. Do not forget to include Grasruts's service charge in your calculation
       = f.input :goal, label: false
     .field
       label Collection Period
       span.label-desc
-        | some description goes here
+        | This is the period when your campaign will be online and open to fundraising.
       = f.input :deadline, label: false
     = f.button :submit, 'Save & Continue',class: 'btn-primary'

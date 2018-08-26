@@ -16,10 +16,12 @@ Primary use:    ThemeDunk.com
 @import url(owl-carousel/assets/carousel.min.css);
 @import url(bxslider/jquery.bxslider.min.css);
 @import url(magicsuggest/magicsuggest-min.css);
-@import "froala_editor.min";
-@import "froala_style.min";
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+@import "froala_editor.min";
+@import "froala_style.min";
 @import 'plugins/char_counter.min.css';
 @import 'plugins/code_view.min.css';
 @import 'plugins/colors.min.css';
@@ -127,7 +129,7 @@ a{
     display: block;
 }
 a:hover{
-    color: #00a6eb;
+    color: #465D6B;
     text-decoration:none;
 }
 a:focus{
@@ -168,7 +170,7 @@ input[type=number]:focus,
 input[type=search]:focus,
 input[type=checkbox]:focus,
 textarea:focus {
-    border-color: #00a6eb;
+    border-color: #89c754;
     outline: none;
     outline-offset: 0;
 }
@@ -226,7 +228,7 @@ textarea:focus {
 }
 .btn-primary:hover{
     background: #08aded;
-    background-color: #0094d2;
+    background-color: #89c754;
 }
 .title{
     text-align: center;
@@ -3574,15 +3576,16 @@ form .create-account input[type="checkbox"]{
   padding: 15px 30px;
 }
 .account-bar li.active a{
-  background-color: #00a6eb;
+  background-color: #7cc142;
   color: #fff;
   border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
   -webkit-border-radius: 3px 3px 3px 3px;
 }
 .account-content .account-title{
-  background-color: #ededed;
+  background-color: #7cc142;
   font-size: 14px;
+  color: white;
 }
 .account-content .account-main{
   padding: 40px 30px;

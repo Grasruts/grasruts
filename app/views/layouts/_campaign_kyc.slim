@@ -1,43 +1,65 @@
 .start-form
-  = simple_form_for @user, url: user_path(section: params[:section]), method: :put do |f|
+  = simple_form_for @user, html: {multipart: true}, url: user_path(section: params[:section]), method: :put do |f|
+    .field
+      label for="uploadfile"  User Image
+      span.label-desc
+        | An image of you.
+        a href="#"  Here are some tips.
+      .list-upload
+        .file-upload
+          - if @user.avatar.exists?
+            .uploaded_image
+              = image_tag @user.avatar.url(:thumb)
+          .upload-bg
+            #myfileupload
+              = f.input :avatar, as: :file,  input_html: { accept: 'image/*', onchange: 'readURL(this)', id: 'uploadfile' },  label: false
+            #thumbbox
+              img#thumbimage alt=("Thumb image") height="695" src="images/assets/logo.png" width="460" /
+              a.removeimg href="javascript:" 
+            #boxchoice
+              a.choicefile href="javascript:" 
+                i.fa.fa-cloud-upload aria-hidden="true" 
+                | Upload Image
+              p
+            label.filename
     .field
       label Name
       span.label-desc
-        | some description goes here
+        | Enter your name
       = f.input :name, label: false
     .field
       label Email
       span.label-desc
-        | some description goes here
+        | Enter your email (This information will not be public)
       = f.input :email, label: false
     .row
       .col-sm
         .field
           label Country
           span.label-desc
-            | some description goes here
+            | Where do you live? (This information will not be public)
           = f.country_select :country, label: false
       .col-sm
         .field
           label City
           span.label-desc
-            | some description goes here
+            | Where do you live? (This information will not be public)
           = f.input :city, label: false
       .col-sm
         .field
           label Address
           span.label-desc
-            | some description goes here
+            | Where do you live? (This information will not be public)
           = f.input :address, label: false
     .field
       label Contact No
       span.label-desc
-        | some description goes here
+        | Your contact number (This information will not be public)
       = f.input :contact_number, label: false
     .field
       label PAN
       span.label-desc
-        | some description goes here
+        | Your PAN number (This information will not be public)
       = f.input :pan, label: false
     .field
       label Facebook

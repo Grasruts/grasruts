@@ -15,12 +15,13 @@
 //= require popper/popper.js
 //= require bootstrap/js/bootstrap.min.js
 //= require owl-carousel/owl.carousel.min.js
+//= require owl-carousel/carousel.min.js
 //= require jquery.countdown/jquery.countdown.min.js
 //= require wow/wow.min.js
 //= require isotope/isotope.pkgd.min.js
 //= require bxslider/jquery.bxslider.min.js
 //= require magicsuggest/magicsuggest-min.js
-//= require main.js
+
 //= require froala_editor.min.js
 //= require plugins/align.min.js
 //= require plugins/char_counter.min.js
@@ -48,6 +49,9 @@
 //= require plugins/table.min.js
 //= require plugins/special_characters.min.js
 //= require plugins/url.min.js
+
+//= require main.js
+
 
 
 $(document).ready(function(){

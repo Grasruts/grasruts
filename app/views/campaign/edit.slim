@@ -31,10 +31,10 @@ main#main.site-main
               li class=(params[:section]&.downcase&.strip == 'kyc' ? 'active' : '')
                 = link_to 'KYC', campaign_kyc_path(params[:id], section: 'kyc')
               li class=(params[:section]&.downcase&.strip == 'preview' ? 'active' : '')
-                a href="#" Preview
+                = link_to 'Preview', campaign_preview_path(params[:id]), target: :_blank
         .col-lg-9
           .account-content.dashboard
-            h3.account-title = @campaign.name
+            h3.account-title = @campaign.name.capitalize
             .account-main
               - case params[:section]&.downcase&.strip || 'basic'
               - when 'basic' 

@@ -3,7 +3,7 @@
     .field
       label for="uploadfile"  Project Image
       span.label-desc
-        | This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free.
+        | This image will be used as the thumbnail of your project
         a href="#"  Here are some tips.
       .list-upload
         .file-upload
@@ -25,6 +25,6 @@
     .field
       label Short Description
       span.label-desc
-        | some description goes here
+        | A summary of your campaign.
       = f.input :card_description, as: :text, label: false
     = f.button :submit, 'Save & Continue',class: 'btn-primary'

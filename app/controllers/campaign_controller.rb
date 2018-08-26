@@ -1,7 +1,7 @@
 class CampaignController < ApplicationController
   
   before_action :authenticate_user!, except: [:new, :froala_upload_image, :access_file]
-  before_action :set_initial_section, except: [:create, :index, :froala_upload_image, :access_file]
+  before_action :set_initial_section, except: [:create, :index, :froala_upload_image, :access_file, :preview]
   before_action :is_owner_of_campaign?, except: [:create, :index, :new, :froala_upload_image, :access_file]
 
   def index
@@ -70,7 +70,12 @@ class CampaignController < ApplicationController
     end
   end
 
+  def preview
+    @campaign = Campaign.find_by_id params[:id]
+  end
+
   private
+
   def campaign_param
     params.require(:campaign).permit(:name, :uri, :location, :category, :goal, :deadline, :about, :video, :card_description, :card_image, :file, :users_id)
   end

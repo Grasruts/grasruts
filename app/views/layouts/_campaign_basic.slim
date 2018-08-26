@@ -3,21 +3,21 @@
     .field
       label Name
       span.label-desc
-        | some description goes here
+        | Give a name that people will remember easily
       = f.input :name, label: false
     .field
       label Project URL
       span.label-desc
-        | some description goes here
+        | Add a simple url name for your campaign
       = f.input :uri, label: false
     .field
       label Category
       span.label-desc
-        | some description goes here
+        | Choose the one that best suits your campaign
       = f.input :category, label: false
     .field
       label Project Location
       span.label-desc
-        | some description goes here
+        | Where will your project be carried out? If it happens in more than one place, one tip is to put the city where your network of potential supporters is greatest.
       = f.input :location, label: false
     = f.button :submit, 'Save & Continue',class: 'btn-primary'

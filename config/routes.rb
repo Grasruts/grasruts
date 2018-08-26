@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   
   get '/campaign/:id/rewards', to: 'campaign#rewards', as: 'campaign_rewards'
   get '/campaign/:id/kyc', to: 'campaign#kyc', as: 'campaign_kyc'
+  get '/campaign/:id/preview', to: 'campaign#preview', as: 'campaign_preview'
+
+
   post '/campaign/froala/upload_image', to: 'campaign#froala_upload_image', as: :froala_upload_image
   get '/download_file/:name', to: 'campaign#access_file', as: :upload_access_file, name: /.*/
 

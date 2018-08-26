@@ -9,7 +9,8 @@ html[lang="en"]
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-  body.home
+  / body.home.campaign-detail
+  body class=("#{yield (:body_class)}") 
     #wrapper
       = render 'layouts/flash_messages', :locals => {:flash => flash} unless flash.empty?
       header#header.site-header
