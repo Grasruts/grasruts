@@ -10,21 +10,25 @@
       span.label-desc
         | some description goes here
       = f.input :email, label: false
-    .field
-      label Country
-      span.label-desc
-        | some description goes here
-      = f.input :country, as: :string, label: false
-    .field
-      label City
-      span.label-desc
-        | some description goes here
-      = f.input :city, label: false
-    .field
-      label Address
-      span.label-desc
-        | some description goes here
-      = f.input :address, label: false
+    .row
+      .col-sm
+        .field
+          label Country
+          span.label-desc
+            | some description goes here
+          = f.country_select :country, label: false
+      .col-sm
+        .field
+          label City
+          span.label-desc
+            | some description goes here
+          = f.input :city, label: false
+      .col-sm
+        .field
+          label Address
+          span.label-desc
+            | some description goes here
+          = f.input :address, label: false
     .field
       label Contact No
       span.label-desc

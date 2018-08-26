@@ -8,8 +8,12 @@ class User < ApplicationRecord
 
   has_many :campaigns, dependent: :destroy
 
-  validates :name, :country, :city, :address, :contact_number, presence: true, on: :kyc
-  validates :email, uniqueness: true, on: :kyc
+  validates :name, presence: {message: 'Your name is required'}, on: :kyc
+  validates :city, presence: {message: 'City is required'}, on: :kyc
+  validates :address, presence: {message: 'Address is required'}, on: :kyc
+  validates :contact_number, presence: {message: 'Contact number is required'}, on: :kyc
+  validates :country, presence: {message: 'Country is required'}, on: :kyc
+  validates :email, uniqueness: {message: 'Email must be unique'}, on: :kyc
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

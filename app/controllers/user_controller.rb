@@ -8,6 +8,9 @@ class UserController < ApplicationController
     @user = current_user
     @user.attributes = user_param
     @user.save(context: params[:section].to_sym)
+    unless @user.errors.messages.empty?
+      flash[:error] = @user.errors.messages.values.flatten
+    end
     redirect_back(fallback_location: root_path)
   end
 
