@@ -2,14 +2,6 @@ main#main.site-main
   .page-title.background-campaign
     .container
       h1 Start a campaign
-      .breadcrumbs
-        ul
-          li
-            a href="index.html"  Home
-            span /
-          li Start a campaign
-      /! .breadcrumbs
-  /! .page-title
   .campaign-form.form-update
     .container
       = simple_form_for @reward, url: campaign_reward_index_path, method: :post do |f|

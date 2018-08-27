@@ -31,4 +31,12 @@ class Campaign < ApplicationRecord
   validates :card_image, attachment_presence: {message: 'Image is required'}, on: :project_card
   validates_with AttachmentPresenceValidator, attributes: :card_image, on: :project_card
   validates_with AttachmentSizeValidator, attributes: :card_image, less_than: 1.megabytes, on: :project_card
+
+  after_update :save_video_id, :if => :video_changed?
+
+  private
+
+  def save_video_id
+    VideoInfoExtractorWorker.perform_async(self.id)
+  end
 end

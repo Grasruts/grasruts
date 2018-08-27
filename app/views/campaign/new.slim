@@ -2,12 +2,14 @@ main#main.site-main
   section.top-site
     .container
       h1 Our mission is to empower people to unite around ideas that matter to them and together make those ideas come to life.
-      = link_to 'Start a campaign', "#start", class: 'btn btn-primary btn-lg'
+      .row
+        .col-centered.mt-5
+          = link_to 'Start a campaign', "#start", class: 'btn btn-primary btn-lg'
   /! .top-site
   .container
     .video
       .video-wrapper
-        video controls="controls" src="../../www.youtube.com/watch@v=beusrd8g-dm.htm" /
+        video controls="controls" src="https://www.youtube.com/watch?v=dQPHujGI2IY" /
     /! .video
     section.statics.section
       h2.title We are changing the way of making things possible.
@@ -36,17 +38,17 @@ main#main.site-main
               .statics-item-desc
                 p That exceed their goals are run by women
     /! .statics
-    .campaign-form.form-update#start
+    .campaign-form.form-update.mt-5#start
       .container
         = simple_form_for @campaign, url: campaign_index_path, method: :post do |f|
           .field
             label Name
             span.label-desc
-              | some description goes here
+              | Give a name that people will remember easily
             = f.input :name, label: false
           .field
             label Category
             span.label-desc
-              | some description goes here
+              | Choose the one that best suits your campaign
             = f.input :category, label: false
           input.btn-primary type="submit" value="Save & Continue" /
