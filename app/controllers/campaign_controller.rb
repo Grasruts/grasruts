@@ -5,7 +5,7 @@ class CampaignController < ApplicationController
   before_action :is_owner_of_campaign?, except: [:create, :index, :new, :froala_upload_image, :access_file]
 
   def index
-    @campaigns = current_user.campaigns
+    @campaigns = current_user.campaigns.order(created_at: :desc)
   end
 
   def new
@@ -72,6 +72,7 @@ class CampaignController < ApplicationController
 
   def preview
     @campaign = Campaign.find_by_id params[:id]
+    binding.pry
   end
 
   private

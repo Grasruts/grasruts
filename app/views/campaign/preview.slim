@@ -7,14 +7,8 @@ main#main.site-main
     .container
       .campaign
         .campaign-item.clearfix
-          .campaign-image
-            #owl-campaign.campaign-slider
-              .item
-                = image_tag 'campaign-recent-01.jpg'
-              .item
-                = image_tag 'campaign-recent-02.jpg'
-              .item
-                = image_tag 'campaign-recent-03.jpg'
+          .campaign-image.embed-responsive.embed-responsive-16by9.mt-5
+            iframe.embed-responsive-item frameborder="0" src=("http://www.youtube.com/embed/#{@campaign.video_id}")
           .campaign-box
             a.category href="#"  = @campaign.category.capitalize
             h3 = @campaign.name
@@ -180,9 +174,17 @@ main#main.site-main
             - @campaign.rewards.each do |reward|
               .plan
                 a href="javascript:void(0)" 
-                  h4 = "Pledge #{reward.price}"
+                  h4 = "Rs #{reward.price}"
+                  .plan-desc
+                    p = reward.name
                   .plan-desc
                     p = reward.description.capitalize
-                  .plan-date May, 2017
-                  .plan-author Estimated Delivery
+                  .plan-date 
+                    | Estimated Delivery Time 
+                    br
+                    = "#{reward.shipping_date.strftime('%B')}, #{reward.shipping_date.year}"
+                  - if reward.limited
+                    .plan-desc
+                      | Limited 
+                      = "(0 of 5 Available)"
                   .backer 2 backer

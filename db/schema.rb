@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180827135302) do
+ActiveRecord::Schema.define(version: 20180828025816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180827135302) do
     t.datetime "card_image_updated_at"
     t.boolean "recommended"
     t.string "video_id"
+    t.datetime "published_date"
     t.index ["discarded_at"], name: "index_campaigns_on_discarded_at"
     t.index ["name"], name: "index_campaigns_on_name"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
