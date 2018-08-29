@@ -33,6 +33,7 @@ class Campaign < ApplicationRecord
   validates_with AttachmentPresenceValidator, attributes: :card_image, on: :project_card
   validates_with AttachmentSizeValidator, attributes: :card_image, less_than: 1.megabytes, on: :project_card
 
+  validates :user, presence: {message: 'KYC is required'}, on: :publish
   after_update :save_video_id, :if => :video_changed?
 
   private

@@ -21,3 +21,4 @@
 /public/uploads/files/*
 /public/system/*
 dump.rdb
+output.html

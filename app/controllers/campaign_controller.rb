@@ -84,7 +84,8 @@ class CampaignController < ApplicationController
       flash[:error] = @campaign.errors.messages.values.flatten
       return redirect_back(fallback_location: root_path)
     end
-    return redirect_to campaign_index_path()
+    CampaignPublishRequestWorker.perform_async(params[:id])
+    return redirect_to campaign_index_path
   end
 
   private
