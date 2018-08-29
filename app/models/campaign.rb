@@ -28,12 +28,14 @@ class Campaign < ApplicationRecord
 
   validates :about, presence: {message: 'Description is required'}, on: :description
 
-  validates :card_description, length: { maximum: 120, message: 'Description should not exceed more than 40 words'}, presence: { message: 'Description is required'}, on: :project_card
-  validates :card_image, attachment_presence: {message: 'Image is required'}, on: :project_card
+  validates :card_description, length: { maximum: 120, message: 'Card description should not exceed more than 40 words'}, presence: { message: 'Card description is required'}, on: :project_card
+  validates :card_image, attachment_presence: {message: 'Card image is required'}, on: :project_card
   validates_with AttachmentPresenceValidator, attributes: :card_image, on: :project_card
   validates_with AttachmentSizeValidator, attributes: :card_image, less_than: 1.megabytes, on: :project_card
 
-  validates :user, presence: {message: 'KYC is required'}, on: :publish
+  # validates :user, presence: {message:'KYC cant be empty'}, on: :publish
+  # validates_associated :user, on: :publish
+  validates :rewards, presence: {message:'Rewards cant be empty'}, on: :publish
   after_update :save_video_id, :if => :video_changed?
 
   private

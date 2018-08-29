@@ -10,8 +10,9 @@ main#main.site-main
             ul
               li class=(params[:section]&.downcase&.strip == 'basic' ? 'active' : '')
                 = link_to 'Basic', edit_campaign_path(section: 'basic')
-              li class=(params[:section]&.downcase&.strip == 'financing' ? 'active' : '')
-                = link_to 'Financing', edit_campaign_path(section: 'financing')  
+              - if @campaign.status == 'draft'
+                li class=(params[:section]&.downcase&.strip == 'financing' ? 'active' : '')
+                  = link_to 'Financing', edit_campaign_path(section: 'financing')  
               li class=(params[:section]&.downcase&.strip == 'description' ? 'active' : '')
                 = link_to 'Description', edit_campaign_path(section: 'description')  
               li class=(params[:section]&.downcase&.strip == 'video' ? 'active' : '')
@@ -24,8 +25,9 @@ main#main.site-main
                 = link_to 'KYC', campaign_kyc_path(params[:id], section: 'kyc')
               li
                 = link_to 'Preview', campaign_preview_path(params[:id]), target: :_blank
-              li
-                = link_to 'Publish', campaign_publish_path(params[:id]), method: :put
+              - if @campaign.status == 'draft'
+                li
+                  = link_to 'Publish', campaign_publish_path(params[:id]), method: :put
         .col-lg-9
           .account-content.dashboard
             h3.account-title = @campaign.name.capitalize

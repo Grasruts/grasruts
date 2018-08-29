@@ -8,12 +8,15 @@ main#main.site-main
       .campaign
         .campaign-item.clearfix
           .campaign-image.embed-responsive.embed-responsive-16by9.mt-5
-            iframe.embed-responsive-item frameborder="0" src=("http://www.youtube.com/embed/#{@campaign.video_id}")
+            - if @campaign.video_id
+              iframe.embed-responsive-item frameborder="0" src=("http://www.youtube.com/embed/#{@campaign.video_id}")
+            - else
+              = image_tag @campaign.card_image
           .campaign-box
             a.category href="#"  = @campaign.campaign_category.name.capitalize
             h3 = @campaign.name
             .campaign-description
-              p = @campaign.card_description.capitalize
+              p = @campaign.card_description.try(:capitalize)
             .campaign-author.clearfix
               .author-profile
                 a.author-icon href="#"
@@ -22,7 +25,7 @@ main#main.site-main
                 a.author-name href="#"  = current_user.name.capitalize
               .author-address
                 span.ion-location 
-                = @campaign.location.capitalize
+                = @campaign.location.try(:capitalize)
             .process
               .raised
                 span
@@ -37,15 +40,17 @@ main#main.site-main
                   span> 37
                   | backers
                 .process-time
-                  span> 23
-                  | days ago
-            .button
-              form#priceForm.campaign-price.quantity action="#" 
-                input min="0" name="s" placeholder="" type="number" value="1" /
-                button.btn-primary type="submit"  Back this Campaign
-              a.btn-secondary href="#" 
-                i.fa.fa-heart aria-hidden="true" 
-                | Remind me
+                  - unless @campaign.status == 'draft'
+                    span = (@campaign.published_date.to_date + 60 - Date.today).to_i 
+                    | days ago
+            - unless @campaign.status == 'draft'
+              .button
+                form#priceForm.campaign-price.quantity action="#" 
+                  input min="0" name="s" placeholder="" type="number" value="1" /
+                  button.btn-primary type="submit"  Back this Campaign
+                a.btn-secondary href="#" 
+                  i.fa.fa-heart aria-hidden="true" 
+                  | Remind me
             .share
               p Share this project
               ul

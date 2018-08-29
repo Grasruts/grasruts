@@ -77,13 +77,14 @@ class CampaignController < ApplicationController
 
   def publish
     @campaign = Campaign.find_by_id params[:id]
-    @campaign.status = Campaign.statuses[:pending]
+    @campaign.status = Campaign.statuses[:online]
     @campaign.published_date = Time.now
-    @campaign.save(context: [:basic, :financing, :description, :project_card])
+    @campaign.save(context: [:basic, :financing, :description, :project_card, :publish])
     unless @campaign.errors.messages.empty?
       flash[:error] = @campaign.errors.messages.values.flatten
       return redirect_back(fallback_location: root_path)
     end
+    flash[:success] = 'You campaign is now online and ready to receive contributions'
     CampaignPublishRequestWorker.perform_async(params[:id])
     return redirect_to campaign_index_path
   end
