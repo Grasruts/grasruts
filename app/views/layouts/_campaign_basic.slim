@@ -14,7 +14,7 @@
       label Category
       span.label-desc
         | Choose the one that best suits your campaign
-      = f.input :category, label: false
+      = f.association :campaign_category, include_blank: false, label: false
     .field
       label Project Location
       span.label-desc

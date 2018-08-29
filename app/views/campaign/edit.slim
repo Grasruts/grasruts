@@ -22,8 +22,10 @@ main#main.site-main
                 = link_to 'Rewards', campaign_rewards_path(params[:id], section: 'rewards') 
               li class=(params[:section]&.downcase&.strip == 'kyc' ? 'active' : '')
                 = link_to 'KYC', campaign_kyc_path(params[:id], section: 'kyc')
-              li class=(params[:section]&.downcase&.strip == 'preview' ? 'active' : '')
+              li
                 = link_to 'Preview', campaign_preview_path(params[:id]), target: :_blank
+              li
+                = link_to 'Publish', campaign_publish_path(params[:id]), method: :put
         .col-lg-9
           .account-content.dashboard
             h3.account-title = @campaign.name.capitalize

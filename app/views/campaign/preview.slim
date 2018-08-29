@@ -10,7 +10,7 @@ main#main.site-main
           .campaign-image.embed-responsive.embed-responsive-16by9.mt-5
             iframe.embed-responsive-item frameborder="0" src=("http://www.youtube.com/embed/#{@campaign.video_id}")
           .campaign-box
-            a.category href="#"  = @campaign.category.capitalize
+            a.category href="#"  = @campaign.campaign_category.name.capitalize
             h3 = @campaign.name
             .campaign-description
               p = @campaign.card_description.capitalize

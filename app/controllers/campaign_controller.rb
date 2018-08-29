@@ -1,7 +1,7 @@
 class CampaignController < ApplicationController
   
   before_action :authenticate_user!, except: [:new, :froala_upload_image, :access_file]
-  before_action :set_initial_section, except: [:create, :index, :new, :froala_upload_image, :access_file, :preview]
+  before_action :set_initial_section, except: [:create, :index, :new, :froala_upload_image, :access_file, :preview, :publish]
   before_action :is_owner_of_campaign?, except: [:create, :index, :new, :froala_upload_image, :access_file]
 
   def index
@@ -10,6 +10,7 @@ class CampaignController < ApplicationController
 
   def new
     @campaign = Campaign.new
+    @categories = CampaignCategory.all.order(:name)
   end
 
   def show
@@ -17,9 +18,9 @@ class CampaignController < ApplicationController
 
   def create
     if user_signed_in?
-      @campaign = current_user.campaigns.create(name: params[:campaign][:name], category: params[:campaign][:category])
+      @campaign = current_user.campaigns.create(name: params[:campaign][:name], campaign_category_id: params[:campaign][:campaign_category_id])
     else
-      @campaign = Campaign.create({name: params[:campaign][:name], category: params[:campaign][:category]})
+      @campaign = Campaign.create({name: params[:campaign][:name], campaign_category_id: params[:campaign][:campaign_category_id]})
     end
     redirect_to edit_campaign_path(@campaign.id)
   end
@@ -72,13 +73,24 @@ class CampaignController < ApplicationController
 
   def preview
     @campaign = Campaign.find_by_id params[:id]
-    binding.pry
+  end
+
+  def publish
+    @campaign = Campaign.find_by_id params[:id]
+    @campaign.status = Campaign.statuses[:pending]
+    @campaign.published_date = Time.now
+    @campaign.save(context: [:basic, :financing, :description, :project_card])
+    unless @campaign.errors.messages.empty?
+      flash[:error] = @campaign.errors.messages.values.flatten
+      return redirect_back(fallback_location: root_path)
+    end
+    return redirect_to campaign_index_path()
   end
 
   private
 
   def campaign_param
-    params.require(:campaign).permit(:name, :uri, :location, :category, :goal, :deadline, :about, :video, :card_description, :card_image, :file, :users_id)
+    params.require(:campaign).permit(:name, :uri, :location, :goal, :deadline, :about, :video, :card_description, :card_image, :file, :users_id, :campaign_category_id)
   end
 
   def set_initial_section

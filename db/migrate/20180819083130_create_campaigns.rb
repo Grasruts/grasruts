@@ -9,8 +9,8 @@ class CreateCampaigns < ActiveRecord::Migration[5.1]
       t.string :card_description
       t.string :card_image
       t.string :category
-      t.integer :mode, default: 1
-      t.integer :status, default: 1
+      t.integer :mode, default: 0
+      t.integer :status, default: 0
       t.datetime :deadline
       t.timestamps
     end

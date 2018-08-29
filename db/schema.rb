@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180828025816) do
+ActiveRecord::Schema.define(version: 20180829012327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "campaign_categories", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "campaign_updates", force: :cascade do |t|
     t.string "name"
@@ -30,9 +34,8 @@ ActiveRecord::Schema.define(version: 20180828025816) do
     t.text "about"
     t.text "faq"
     t.string "card_description"
-    t.string "category"
-    t.integer "mode", default: 1
-    t.integer "status", default: 1
+    t.integer "mode", default: 0
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "discarded_at"
@@ -49,6 +52,8 @@ ActiveRecord::Schema.define(version: 20180828025816) do
     t.boolean "recommended"
     t.string "video_id"
     t.datetime "published_date"
+    t.bigint "campaign_category_id"
+    t.index ["campaign_category_id"], name: "index_campaigns_on_campaign_category_id"
     t.index ["discarded_at"], name: "index_campaigns_on_discarded_at"
     t.index ["name"], name: "index_campaigns_on_name"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
@@ -108,6 +113,7 @@ ActiveRecord::Schema.define(version: 20180828025816) do
   end
 
   add_foreign_key "campaign_updates", "campaigns"
+  add_foreign_key "campaigns", "campaign_categories"
   add_foreign_key "campaigns", "users"
   add_foreign_key "rewards", "campaigns"
 end

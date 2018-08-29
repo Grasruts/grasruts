@@ -50,5 +50,5 @@ main#main.site-main
             label Category
             span.label-desc
               | Choose the one that best suits your campaign
-            = f.input :category, label: false
+            = f.association :campaign_category, include_blank: false, label: false
           input.btn-primary type="submit" value="Save & Continue" /
