@@ -72,7 +72,7 @@ class CampaignController < ApplicationController
   end
 
   def preview
-    @campaign = Campaign.find_by_id params[:id]
+    @campaign = Campaign.find_by_id(params[:id]).decorate
   end
 
   def publish

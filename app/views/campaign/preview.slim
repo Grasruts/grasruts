@@ -41,8 +41,9 @@ main#main.site-main
                   | backers
                 .process-time
                   - unless @campaign.status == 'draft'
-                    span = (@campaign.published_date.to_date + 60 - Date.today).to_i 
-                    | days ago
+                    span = @campaign.campaign_status
+                    - if @campaign.campaign_status.is_a? Integer 
+                      | days remaining
             - unless @campaign.status == 'draft'
               .button
                 form#priceForm.campaign-price.quantity action="#" 

@@ -1,4 +1,5 @@
 class CampaignDecorator < Draper::Decorator
+  include Draper::LazyHelpers
   delegate_all
 
   # Define presentation-specific methods here. Helpers are accessed through
@@ -9,5 +10,13 @@ class CampaignDecorator < Draper::Decorator
   #       object.created_at.strftime("%a %m/%d/%y")
   #     end
   #   end
+
+  def campaign_status
+    days_remaining = (object.published_date.to_date + 60 - Date.today).to_i
+    if days_remaining == 0
+      return object.status.capitalize
+    end
+    days_remaining
+  end
 
 end
