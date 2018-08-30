@@ -5,7 +5,7 @@ class CampaignController < ApplicationController
   before_action :is_owner_of_campaign?, except: [:create, :index, :new, :froala_upload_image, :access_file]
 
   def index
-    @campaigns = current_user.campaigns.order(created_at: :desc)
+    @campaigns = current_user.campaigns.order(created_at: :desc).includes(:campaign_category).decorate
   end
 
   def new

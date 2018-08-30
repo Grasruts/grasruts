@@ -1,7 +1,7 @@
 main#main.site-main
   .page-title.background-page
     .container
-      h1 Discover projects
+      h1 Your Campaigns
   .campaigns
     .container
       .campaign-content
@@ -11,18 +11,19 @@ main#main.site-main
               .col-lg-4.col-sm-6.col-6
                 .campaign-item
                   a.overlay href="campaign_detail.html" 
-                    = image_tag 'latest-01.jpg'
+                    = image_tag campaign.card_image.url(:medium)
                     span.ion-ios-search-strong
                   .campaign-box
-                    a.category href="#"  Crafts
+                    = campaign.campaign_category.name.try(:capitalize)
                     h3
-                      = link_to campaign.name, edit_campaign_path(campaign.id)
-                    .campaign-description A watch designed to be an heirloom to be passed down to the next generation.
+                      = link_to campaign.name.try(:capitalize), edit_campaign_path(campaign.id)
+                    .campaign-description
+                      = campaign.card_description
                     .campaign-author
                       a.author-icon href="#" 
-                        = image_tag 'author-01.png'
-                      | by
-                      a.author-name href="#"  Sabato Alterio
+                        = image_tag current_user.avatar.url(:thumb)
+                      | by 
+                      = link_to current_user.name.try(:capitalize), '#'
                     .process
                       .raised
                         span
@@ -34,8 +35,9 @@ main#main.site-main
                           span> 26%
                           | funded
                         .process-time
-                          span> 2
-                          | days ago
+                          span = campaign.campaign_status
+                          - if campaign.campaign_status.is_a? Integer 
+                            | days remaining
           - else
             .col-centered
               = link_to 'Start a campaign', new_campaign_path, class: 'btn btn-primary btn-lg'
