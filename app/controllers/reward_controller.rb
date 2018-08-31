@@ -1,5 +1,4 @@
 class RewardController < ApplicationController
-
   before_action :is_owner_of_campaign?
 
   def new
@@ -39,6 +38,7 @@ class RewardController < ApplicationController
   end
 
   private
+
   def reward_param
     params.require(:reward).permit(:name, :price, :description, :total_reward, :claimed_reward, :month, :year, :campaign_id, :limited)
   end

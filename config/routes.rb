@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'explore', to: 'home#explore'
-  
+
   resources :campaign do
     resources :reward
   end
-  
+
   get '/campaign/:id/rewards', to: 'campaign#rewards', as: 'campaign_rewards'
   get '/campaign/:id/kyc', to: 'campaign#kyc', as: 'campaign_kyc'
   get '/campaign/:id/preview', to: 'campaign#preview', as: 'campaign_preview'
@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   get '/download_file/:name', to: 'campaign#access_file', as: :upload_access_file, name: /.*/
 
   resources :user
+
+  get '/:permalink', to: 'campaign#show', as: :project_by_slug
 end

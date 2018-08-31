@@ -1,5 +1,4 @@
 class UserController < ApplicationController
-
   def edit
     @user = User.find params[:id]
   end
@@ -14,13 +13,12 @@ class UserController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  def show
-  end
+  def show; end
 
-  def destroy
-  end
+  def destroy; end
 
   private
+
   def user_param
     params.require(:user).permit(:name, :email, :country, :city, :address, :contact_number, :pan, :facebook, :twitter, :avatar)
   end

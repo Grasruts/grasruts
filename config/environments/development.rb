@@ -32,7 +32,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -63,9 +63,9 @@ Rails.application.configure do
     Bullet.console = true
     # Bullet.growl = true
     # Bullet.xmpp = { :account  => 'bullets_account@jabber.org',
-                    # :password => 'bullets_password_for_jabber',
-                    # :receiver => 'your_account@jabber.org',
-                    # :show_online_status => true }
+    # :password => 'bullets_password_for_jabber',
+    # :receiver => 'your_account@jabber.org',
+    # :show_online_status => true }
     Bullet.rails_logger = true
     # Bullet.honeybadger = true
     # Bullet.bugsnag = true

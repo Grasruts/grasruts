@@ -4,7 +4,7 @@ class CreateCampaigns < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :uri, unique: true
       t.text :about
-      t.decimal :goal, :precision => 8, :scale => 2
+      t.decimal :goal, precision: 8, scale: 2
       t.text :faq
       t.string :card_description
       t.string :card_image
