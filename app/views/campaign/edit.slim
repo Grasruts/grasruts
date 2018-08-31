@@ -24,7 +24,7 @@ main#main.site-main
               li class=(params[:section]&.downcase&.strip == 'kyc' ? 'active' : '')
                 = link_to 'KYC', campaign_kyc_path(params[:id], section: 'kyc')
               li
-                = link_to 'Preview', campaign_preview_path(params[:id]), target: :_blank
+                = link_to 'Preview', project_by_slug_path(@campaign.uri), target: :_blank
               - if @campaign.status == 'draft'
                 li
                   = link_to 'Publish', campaign_publish_path(params[:id]), method: :put

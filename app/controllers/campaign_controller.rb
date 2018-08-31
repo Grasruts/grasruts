@@ -1,7 +1,7 @@
 class CampaignController < ApplicationController
-  before_action :authenticate_user!, except: %i[new froala_upload_image access_file]
-  before_action :set_initial_section, except: %i[create index new froala_upload_image access_file preview publish]
-  before_action :is_owner_of_campaign?, except: %i[create index new froala_upload_image access_file]
+  before_action :authenticate_user!, except: %i[new froala_upload_image access_file show]
+  before_action :set_initial_section, except: %i[create index new froala_upload_image access_file publish show]
+  before_action :is_owner_of_campaign?, except: %i[create index new froala_upload_image access_file show]
 
   def index
     @campaigns = current_user.campaigns.order(created_at: :desc).includes(:campaign_category).decorate
@@ -12,11 +12,13 @@ class CampaignController < ApplicationController
     @categories = CampaignCategory.all.order(:name)
   end
 
-  def show; end
+  def show
+    @campaign = Campaign.find_by_uri(params[:permalink]).decorate
+  end
 
   def create
     if user_signed_in?
-      @campaign = current_user.campaigns.create(name: params[:campaign][:name], campaign_category_id: params[:campaign][:campaign_category_id])
+      @campaign = current_user.campaigns.create(name: params[:campaign][:name], campaign_category_id: params[:campaign][:campaign_category_id], uri: generate_code(10))
     else
       @campaign = Campaign.create(name: params[:campaign][:name], campaign_category_id: params[:campaign][:campaign_category_id])
     end
@@ -69,10 +71,6 @@ class CampaignController < ApplicationController
     end
   end
 
-  def preview
-    @campaign = Campaign.find_by(id: params[:id]).decorate
-  end
-
   def publish
     @campaign = Campaign.find_by id: params[:id]
     @campaign.status = Campaign.statuses[:online]
@@ -84,7 +82,7 @@ class CampaignController < ApplicationController
     end
     flash[:success] = 'You campaign is now online and ready to receive contributions'
     CampaignPublishRequestWorker.perform_async(params[:id])
-    redirect_to campaign_index_path
+    redirect_to project_by_slug_path(@campaign.uri)
   end
 
   private
@@ -97,5 +95,10 @@ class CampaignController < ApplicationController
     unless params.include? 'section'
       redirect_to "#{request.original_url}?section=basic"
     end
+  end
+
+  def generate_code(number)
+    charset = Array('A'..'Z') + Array('a'..'z')
+    Array.new(number) { charset.sample }.join
   end
 end
