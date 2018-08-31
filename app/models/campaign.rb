@@ -10,7 +10,7 @@ class Campaign < ApplicationRecord
   has_attached_file :card_image, styles: { medium: '300x300>', thumb: '100x100>' }
   validates_attachment_content_type :card_image, content_type: /\Aimage\/.*\z/
 
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :campaign_category
 
   validates :name, presence: { message: 'Campaign Name can not be empty' }, on: :create

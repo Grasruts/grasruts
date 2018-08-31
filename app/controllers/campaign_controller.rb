@@ -1,5 +1,5 @@
 class CampaignController < ApplicationController
-  before_action :authenticate_user!, except: %i[new froala_upload_image access_file show]
+  before_action :authenticate_user!, except: %i[new froala_upload_image access_file show create]
   before_action :set_initial_section, except: %i[create index new froala_upload_image access_file publish show]
   before_action :is_owner_of_campaign?, except: %i[create index new froala_upload_image access_file show]
 
@@ -20,7 +20,8 @@ class CampaignController < ApplicationController
     if user_signed_in?
       @campaign = current_user.campaigns.create(name: params[:campaign][:name], campaign_category_id: params[:campaign][:campaign_category_id], uri: generate_code(10))
     else
-      @campaign = Campaign.create(name: params[:campaign][:name], campaign_category_id: params[:campaign][:campaign_category_id])
+      @campaign = Campaign.create(name: params[:campaign][:name], campaign_category_id: params[:campaign][:campaign_category_id], uri: generate_code(10))
+      session[:campaign_id] = @campaign.id
     end
     redirect_to edit_campaign_path(@campaign.id)
   end
