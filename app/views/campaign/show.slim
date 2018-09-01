@@ -2,7 +2,7 @@
 main#main.site-main
   .page-title.background-campaign
     .container
-      h1 The Oreous Pillow
+      h1 = @campaign.name.try(:capitalize)
   .campaign-content
     .container
       .campaign
@@ -49,27 +49,21 @@ main#main.site-main
                 form#priceForm.campaign-price.quantity action="#" 
                   input min="0" name="s" placeholder="" type="number" value="1" /
                   button.btn-primary type="submit"  Back this Campaign
-                a.btn-secondary href="#" 
-                  i.fa.fa-heart aria-hidden="true" 
-                  | Remind me
+                - if false
+                  a.btn-secondary href="#" 
+                    i.fa.fa-heart aria-hidden="true" 
+                    | Remind me
             .share
               p Share this project
               ul
                 li.share-facebook
-                  a href="#" 
-                    i.fa.fa-facebook aria-hidden="true" 
-                li.share-twitter
-                  a href="#" 
-                    i.fa.fa-twitter aria-hidden="true" 
-                li.share-google-plus
-                  a href="#" 
-                    i.fa.fa-google-plus aria-hidden="true" 
-                li.share-linkedin
-                  a href="#" 
-                    i.fa.fa-linkedin aria-hidden="true" 
-                li.share-code
-                  a href="#" 
-                    i.fa.fa-code aria-hidden="true" 
+                  .fb-share-button data-href=("https://www.grasruts.com/#{@campaign.uri}") data-layout="button_count" data-mobile-iframe="true" data-size="small"
+                    a.fb-xfbml-parse-ignore href=("https://www.facebook.com/sharer/sharer.php?u=https://www.grasruts.com/#{@campaign.uri}") target="_blank"  Share
+
+                - if false
+                  li.share-code
+                    a href="#" 
+                      i.fa.fa-code aria-hidden="true" 
   /! .campaign-content
   .campaign-history
     .container
