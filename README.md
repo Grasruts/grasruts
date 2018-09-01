@@ -1,24 +1,12 @@
-# README
+# Grasruts
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An open source crowdfunding platform for Nepal.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Install
+- git clone git@bitbucket.org:suss_buzz/grasruts.git
+- rename `.env.sample` to `.env`
+- rake db:create
+- rake db:migrate
+- rake db:seed
+- Run your redis server
+- bundle exec sidekiq
