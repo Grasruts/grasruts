@@ -1,5 +1,5 @@
 .start-form
-  = simple_form_for @user, html: {multipart: true}, url: user_path(section: params[:section]), method: :put do |f|
+  = simple_form_for @user, html: {multipart: true}, url: user_path(current_user.id,section: params[:section]), method: :put do |f|
     .field
       label for="uploadfile"  User Image
       span.label-desc
@@ -63,12 +63,17 @@
     .field
       label Facebook
       span.label-desc
-        | some description goes here
+        | A link to your facebook profile or page
       = f.input :facebook, label: false
     .field
       label Twitter
       span.label-desc
-        | some description goes here
+        | A link to your twitter profile
       = f.input :twitter, label: false
+    .field
+      label About
+      span.label-desc
+        | Tell about yourself
+      = f.input :about, as: :text, input_html: { id: 'story', cols: 50, rows: 50}, label: false
     
     = f.button :submit, 'Save & Continue',class: 'btn-primary'

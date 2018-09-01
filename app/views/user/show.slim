@@ -1,0 +1,29 @@
+main#main.site-main
+  .account-wrapper
+    .container
+      .row
+        .col-lg-3
+          = render partial: 'sidebar', locals: {section: 'profile'}
+        .col-lg-9
+          .account-content.dashboard
+            h3.account-title Profile
+            .account-main
+              .author.clearfix
+                a.author-avatar href="javascript:" 
+                  = image_tag @user.avatar.url(:medium)
+                .author-content
+                  .author-title
+                    h3
+                      = @user.name.try(:capitalize)
+                  .author-info
+                    p = "Joined On: #{@user.created_at.to_date}"
+                    p = link_to 'Facebook', @user.facebook
+                    p = link_to 'Twitter', @user.twitter
+              .profile-box
+                ul
+                  li
+                    strong About Me:
+                    .profile-text
+                      p = sanitize @user.about
+            - if current_user.id == @user.id          
+              = link_to 'Edit Profile', edit_user_path(current_user.id), class: 'btn-primary'

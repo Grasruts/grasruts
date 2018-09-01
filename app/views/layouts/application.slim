@@ -36,7 +36,7 @@ html[lang="en"]
                       i.fa.fa-caret-down 
                     ul.sub-menu
                       li
-                        a href="dashboard.html"  Profile
+                        = link_to "Profile", user_path(current_user.id)
                       li
                         a href="profile.html"  Backed Campaign
                       li
