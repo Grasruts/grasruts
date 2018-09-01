@@ -1,0 +1,16 @@
+= link_to 'Add News', new_campaign_news_path(params[:id]), class: 'btn btn-primary mt-3'
+
+table.table.mt-3
+  thead
+    tr
+      th scope="col"  Name
+      th scope='col'  Action
+  tbody
+    - @news.to_a.each do |news|
+      tr
+        td = news.name
+        td
+          = link_to edit_campaign_news_path(params[:id], news.id)
+            i.fa.fa-pencil aria-hidden="true" 
+          = link_to campaign_news_path(params[:id], news.id), method: :delete, data: {confirm: "Are you sure?"} 
+            i.fa.fa-trash aria-hidden="true" 

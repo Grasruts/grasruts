@@ -23,6 +23,11 @@ main#main.site-main
                 = link_to 'Rewards', campaign_rewards_path(params[:id], section: 'rewards') 
               li class=(params[:section]&.downcase&.strip == 'kyc' ? 'active' : '')
                 = link_to 'KYC', campaign_kyc_path(params[:id], section: 'kyc')
+              - unless @campaign.status == 'draft'
+                li class=(params[:section]&.downcase&.strip == 'news' ? 'active' : '')
+                  = link_to 'News', campaign_news_list_path(params[:id], section: 'news')
+              li class=(params[:section]&.downcase&.strip == 'faq' ? 'active' : '')
+                = link_to 'FAQ', campaign_faq_list_path(params[:id], section: 'faq')    
               li
                 = link_to 'Preview', project_by_slug_path(@campaign.uri), target: :_blank
               - if @campaign.status == 'draft'
@@ -49,5 +54,9 @@ main#main.site-main
                 = render 'layouts/campaign_rewards'
               - when 'kyc'
                 = render 'layouts/campaign_kyc'
+              - when 'news'
+                = render 'layouts/campaign_news'
+              - when 'faq'
+                = render 'layouts/campaign_faq'
               - else
                 = render 'layouts/campaign_basic'

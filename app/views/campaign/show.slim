@@ -13,7 +13,7 @@ main#main.site-main
             - else
               = image_tag @campaign.card_image
           .campaign-box
-            a.category href="#"  = @campaign.campaign_category.name.capitalize
+            a.category href="#"  = @campaign.campaign_category.name.try(:capitalize)
             h3 = @campaign.name
             .campaign-description
               p = @campaign.card_description.try(:capitalize)
@@ -22,7 +22,7 @@ main#main.site-main
                 a.author-icon href="#"
                   = image_tag current_user.avatar.url(:thumb) 
                 | by 
-                a.author-name href="#"  = current_user.name.capitalize
+                a.author-name href="#"  = current_user.name.try(:capitalize)
               .author-address
                 span.ion-location 
                 = @campaign.location.try(:capitalize)
@@ -121,31 +121,24 @@ main#main.site-main
                     td $80
                     td June 15, 2017
               #faq.tabs
-                h2 Frequently Asked Questions
-                p Looks like there aren't any frequently asked questions yet. Ask the project creator directly.
-                a.btn-primary href="#"  Ask a question
+                .faq-content
+                  .container
+                    .faq-section
+                      ul.list-faq
+                        - @campaign.faqs.each do |faq|
+                          li
+                            span.ion-plus
+                            a href="#"  = faq.name.try(:capitalize)
+                            .faq-desc
+                              = sanitize faq.description
               #updates.tabs
                 ul
-                  li
-                    p.date 30-06-2017
-                    h3 New Project Launches in Bangalore
-                    .desc
-                      p Bacon spare ribs rump chuck turkey, ham hock capicola. Strip steak tongue kielbasa, boudin hamburger t-bone capicola turducken. Landjaeger meatloaf pork belly spare ribs chuck.
-                  li
-                    p.date 31-05-2018
-                    h3 Our First Office Start
-                    .desc
-                      p Corned beef leberkas fatback porchetta, strip steak salami turkey short loin flank ham hock landjaeger. Leberkas pork belly kevin shoulder filet mignon. Bacon spare ribs rump chuck turkey, ham hock capicola. Strip steak tongue kielbasa, boudin hamburger t-bone capicola turducken. Landjaeger meatloaf pork belly spare ribs chuck.
-                  li
-                    p.date 31-05-2018
-                    h3 We Touch the Million Dollar Milestone
-                    .desc
-                      p Corned beef leberkas fatback porchetta, strip steak salami turkey short loin flank ham hock landjaeger. Leberkas pork belly kevin shoulder filet mignon. Bacon spare ribs rump chuck turkey, ham hock capicola. Strip steak tongue kielbasa, boudin hamburger t-bone capicola turducken. Landjaeger meatloaf pork belly spare ribs chuck.
-                  li
-                    p.date 31-05-2018
-                    h3 Our Employee Reach 100 Person
-                    .desc
-                      p Sed cursus hendrerit odio, at aliquet leo hendrerit a. Nulla ultricies sagittis dolor, quis maximus magna consectetur eu. Cras pharetra aliquam fringilla. Integer placerat sapien dapibus varius luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in aliquam urna, ultrices lobortis lacus. Praesent mi enim, congue semper volutpat ut, bibendum tempor arcu.
+                  - @campaign.campaign_updates.each do |news|
+                    li
+                      p.date = news.created_at.try(:to_date)
+                      h3 = news.name.try(:capitalize)
+                      .desc
+                        p = sanitize news.description
               #comment.tabs.comment-area
                 h3.comments-title 1 Comment
                 ol.comments-list

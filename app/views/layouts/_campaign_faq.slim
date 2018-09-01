@@ -1,0 +1,16 @@
+= link_to 'Add FAQ', new_campaign_faq_path(params[:id]), class: 'btn btn-primary mt-3'
+
+table.table.mt-3
+  thead
+    tr
+      th scope="col"  Name
+      th scope='col'  Action
+  tbody
+    - @faqs.to_a.each do |faq|
+      tr
+        td = faq.name
+        td
+          = link_to edit_campaign_faq_path(params[:id], faq.id)
+            i.fa.fa-pencil aria-hidden="true" 
+          = link_to campaign_faq_path(params[:id], faq.id), method: :delete, data: {confirm: "Are you sure?"} 
+            i.fa.fa-trash aria-hidden="true" 

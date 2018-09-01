@@ -1,0 +1,16 @@
+main#main.site-main
+  .page-title.background-campaign
+    .container
+      h1 FAQ
+  .campaign-form.form-update
+    .container
+      = simple_form_for @faqs, url: campaign_faq_path(params[:campaign_id]), method: :put do |f|
+        .field
+          label Question
+          span.label-desc
+          = f.input :name, label: false
+        .field
+          label Answer
+          span.label-desc
+          = f.input :description, as: :text, input_html: { id: 'story', cols: 50, rows: 50}, label: false
+        = f.button :submit, 'Save',class: 'btn-primary'

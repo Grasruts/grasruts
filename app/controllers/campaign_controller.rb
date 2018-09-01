@@ -42,7 +42,6 @@ class CampaignController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @campaign = Campaign.find_by_id params[:id]
     if @campaign.status == 'online'
       @campaign.discard
@@ -61,6 +60,18 @@ class CampaignController < ApplicationController
   def kyc
     @user = current_user
     @campaign = Campaign.find_by(id: params[:id])
+    render 'campaign/edit'
+  end
+
+  def news
+    @campaign = Campaign.find_by(id: params[:id])
+    @news = @campaign.campaign_updates.kept
+    render 'campaign/edit'
+  end
+
+  def faq
+    @campaign = Campaign.find_by(id: params[:id])
+    @faqs = @campaign.faqs
     render 'campaign/edit'
   end
 

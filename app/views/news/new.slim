@@ -1,0 +1,16 @@
+main#main.site-main
+  .page-title.background-campaign
+    .container
+      h1 News
+  .campaign-form.form-update
+    .container
+      = simple_form_for @news, url: campaign_news_index_path(params[:campaign_id]), method: :post do |f|
+        .field
+          label Subject
+          span.label-desc
+          = f.input :name, label: false
+        .field
+          label Message
+          span.label-desc
+          = f.input :description, as: :text, input_html: { id: 'story', cols: 50, rows: 50}, label: false
+        = f.button :submit, 'Create & Send',class: 'btn-primary'

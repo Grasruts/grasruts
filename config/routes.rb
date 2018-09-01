@@ -12,10 +12,14 @@ Rails.application.routes.draw do
 
   resources :campaign do
     resources :reward
+    resources :news, except: [:index]
+    resources :faq, except: [:index]
   end
 
   get '/campaign/:id/rewards', to: 'campaign#rewards', as: 'campaign_rewards'
   get '/campaign/:id/kyc', to: 'campaign#kyc', as: 'campaign_kyc'
+  get '/campaign/:id/news', to: 'campaign#news', as: 'campaign_news_list'
+  get '/campaign/:id/faq', to: 'campaign#faq', as: 'campaign_faq_list'
   put '/campaign/:id/publish', to: 'campaign#publish', as: 'campaign_publish'
 
   post '/campaign/froala/upload_image', to: 'campaign#froala_upload_image', as: :froala_upload_image
