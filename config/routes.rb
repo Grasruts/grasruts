@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :reward
     resources :news, except: [:index]
     resources :faq, except: [:index]
+    resources :contribution
   end
 
   get '/campaign/:id/rewards', to: 'campaign#rewards', as: 'campaign_rewards'

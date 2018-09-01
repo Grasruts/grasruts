@@ -1,6 +1,8 @@
 class Reward < ApplicationRecord
   belongs_to :campaign
 
+  has_many :contributions, dependent: :destroy
+    
   validates :name, presence: { message: 'Reward name is required' }
   validates :description, presence: { message: 'Reward Description is required' }
   validates :price, numericality: { only_integer: true, message: 'Price should be a number' }, presence: { message: 'Price is required' }

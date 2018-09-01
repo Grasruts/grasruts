@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180901085229) do
+ActiveRecord::Schema.define(version: 20180901115843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,21 @@ ActiveRecord::Schema.define(version: 20180901085229) do
     t.index ["discarded_at"], name: "index_campaigns_on_discarded_at"
     t.index ["name"], name: "index_campaigns_on_name"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
+  end
+
+  create_table "contributions", force: :cascade do |t|
+    t.integer "amount"
+    t.integer "gateway"
+    t.boolean "anonymous"
+    t.integer "state", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "campaign_id"
+    t.bigint "reward_id"
+    t.index ["campaign_id"], name: "index_contributions_on_campaign_id"
+    t.index ["reward_id"], name: "index_contributions_on_reward_id"
+    t.index ["user_id"], name: "index_contributions_on_user_id"
   end
 
   create_table "faqs", force: :cascade do |t|
@@ -124,6 +139,9 @@ ActiveRecord::Schema.define(version: 20180901085229) do
   add_foreign_key "campaign_updates", "campaigns"
   add_foreign_key "campaigns", "campaign_categories"
   add_foreign_key "campaigns", "users"
+  add_foreign_key "contributions", "campaigns"
+  add_foreign_key "contributions", "rewards"
+  add_foreign_key "contributions", "users"
   add_foreign_key "faqs", "campaigns"
   add_foreign_key "rewards", "campaigns"
 end

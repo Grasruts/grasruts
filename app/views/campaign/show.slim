@@ -46,9 +46,10 @@ main#main.site-main
                       | days remaining
             - unless @campaign.status == 'draft'
               .button
-                form#priceForm.campaign-price.quantity action="#" 
-                  input min="0" name="s" placeholder="" type="number" value="1" /
-                  button.btn-primary type="submit"  Back this Campaign
+                = form_tag(campaign_contribution_index_path(@campaign.id), method: 'post', class: 'campaign-price quantity', id: 'priceForm') do
+                  = text_field(:contribution, :amount, required: true)
+                  = button_tag('Donate this campaign', class: 'btn-primary')
+                
                 - if false
                   a.btn-secondary href="#" 
                     i.fa.fa-heart aria-hidden="true" 

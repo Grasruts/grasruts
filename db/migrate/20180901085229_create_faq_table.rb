@@ -3,6 +3,7 @@ class CreateFaqTable < ActiveRecord::Migration[5.1]
     create_table :faqs do |t|
       t.string :name
       t.text :description
+      t.timestamps
     end
     add_reference :faqs, :campaign, foreign_key: true, index: true
   end
