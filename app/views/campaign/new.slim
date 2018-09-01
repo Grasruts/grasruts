@@ -40,12 +40,12 @@ main#main.site-main
     /! .statics
     .campaign-form.form-update.mt-5#start
       .container
-        = simple_form_for @campaign, url: campaign_index_path, method: :post do |f|
+        = simple_form_for @campaign, url: campaign_index_path, html: { novalidate: false }, method: :post do |f|
           .field
             label Name
             span.label-desc
               | Give a name that people will remember easily
-            = f.input :name, label: false
+            = f.input :name, label: false, required: true
           .field
             label Category
             span.label-desc

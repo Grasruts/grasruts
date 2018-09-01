@@ -1,5 +1,6 @@
 .start-form
-  = simple_form_for @campaign, url: campaign_path(section: params[:section]), method: :put do |f|
+  = simple_form_for(@campaign, url: campaign_path(section: params[:section]), method: :put,  wrapper: :vertical_input_group,
+       ) do |f|
     .field
       label Name
       span.label-desc
@@ -9,7 +10,9 @@
       label Project URL
       span.label-desc
         | Add a simple url name for your campaign
-      = f.input :uri, label: false
+      = f.input :uri, wrapper: :vertical_input_group,label: false do
+        span#input-group-addon https://grasruts.com/
+        = f.input_field :uri, class: "form-control"
     .field
       label Category
       span.label-desc

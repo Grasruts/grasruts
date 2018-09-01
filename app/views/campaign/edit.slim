@@ -28,6 +28,8 @@ main#main.site-main
               - if @campaign.status == 'draft'
                 li
                   = link_to 'Publish', campaign_publish_path(params[:id]), method: :put
+              li
+                = link_to 'Delete', campaign_path(@campaign.id), method: :delete
         .col-lg-9
           .account-content.dashboard
             h3.account-title = @campaign.name.capitalize

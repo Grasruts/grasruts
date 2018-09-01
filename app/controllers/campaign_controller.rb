@@ -1,10 +1,10 @@
 class CampaignController < ApplicationController
   before_action :authenticate_user!, except: %i[new froala_upload_image access_file show create]
-  before_action :set_initial_section, except: %i[create index new froala_upload_image access_file publish show]
+  before_action :set_initial_section, except: %i[create index new froala_upload_image access_file publish show destroy]
   before_action :is_owner_of_campaign?, except: %i[create index new froala_upload_image access_file show]
 
   def index
-    @campaigns = current_user.campaigns.order(created_at: :desc).includes(:campaign_category).decorate
+    @campaigns = current_user.campaigns.kept.order(created_at: :desc).includes(:campaign_category).decorate
   end
 
   def new
@@ -39,6 +39,17 @@ class CampaignController < ApplicationController
       flash[:error] = @campaign.errors.messages.values.flatten
     end
     redirect_to edit_campaign_path(@campaign.id, section: params[:section])
+  end
+
+  def destroy
+    binding.pry
+    @campaign = Campaign.find_by_id params[:id]
+    if @campaign.status == 'online'
+      @campaign.discard
+    else
+      @campaign.destroy
+    end
+    redirect_to campaign_index_path
   end
 
   def rewards
