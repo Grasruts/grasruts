@@ -1,4 +1,5 @@
 class Campaign < ApplicationRecord
+  include Discard::Model
   enum mode: %i[aon flexible]
   enum status: %i[draft pending online rejected success fail]
 

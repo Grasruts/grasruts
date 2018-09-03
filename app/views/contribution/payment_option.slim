@@ -1,0 +1,11 @@
+main#main.site-main
+  .page-title.background-campaign
+    .container
+      h1 Select Payment Gateway
+  .campaign-form.form-update
+    .container
+      = simple_form_for @contribution, url: campaign_contribution_path(params[:campaign_id], params[:id]), method: :put do |f|
+        .field
+          label Make donation anonymous?
+          = f.input :anonymous, as: :select, label: false, selected: 'false'
+        = f.button :submit, 'Save & Continue',class: 'btn-primary'

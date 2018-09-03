@@ -20,6 +20,15 @@ class User < ApplicationRecord
   validates :country, presence: { message: 'Country is required' }, on: :kyc
   validates :email, uniqueness: { message: 'Email must be unique' }, on: :kyc
 
+  validates :name, presence: { message: 'Your name is required' }, on: :contrib
+  validates :email, presence: { message: 'Your email is required' }, on: :contrib
+  validates :city, presence: { message: 'City is required' }, on: :contrib
+  validates :address, presence: { message: 'Address is required' }, on: :contrib
+  validates :contact_number, presence: { message: 'Contact number is required' }, on: :contrib
+  validates :country, presence: { message: 'Country is required' }, on: :contrib
+  validates :email, uniqueness: { message: 'Email must be unique' }, on: :contrib
+
+
   validates :avatar, attachment_presence: { message: 'Image is required' }, on: :kyc
   validates_with AttachmentPresenceValidator, attributes: :avatar, on: :kyc
   validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 1.megabytes, on: :kyc

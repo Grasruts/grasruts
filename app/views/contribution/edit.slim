@@ -1,0 +1,54 @@
+main#main.site-main
+  .page-title.background-campaign
+    .container
+      h1 Start a campaign
+  .campaign-form.form-update
+    .container
+      = simple_form_for @contribution, url: campaign_contribution_path(params[:campaign_id], params[:id]), method: :put do |f|
+        .field
+          label Make donation anonymous?
+          = f.input :anonymous, as: :select, label: false, selected: 'false'
+        = simple_fields_for @user do |o|
+          .field
+            label Name
+            span.label-desc
+              | Enter your name
+            = o.input :name, label: false, input_html: { name: 'user[name]' } 
+          .field
+            label Email
+            span.label-desc
+              | Enter your email (This information will not be public)
+            = o.input :email, label: false, input_html: { name: 'user[email]' } 
+          .row
+            .col-sm
+              .field
+                label Country
+                span.label-desc
+                  | Where do you live? (This information will not be public)
+                = o.country_select :country, label: false, input_html: { name: 'user[country]' } 
+            .col-sm
+              .field
+                label City
+                span.label-desc
+                  | Where do you live? (This information will not be public)
+                = o.input :city, label: false, input_html: { name: 'user[city]' } 
+            .col-sm
+              .field
+                label Address
+                span.label-desc
+                  | Where do you live? (This information will not be public)
+                = o.input :address, label: false, input_html: { name: 'user[address]' } 
+          .field
+            label Contact No
+            span.label-desc
+              | Your contact number (This information will not be public)
+            = o.input :contact_number, label: false, input_html: { name: 'user[contact_number]' } 
+          .field
+            label PAN
+            span.label-desc
+              | Your PAN number (This information will not be public)
+            = o.input :pan, label: false, input_html: { name: 'user[pan]' } 
+        
+
+        
+        = f.button :submit, 'Save & Continue',class: 'btn-primary'
