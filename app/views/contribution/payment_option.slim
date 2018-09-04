@@ -4,8 +4,21 @@ main#main.site-main
       h1 Select Payment Gateway
   .campaign-form.form-update
     .container
-      = simple_form_for @contribution, url: campaign_contribution_path(params[:campaign_id], params[:id]), method: :put do |f|
-        .field
-          label Make donation anonymous?
-          = f.input :anonymous, as: :select, label: false, selected: 'false'
+      .field
+        label Esewa
+        form action="https://ir-user.esewa.com.np/epay/main" method="POST" 
+          input name="tAmt" type="hidden" value="100" /
+          input name="amt" type="hidden" value="90" /
+          input name="txAmt" type="hidden" value="5" /
+          input name="psc" type="hidden" value="2" /
+          input name="pdc" type="hidden" value="3" /
+          input name="scd" type="hidden" value="GRASRUTS" /
+          input value='XYZ-1234 'name='pid' type='hidden'
+          input name="su" type="hidden" value="http://abc.com/success.html?q=su" /
+          input name="fu" type="hidden" value="http://abc.com/failure.html?q=fu" /
+          input type="submit" value="Pay with Esewa" /
+
+      .field
+        label Khalti
+      = simple_form_for @contribution, url: campaign_contribution_path(params[:campaign_id], params[:contribution_id]), method: :put do |f|
         = f.button :submit, 'Save & Continue',class: 'btn-primary'

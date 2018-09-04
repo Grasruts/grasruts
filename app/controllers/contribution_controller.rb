@@ -20,8 +20,7 @@ class ContributionController < ApplicationController
       flash[:error] = @user.errors.messages.values.flatten
       redirect_back(fallback_location: root_path)
     end
-    binding.pry
-    redirect_to campaign_contribution_payment_option_path(params[:campaign_id], @contribution.id)
+    redirect_to campaign_contribution_payment_option_path(params[:campaign_id], params[:id])
   end
 
   def payment_option
