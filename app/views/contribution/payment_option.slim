@@ -1,3 +1,5 @@
+= content_for :javascript_header do
+  script src="https://khalti.com/static/khalti-checkout.js" 
 main#main.site-main
   .page-title.background-campaign
     .container
@@ -20,5 +22,35 @@ main#main.site-main
 
       .field
         label Khalti
+        a.btn#khalti_payment href='javascript:'
+          | Khalti
+
       = simple_form_for @contribution, url: campaign_contribution_path(params[:campaign_id], params[:contribution_id]), method: :put do |f|
         = f.button :submit, 'Save & Continue',class: 'btn-primary'
+
+= content_for :javascript_footer do
+  javascript:
+    var config = {
+              "publicKey": "#{ENV['KHALTI_PUBLIC_KEY']}",
+              "productIdentity": "1234567890",
+              "productName": "Dragon",
+              "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+              "eventHandler": {
+                  onSuccess (payload) {
+                    $.ajax();
+                      console.log(payload);
+                  },
+                  onError (error) {
+                      console.log(error);
+                  },
+                  onClose () {
+                      console.log('widget is closing');
+                  }
+              }
+          };
+
+          var checkout = new KhaltiCheckout(config);
+          var btn = document.getElementById("khalti_payment");
+          btn.onclick = function () {
+              checkout.show({amount: 1000});
+          }

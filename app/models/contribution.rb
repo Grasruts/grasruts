@@ -4,5 +4,5 @@ class Contribution < ApplicationRecord
   belongs_to :reward, optional: true
 
   enum state: %i[started success failed]
-  enum gateway: %i[esewa khalti cash_pickup bank_deposit thamel_remit]
+  enum gateway: %i[esewa khalti cash_pickup]
 end

@@ -9,6 +9,7 @@ html[lang="en"]
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
+    = yield :javascript_header
   / body.home.campaign-detail
   body class=("#{yield (:body_class)}") 
     #wrapper
@@ -73,19 +74,13 @@ html[lang="en"]
                   h3 Our company
                   ul
                     li
-                      a href="#"  What is Startup Idea
-                    li
                       a href="#"  About us
                     li
                       a href="#"  How It Works
                     li
-                      a href="#"  What Is This
-                    li
                       a href="#"  Jobs
                     li
                       a href="#"  Press
-                    li
-                      a href="#"  Starts
               .col-lg-3.col-sm-4.col-4
                 .footer-menu-item
                   h3 Campaign
@@ -93,13 +88,7 @@ html[lang="en"]
                     li
                       a href="#"  Start Your Campaign
                     li
-                      a href="#"  Pricing Campaign
-                    li
-                      a href="#"  Campaign Support
-                    li
                       a href="#"  Trust &amp; Safety
-                    li
-                      a href="#"  Support
                     li
                       a href="#"  Terms of Use
                     li
@@ -116,12 +105,6 @@ html[lang="en"]
                       a href="#"  Film &amp; Video
                     li
                       a href="#"  Food
-                    li
-                      a href="#"  Book
-                    li
-                      a href="#"  Games
-                    li
-                      a href="#"  Technology
               .col-lg-3.col-sm-12.col-12
                 .footer-menu-item.newsletter
                   h3 Newsletter
@@ -142,12 +125,6 @@ html[lang="en"]
                       li.instagram
                         a href="../../www.instagram.com/default.htm" target="_Blank" 
                           i.fa.fa-instagram aria-hidden="true" 
-                      li.google
-                        a href="../../www.google.com/default.htm" target="_Blank" 
-                          i.fa.fa-google-plus aria-hidden="true" 
-                      li.youtube
-                        a href="../../www.youtube.com/default.htm" target="_Blank" 
-                          i.fa.fa-youtube aria-hidden="true" 
             .footer-top
               p.payment-img
                 = image_tag 'assets/payment-methods.png'
@@ -171,6 +148,8 @@ html[lang="en"]
               | Back to top
               span.ion-android-arrow-up
         #fb-root
+
+= yield :javascript_footer
 javascript:
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
