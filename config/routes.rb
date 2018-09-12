@@ -16,8 +16,8 @@ Rails.application.routes.draw do
     resources :faq, except: [:index]
     resources :contribution do
       get 'payment_option', to: 'contribution#payment_option', as: 'payment_option'
+      post 'khalti_verification', to: 'contribution#khalti_verification', as: 'khalti_verification'
     end
-
   end
 
   get '/campaign/:id/rewards', to: 'campaign#rewards', as: 'campaign_rewards'

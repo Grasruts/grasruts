@@ -27,6 +27,9 @@ class ContributionController < ApplicationController
     @contribution = Contribution.find_by_id(params[:contribution_id])
   end
 
+  def khalti_verification
+  end
+
 
   private
 
@@ -36,5 +39,9 @@ class ContributionController < ApplicationController
 
   def user_param
     params.require(:user).permit(:name, :email, :country, :city, :address, :contact_number, :pan)
+  end
+
+  def payment_param
+    params
   end
 end
