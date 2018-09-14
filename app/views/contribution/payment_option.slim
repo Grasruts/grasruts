@@ -24,6 +24,10 @@ main#main.site-main
         label Khalti
         a.btn#khalti_payment href='javascript:'
           | Khalti
+      .field
+        label Home Pickup
+        a.btn#home_pickup href='javascript:'
+          | Home Pickup
 
       = simple_form_for @contribution, url: campaign_contribution_path(params[:campaign_id], params[:contribution_id]), method: :put do |f|
         = f.button :submit, 'Save & Continue',class: 'btn-primary'
@@ -32,9 +36,9 @@ main#main.site-main
   javascript:
     var config = {
               "publicKey": "#{ENV['KHALTI_PUBLIC_KEY']}",
-              "productIdentity": "1234567890",
-              "productName": "Dragon",
-              "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+              "productIdentity": "#{@campaign.uri}",
+              "productName": "#{@campaign.name}",
+              "productUrl": "https://www.grasruts.com/#{@campaign.uri}",
               "eventHandler": {
                 onSuccess (payload) {
                   $.ajax({
@@ -42,7 +46,7 @@ main#main.site-main
                     url: "#{campaign_contribution_khalti_verification_url params[:campaign_id], params[:contribution_id]}",
                     data: payload,
                     success: function(data){
-                      // window.location = "project_contribution_url(params[:project_id],params[:id])" ;
+                      window.location = "#{campaign_contribution_payment_success_path(params[:campaign_id], params[:contribution_id])}" ;
                     }
                   });
                 },
@@ -55,5 +59,5 @@ main#main.site-main
           var checkout = new KhaltiCheckout(config);
           var btn = document.getElementById("khalti_payment");
           btn.onclick = function () {
-              checkout.show({amount: 1000});
+              checkout.show({amount: parseInt("#{@contribution.amount * 100}")});
           }

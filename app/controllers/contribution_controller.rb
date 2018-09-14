@@ -24,6 +24,7 @@ class ContributionController < ApplicationController
   end
 
   def payment_option
+    @campaign = Campaign.find_by_id params[:campaign_id]
     @contribution = Contribution.find_by_id(params[:contribution_id])
   end
 
@@ -37,6 +38,7 @@ class ContributionController < ApplicationController
     request = Net::HTTP::Post.new(uri.request_uri, headers)
     request.set_form_data('token' => params[:token], 'amount' => params[:amount])
     response = https.request(request)
+    
     contribution = Contribution.find_by_id params[:contribution_id]
     payment = contribution.payments.new
     payment.raw = JSON.parse(response.body)
@@ -44,6 +46,10 @@ class ContributionController < ApplicationController
     payment.ref_id = params[:token]
     payment.user_id = current_user.id
     payment.save!
+  end
+
+  def payment_success
+    @campaign = Campaign.find_by_id params[:campaign_id]
   end
 
 

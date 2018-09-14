@@ -1,0 +1,23 @@
+main#main.site-main
+  .page-title.background-cart
+    .container
+      h1 Checkout
+      .breadcrumbs
+        ul
+          li
+            a href="index.html"  Home
+            span /
+          li Checkout
+      /! .breadcrumbs
+  /! .page-title
+  .container
+    .main-content
+      .billing-detail
+        form#billingForm.clearfix action="s" method="POST" 
+          .row
+            .col-lg-12
+              .jumbotron
+                h1.text-center
+                  |  #{current_user.name.titleize}, you are amazing. Thank you for your contribution.
+                .text-center
+                  a.btn.btn-primary.btn-lg href=("#{project_by_slug_path(@campaign.uri)}") role="button"  Back To Campaign
