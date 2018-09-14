@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180901115843) do
+ActiveRecord::Schema.define(version: 20180911142338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,18 @@ ActiveRecord::Schema.define(version: 20180901115843) do
     t.index ["campaign_id"], name: "index_faqs_on_campaign_id"
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.jsonb "raw", default: {}
+    t.integer "amount"
+    t.string "ref_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "contribution_id"
+    t.bigint "user_id"
+    t.index ["contribution_id"], name: "index_payments_on_contribution_id"
+    t.index ["user_id"], name: "index_payments_on_user_id"
+  end
+
   create_table "rewards", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -143,5 +155,7 @@ ActiveRecord::Schema.define(version: 20180901115843) do
   add_foreign_key "contributions", "rewards"
   add_foreign_key "contributions", "users"
   add_foreign_key "faqs", "campaigns"
+  add_foreign_key "payments", "contributions"
+  add_foreign_key "payments", "users"
   add_foreign_key "rewards", "campaigns"
 end

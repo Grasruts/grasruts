@@ -37,13 +37,12 @@ main#main.site-main
               "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
               "eventHandler": {
                 onSuccess (payload) {
-                  console.log(payload);
                   $.ajax({
                     type: "POST",
                     url: "#{campaign_contribution_khalti_verification_url params[:campaign_id], params[:contribution_id]}",
                     data: payload,
                     success: function(data){
-                        // window.location = "project_contribution_url(params[:project_id],params[:id])" ;
+                      // window.location = "project_contribution_url(params[:project_id],params[:id])" ;
                     }
                   });
                 },
