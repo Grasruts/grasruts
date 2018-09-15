@@ -26,11 +26,21 @@ main#main.site-main
           | Khalti
       .field
         label Home Pickup
-        a.btn#home_pickup href='javascript:'
-          | Home Pickup
+        button.btn.btn-primary data-target="#homePickup" data-toggle="modal" type="button" 
+          | Launch demo modal
 
-      = simple_form_for @contribution, url: campaign_contribution_path(params[:campaign_id], params[:contribution_id]), method: :put do |f|
-        = f.button :submit, 'Save & Continue',class: 'btn-primary'
+#homePickup.modal.fade aria-hidden="true" aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1" 
+  .modal-dialog role="document" 
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title Home Pickup
+        button.close aria-label="Close" data-dismiss="modal" type="button" 
+          span aria-hidden="true"  &times;
+      .modal-body
+        | We will call you on your number #{current_user.contact_number}
+      .modal-footer
+        button.btn.btn-primary type="button"  Continue
+
 
 = content_for :javascript_footer do
   javascript:
