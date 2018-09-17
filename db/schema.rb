@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180911142338) do
+ActiveRecord::Schema.define(version: 20180917122632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pgcrypto"
 
   create_table "campaign_categories", force: :cascade do |t|
     t.string "name"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
   end
 
   create_table "campaign_updates", force: :cascade do |t|
@@ -26,6 +28,7 @@ ActiveRecord::Schema.define(version: 20180911142338) do
     t.datetime "updated_at", null: false
     t.bigint "campaign_id"
     t.datetime "discarded_at"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["campaign_id"], name: "index_campaign_updates_on_campaign_id"
     t.index ["discarded_at"], name: "index_campaign_updates_on_discarded_at"
   end
@@ -55,6 +58,7 @@ ActiveRecord::Schema.define(version: 20180911142338) do
     t.string "video_id"
     t.datetime "published_date"
     t.bigint "campaign_category_id"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["campaign_category_id"], name: "index_campaigns_on_campaign_category_id"
     t.index ["discarded_at"], name: "index_campaigns_on_discarded_at"
     t.index ["name"], name: "index_campaigns_on_name"
@@ -71,6 +75,7 @@ ActiveRecord::Schema.define(version: 20180911142338) do
     t.bigint "user_id"
     t.bigint "campaign_id"
     t.bigint "reward_id"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["campaign_id"], name: "index_contributions_on_campaign_id"
     t.index ["reward_id"], name: "index_contributions_on_reward_id"
     t.index ["user_id"], name: "index_contributions_on_user_id"
@@ -80,6 +85,7 @@ ActiveRecord::Schema.define(version: 20180911142338) do
     t.string "name"
     t.text "description"
     t.bigint "campaign_id"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["campaign_id"], name: "index_faqs_on_campaign_id"
   end
 
@@ -91,6 +97,7 @@ ActiveRecord::Schema.define(version: 20180911142338) do
     t.datetime "updated_at", null: false
     t.bigint "contribution_id"
     t.bigint "user_id"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["contribution_id"], name: "index_payments_on_contribution_id"
     t.index ["user_id"], name: "index_payments_on_user_id"
   end
@@ -106,6 +113,7 @@ ActiveRecord::Schema.define(version: 20180911142338) do
     t.bigint "campaign_id"
     t.boolean "limited"
     t.integer "price"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["campaign_id"], name: "index_rewards_on_campaign_id"
   end
 
@@ -143,6 +151,7 @@ ActiveRecord::Schema.define(version: 20180911142338) do
     t.string "facebook"
     t.string "twitter"
     t.boolean "admin"
+    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
