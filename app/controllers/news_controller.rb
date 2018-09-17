@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index
     @campaign = current_user.campaigns.find_by_id(params[:campaign_id])
     @news = @campaign.campaign_updates.kept

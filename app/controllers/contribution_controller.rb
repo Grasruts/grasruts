@@ -1,4 +1,5 @@
 class ContributionController < ApplicationController
+  before_action :authenticate_user!
   
   def create
     param = contribution_param.merge(campaign_id: params[:campaign_id])

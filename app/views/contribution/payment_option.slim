@@ -39,8 +39,8 @@ main#main.site-main
       .modal-body
         | We will call you on your number #{current_user.contact_number}
       .modal-footer
-        button.btn.btn-primary type="button"  Continue
-
+        = form_tag(campaign_contribution_home_pickup_index_path(params[:campaign_id], params[:contribution_id]))
+          = submit_tag('Continue', class: 'btn btn-primary')
 
 = content_for :javascript_footer do
   javascript:

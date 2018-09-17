@@ -1,5 +1,6 @@
 class FaqController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def new
     @faqs = Faq.new
   end
