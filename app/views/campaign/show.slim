@@ -20,9 +20,9 @@ main#main.site-main
             .campaign-author.clearfix
               .author-profile
                 a.author-icon href="#"
-                  = image_tag current_user.avatar.url(:thumb) 
+                  = image_tag @campaign.user.avatar.url(:thumb) 
                 | by 
-                a.author-name href="#"  = current_user.name.try(:capitalize)
+                a.author-name href=("#{user_path(@campaign.user.uuid)}")  = @campaign.user.name.try(:capitalize)
               .author-address
                 span.ion-location 
                 = @campaign.location.try(:capitalize)

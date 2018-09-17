@@ -16,14 +16,14 @@ main#main.site-main
                   .campaign-box
                     = campaign.campaign_category.name.try(:capitalize)
                     h3
-                      = link_to campaign.name.try(:capitalize), edit_campaign_path(campaign.id)
+                      = link_to campaign.name.try(:capitalize), edit_campaign_path(campaign.uuid)
                     .campaign-description
                       = campaign.card_description
                     .campaign-author
-                      a.author-icon href="#" 
+                      a.author-icon href=("#{user_path(current_user.uuid)}") 
                         = image_tag current_user.avatar.url(:thumb)
                       | by 
-                      = link_to current_user.name.try(:capitalize), '#'
+                      = link_to current_user.name.try(:capitalize), user_path(current_user.uuid)
                     .process
                       .raised
                         span

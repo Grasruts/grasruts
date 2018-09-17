@@ -3,7 +3,7 @@ class UserController < ApplicationController
   before_action :check_current_user, except: [:show]
 
   def edit
-    @user = User.find_by_id params[:id]
+    @user = User.find_by_uuid params[:id]
   end
 
   def update
@@ -17,7 +17,7 @@ class UserController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id params[:id]
+    @user = User.find_by_uuid params[:id]
   end
 
   def destroy; end
@@ -25,7 +25,7 @@ class UserController < ApplicationController
   private
 
   def check_current_user
-    unless current_user.id == params[:id].to_i
+    unless current_user.uuid == params[:id]
       redirect_back(fallback_location: root_path)
     end
   end

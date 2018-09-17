@@ -26,4 +26,4 @@ main#main.site-main
                     .profile-text
                       p = sanitize @user.about
             - if current_user.id == @user.id          
-              = link_to 'Edit Profile', edit_user_path(current_user.id), class: 'btn-primary'
+              = link_to 'Edit Profile', edit_user_path(current_user.uuid), class: 'btn-primary'

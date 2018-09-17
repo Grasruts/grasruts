@@ -27,18 +27,18 @@ class CampaignController < ApplicationController
   end
 
   def edit
-    @campaign = Campaign.find_by id: params[:id]
+    @campaign = Campaign.find_by_uuid params[:id]
     @campaign.update(user_id: current_user.id)
   end
 
   def update
-    @campaign = Campaign.find params[:id]
+    @campaign = Campaign.find_by_uuid params[:id]
     @campaign.attributes = campaign_param
     @campaign.save(context: params[:section].to_sym)
     unless @campaign.errors.messages.empty?
       flash[:error] = @campaign.errors.messages.values.flatten
     end
-    redirect_to edit_campaign_path(@campaign.id, section: params[:section])
+    redirect_to edit_campaign_path(@campaign.uuid, section: params[:section])
   end
 
   def destroy
@@ -52,7 +52,7 @@ class CampaignController < ApplicationController
   end
 
   def rewards
-    @campaign = Campaign.find_by(id: params[:id])
+    @campaign = Campaign.find_by_uuid params[:id]
     @rewards = @campaign.try(:rewards)
     render 'campaign/edit'
   end

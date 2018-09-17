@@ -6,7 +6,7 @@ class RewardController < ApplicationController
   end
 
   def create
-    @campaign = Campaign.find params[:campaign_id]
+    @campaign = Campaign.find_by_uuid params[:campaign_id]
     reward_params = reward_param.merge(shipping_date: Date.new(reward_param[:year].to_i, reward_param[:month].to_i).to_time).except(:month, :year)
     @reward = @campaign.rewards.create(reward_params)
     unless @reward.errors.messages.empty?
@@ -17,7 +17,7 @@ class RewardController < ApplicationController
   end
 
   def edit
-    @reward = Campaign.find(params[:campaign_id]).rewards.find(params[:id])
+    @reward = Campaign.find_by_uuid(params[:campaign_id]).rewards.find_by_uuid(params[:id])
   end
 
   def update

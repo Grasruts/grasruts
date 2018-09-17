@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
   
   def index
     @campaign = current_user.campaigns.find_by_id(params[:campaign_id])

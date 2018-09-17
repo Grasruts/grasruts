@@ -1,5 +1,5 @@
 .start-form
-  = simple_form_for @user, html: {multipart: true}, url: user_path(current_user.id,section: params[:section]), method: :put do |f|
+  = simple_form_for @user, html: {multipart: true}, url: user_path(current_user.uuid,section: params[:section]), method: :put do |f|
     .field
       label for="uploadfile"  User Image
       span.label-desc
