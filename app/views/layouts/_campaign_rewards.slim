@@ -39,7 +39,7 @@ table.table.mt-3
         td = reward.price
         td = reward.shipping_date
         td
-          = link_to edit_campaign_reward_path(params[:id], reward.id)
+          = link_to edit_campaign_reward_path(params[:id], reward.uuid)
             i.fa.fa-pencil aria-hidden="true" 
-          = link_to campaign_reward_path(params[:id], reward.id), method: :delete, data: {confirm: "Are you sure?"} 
+          = link_to campaign_reward_path(params[:id], reward.uuid), method: :delete, data: {confirm: "Are you sure?"} 
             i.fa.fa-trash aria-hidden="true" 

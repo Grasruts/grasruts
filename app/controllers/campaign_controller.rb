@@ -21,9 +21,9 @@ class CampaignController < ApplicationController
       @campaign = current_user.campaigns.create(name: params[:campaign][:name], campaign_category_id: params[:campaign][:campaign_category_id], uri: generate_code(10))
     else
       @campaign = Campaign.create(name: params[:campaign][:name], campaign_category_id: params[:campaign][:campaign_category_id], uri: generate_code(10))
-      session[:campaign_id] = @campaign.id
+      session[:campaign_id] = @campaign.uuid
     end
-    redirect_to edit_campaign_path(@campaign.id)
+    redirect_to edit_campaign_path(@campaign.uuid)
   end
 
   def edit
@@ -42,7 +42,7 @@ class CampaignController < ApplicationController
   end
 
   def destroy
-    @campaign = Campaign.find_by_id params[:id]
+    @campaign = Campaign.find_by_uuid params[:id]
     if @campaign.status == 'online'
       @campaign.discard
     else
@@ -59,18 +59,18 @@ class CampaignController < ApplicationController
 
   def kyc
     @user = current_user
-    @campaign = Campaign.find_by(id: params[:id])
+    @campaign = Campaign.find_by_uuid params[:id]
     render 'campaign/edit'
   end
 
   def news
-    @campaign = Campaign.find_by(id: params[:id])
+    @campaign = Campaign.find_by_uuid params[:id]
     @news = @campaign.campaign_updates.kept
     render 'campaign/edit'
   end
 
   def faq
-    @campaign = Campaign.find_by(id: params[:id])
+    @campaign = Campaign.find_by_uuid params[:id]
     @faqs = @campaign.faqs
     render 'campaign/edit'
   end
@@ -95,7 +95,7 @@ class CampaignController < ApplicationController
   end
 
   def publish
-    @campaign = Campaign.find_by id: params[:id]
+    @campaign = Campaign.find_by_uuid params[:id]
     @campaign.status = Campaign.statuses[:online]
     @campaign.published_date = Time.now
     @campaign.save(context: %i[basic financing description project_card publish])

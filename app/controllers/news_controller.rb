@@ -2,7 +2,7 @@ class NewsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   
   def index
-    @campaign = current_user.campaigns.find_by_id(params[:campaign_id])
+    @campaign = current_user.campaigns.find_by_uuid(params[:campaign_id])
     @news = @campaign.campaign_updates.kept
   end
 
@@ -11,7 +11,7 @@ class NewsController < ApplicationController
   end
 
   def create
-    @campaign = Campaign.find_by_id params[:campaign_id]
+    @campaign = Campaign.find_by_uuid params[:campaign_id]
     @news = @campaign.campaign_updates.create(news_params)
     unless @news.errors.messages.empty?
       flash[:error] = @news.errors.messages.values.flatten
@@ -21,11 +21,11 @@ class NewsController < ApplicationController
   end
 
   def edit
-    @news = CampaignUpdate.find_by_id params[:id]
+    @news = CampaignUpdate.find_by_uuid params[:id]
   end
 
   def update
-    @news = CampaignUpdate.find_by_id params[:id]
+    @news = CampaignUpdate.find_by_uuid params[:id]
     @news.update(news_params)
     unless @news.errors.messages.empty?
       flash[:error] = @news.errors.messages.values.flatten
@@ -35,7 +35,7 @@ class NewsController < ApplicationController
   end
 
   def destroy
-   @news = CampaignUpdate.find_by_id params[:id]
+   @news = CampaignUpdate.find_by_uuid params[:id]
    @news.discard
    redirect_back(fallback_location: root_path)
   end

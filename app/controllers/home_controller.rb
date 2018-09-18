@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     if session[:campaign_id] && current_user
-      campaign = Campaign.find_by_id session[:campaign_id]
+      campaign = Campaign.find_by_uuid session[:campaign_id]
       campaign.user_id = current_user.id
       campaign.save
       session[:campaign_id] = nil

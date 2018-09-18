@@ -10,7 +10,7 @@ table.table.mt-3
       tr
         td = faq.name
         td
-          = link_to edit_campaign_faq_path(params[:id], faq.id)
+          = link_to edit_campaign_faq_path(params[:id], faq.uuid)
             i.fa.fa-pencil aria-hidden="true" 
-          = link_to campaign_faq_path(params[:id], faq.id), method: :delete, data: {confirm: "Are you sure?"} 
+          = link_to campaign_faq_path(params[:id], faq.uuid), method: :delete, data: {confirm: "Are you sure?"} 
             i.fa.fa-trash aria-hidden="true" 

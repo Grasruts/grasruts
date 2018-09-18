@@ -1,5 +1,6 @@
 class RewardController < ApplicationController
   before_action :is_owner_of_campaign?
+  before_action :authenticate_user!
 
   def new
     @reward = Reward.new
@@ -21,7 +22,7 @@ class RewardController < ApplicationController
   end
 
   def update
-    @reward = Campaign.find(params[:campaign_id]).rewards.find(params[:id])
+    @reward = Campaign.find_by_uuid(params[:campaign_id]).rewards.find_by_uuid(params[:id])
     reward_params = reward_param.merge(shipping_date: Date.new(reward_param[:year].to_i, reward_param[:month].to_i).to_time).except(:month, :year)
     @reward.update(reward_params)
     unless @reward.errors.messages.empty?
@@ -32,7 +33,7 @@ class RewardController < ApplicationController
   end
 
   def destroy
-    @reward = Campaign.find(params[:campaign_id]).rewards.find(params[:id])
+    @reward = Campaign.find_by_uuid(params[:campaign_id]).rewards.find_by_uuid(params[:id])
     @reward.destroy
     redirect_to campaign_rewards_path(params[:campaign_id], section: 'rewards')
   end

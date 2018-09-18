@@ -4,16 +4,16 @@ class ContributionController < ApplicationController
   def create
     param = contribution_param.merge(campaign_id: params[:campaign_id])
     @contribution = current_user.contributions.create(param)
-    redirect_to edit_campaign_contribution_path(params[:campaign_id], @contribution.id)
+    redirect_to edit_campaign_contribution_path(params[:campaign_id], @contribution.uuid)
   end
 
   def edit
-    @contribution = Contribution.find_by_id params[:id]
+    @contribution = Contribution.find_by_uuid params[:id]
     @user = current_user
   end
 
   def update
-    @contribution = Contribution.find_by_id(params[:id]).update(contribution_param)
+    @contribution = Contribution.find_by_uuid(params[:id]).update(contribution_param)
     @user = current_user
     @user.attributes = user_param
     @user.save(context: :contrib)
@@ -25,8 +25,8 @@ class ContributionController < ApplicationController
   end
 
   def payment_option
-    @campaign = Campaign.find_by_id params[:campaign_id]
-    @contribution = Contribution.find_by_id(params[:contribution_id])
+    @campaign = Campaign.find_by_uuid params[:campaign_id]
+    @contribution = Contribution.find_by_uuid(params[:contribution_id])
   end
 
   def khalti_verification
@@ -40,7 +40,7 @@ class ContributionController < ApplicationController
     request.set_form_data('token' => params[:token], 'amount' => params[:amount])
     response = https.request(request)
     
-    contribution = Contribution.find_by_id params[:contribution_id]
+    contribution = Contribution.find_by_uuid params[:contribution_id]
     payment = contribution.payments.new
     payment.raw = JSON.parse(response.body)
     payment.amount = params[:amount]
@@ -50,7 +50,7 @@ class ContributionController < ApplicationController
   end
 
   def payment_success
-    @campaign = Campaign.find_by_id params[:campaign_id]
+    @campaign = Campaign.find_by_uuid params[:campaign_id]
   end
 
 
@@ -62,9 +62,5 @@ class ContributionController < ApplicationController
 
   def user_param
     params.require(:user).permit(:name, :email, :country, :city, :address, :contact_number, :pan)
-  end
-
-  def payment_param
-    params
   end
 end
