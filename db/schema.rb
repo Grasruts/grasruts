@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180917122632) do
+ActiveRecord::Schema.define(version: 20180918010413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 20180917122632) do
     t.integer "amount"
     t.integer "gateway"
     t.boolean "anonymous"
-    t.integer "state", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -98,6 +97,7 @@ ActiveRecord::Schema.define(version: 20180917122632) do
     t.bigint "contribution_id"
     t.bigint "user_id"
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.integer "state"
     t.index ["contribution_id"], name: "index_payments_on_contribution_id"
     t.index ["user_id"], name: "index_payments_on_user_id"
   end
