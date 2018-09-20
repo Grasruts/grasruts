@@ -4,6 +4,8 @@ class HomePickupController < ApplicationController
 
   def create
     contribution = Contribution.find_by_uuid params[:contribution_id]
+    contribution.gateway = Contribution.gateways['cash_pickup']
+    contribution.save
     payment = contribution.payments.new
     payment.amount = contribution.amount
     payment.ref_id = SecureRandom.uuid
