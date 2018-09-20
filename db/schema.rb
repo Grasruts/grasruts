@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180918010413) do
+ActiveRecord::Schema.define(version: 20180920140105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20180918010413) do
   create_table "campaign_categories", force: :cascade do |t|
     t.string "name"
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.datetime "created_at", default: "2018-09-20 14:08:05", null: false
+    t.datetime "updated_at", default: "2018-09-20 14:08:05", null: false
   end
 
   create_table "campaign_updates", force: :cascade do |t|
@@ -85,6 +87,8 @@ ActiveRecord::Schema.define(version: 20180918010413) do
     t.text "description"
     t.bigint "campaign_id"
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.datetime "created_at", default: "2018-09-20 14:08:05", null: false
+    t.datetime "updated_at", default: "2018-09-20 14:08:05", null: false
     t.index ["campaign_id"], name: "index_faqs_on_campaign_id"
   end
 

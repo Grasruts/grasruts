@@ -2,7 +2,8 @@ class ContributionController < ApplicationController
   before_action :authenticate_user!
   
   def create
-    param = contribution_param.merge(campaign_id: params[:campaign_id])
+    @campaign = Campaign.find_by_uuid params[:campaign_id]
+    param = contribution_param.merge(campaign_id: @campaign.id)
     @contribution = current_user.contributions.create(param)
     redirect_to edit_campaign_contribution_path(params[:campaign_id], @contribution.uuid)
   end

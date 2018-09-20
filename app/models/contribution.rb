@@ -5,4 +5,11 @@ class Contribution < ApplicationRecord
   has_many :payments
   enum state: %i[pending success failed]
   enum gateway: %i[esewa khalti cash_pickup]
+
+  before_validation :set_uuid, on: :create
+
+  def set_uuid
+    self.uuid = SecureRandom.uuid
+  end
+
 end
