@@ -28,16 +28,16 @@ main#main.site-main
                 = @campaign.location.try(:capitalize)
             .process
               .raised
-                span
+                span style=("width: #{(@total_contributions.to_f/@campaign.goal.to_f)*100}%")
               .process-info
                 .process-funded
                   span = number_with_precision(@campaign.goal, :precision => 2, :delimiter => ',')
                   | funding goal
                 .process-pledged
-                  span> $8100
+                  span = number_with_precision(@total_contributions, :precision => 2, :delimiter => ',')
                   | pledged
                 .process-time
-                  span> 37
+                  span = @backers.size
                   | backers
                 .process-time
                   - unless @campaign.status == 'draft'

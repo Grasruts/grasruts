@@ -2,7 +2,7 @@ class Contribution < ApplicationRecord
   belongs_to :campaign
   belongs_to :user
   belongs_to :reward, optional: true
-  has_many :payments
+  has_one :payment
   enum state: %i[pending success failed]
   enum gateway: %i[esewa khalti cash_pickup]
 
