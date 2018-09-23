@@ -23,13 +23,13 @@ main#main.site-main
                       = link_to current_user.name.try(:capitalize), user_path(current_user.uuid)
                     .process
                       .raised
-                        span
+                        span=("width: #{(campaign.total_contributions.to_f/campaign.goal.to_f)*100}%")
                       .process-info
                         .process-pledged
-                          span> $630
+                          span = campaign.total_contributions
                           | Collected
                         .process-funded
-                          span> 26%
+                          span = "#{number_with_precision((campaign.total_contributions.to_f/campaign.goal.to_f)*100,precision: 2)}%"
                           | Funded
                         .process-time
                           span = campaign.campaign_status

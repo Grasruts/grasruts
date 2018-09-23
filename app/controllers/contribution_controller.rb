@@ -20,7 +20,7 @@ class ContributionController < ApplicationController
     @user.save(context: :contrib)
     unless @user.errors.messages.empty?
       flash[:error] = @user.errors.messages.values.flatten
-      redirect_back(fallback_location: root_path)
+      return redirect_back(fallback_location: root_path)
     end
     redirect_to campaign_contribution_payment_option_path(params[:campaign_id], params[:id])
   end

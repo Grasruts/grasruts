@@ -5,16 +5,16 @@ main#main.site-main
     .container
       .field
         label Esewa
-        form action="https://ir-user.esewa.com.np/epay/main" method="POST" 
-          input name="tAmt" type="hidden" value="100" /
-          input name="amt" type="hidden" value="90" /
-          input name="txAmt" type="hidden" value="5" /
-          input name="psc" type="hidden" value="2" /
-          input name="pdc" type="hidden" value="3" /
-          input name="scd" type="hidden" value="GRASRUTS" /
-          input value='XYZ-1234 'name='pid' type='hidden'
-          input name="su" type="hidden" value="http://abc.com/success.html?q=su" /
-          input name="fu" type="hidden" value="http://abc.com/failure.html?q=fu" /
+        form action="#{ENV['ESEWA_API_URL']}" method="POST" 
+          input name="tAmt" type="hidden" value="#{@contribution.amount}" /
+          input name="amt" type="hidden" value="#{{@contribution.amount}}" /
+          input name="txAmt" type="hidden" value="0" /
+          input name="psc" type="hidden" value="0" /
+          input name="pdc" type="hidden" value="0" /
+          input name="scd" type="hidden" value="#{ENV['ESEWA_SERVICE_CODE']}" /
+          input value="#{@campaign.uri}-#{Time.now.to_i}"  name='pid' type='hidden'
+          input name="su" type="hidden" value="#{campaign_contribution_esewa_success_url(params[:campaign_id], params[:contribution_id])}" /
+          input name="fu" type="hidden" value="#{campaign_contribution_esewa_failure_url(params[:campaign_id], params[:contribution_id])}" /
           input type="submit" value="Pay with Esewa" /
 
       .field

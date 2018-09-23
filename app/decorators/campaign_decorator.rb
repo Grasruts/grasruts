@@ -18,4 +18,9 @@ class CampaignDecorator < Draper::Decorator
       days_remaining
     end
   end
+
+  def total_contributions
+    @contributions = object.contributions.where(state: 'success')
+    @total_contributions = @contributions.sum(:amount)
+  end
 end

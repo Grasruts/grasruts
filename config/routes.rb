@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :contribution do
       get 'payment_option', to: 'contribution#payment_option', as: 'payment_option'
       post 'khalti_verification', to: 'contribution#khalti_verification', as: 'khalti_verification'
+      get 'esewa_success', to: 'esewa#success', as: 'esewa_success'
+      get 'esewa_failure', to: 'esewa#failure', as: 'esewa_failure'
       resources :home_pickup
       get 'payment_success', to: 'contribution#payment_success', as: 'payment_success'
     end
