@@ -13,7 +13,7 @@ class CampaignDecorator < Draper::Decorator
 
   def campaign_status
     unless object.status == 'draft'
-      days_remaining = (object.published_date.to_date + 60 - Date.today).to_i
+      days_remaining = (object.published_date.to_date + object.deadline - Date.today).to_i
       return object.status.capitalize if days_remaining == 0
       days_remaining
     end

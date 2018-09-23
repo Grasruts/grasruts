@@ -1,8 +1,5 @@
 main#main.site-main
-  .page-title.background-campaign
-    .container
-      h1 FAQ
-  .campaign-form.form-update
+  .campaign-form.form-update.mt-5
     .container
       = simple_form_for @faqs, url: campaign_faq_path(params[:campaign_id]), method: :put do |f|
         .field

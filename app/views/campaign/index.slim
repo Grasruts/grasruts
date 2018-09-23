@@ -1,8 +1,5 @@
 main#main.site-main
-  .page-title.background-page
-    .container
-      h1 Your Campaigns
-  .campaigns
+  .campaigns.mt-5
     .container
       .campaign-content
         .row
@@ -30,14 +27,14 @@ main#main.site-main
                       .process-info
                         .process-pledged
                           span> $630
-                          | pledged
+                          | Collected
                         .process-funded
                           span> 26%
-                          | funded
+                          | Funded
                         .process-time
                           span = campaign.campaign_status
                           - if campaign.campaign_status.is_a? Integer 
-                            | days remaining
+                            | Days Remaining
           - else
             .col-centered
               = link_to 'Start a campaign', new_campaign_path, class: 'btn btn-primary btn-lg'

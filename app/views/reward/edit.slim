@@ -1,8 +1,5 @@
 main#main.site-main
-  .page-title.background-campaign
-    .container
-      h1 Start a campaign
-  .campaign-form.form-update
+  .campaign-form.form-update.mt-5
     .container
       = simple_form_for @reward, url: campaign_reward_path, method: :put do |f|
         .field

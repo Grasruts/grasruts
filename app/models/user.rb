@@ -8,7 +8,6 @@ class User < ApplicationRecord
 
   has_many :campaigns
   has_many :contributions
-  has_many :payment
 
   has_attached_file :avatar, styles: { medium: '300x300>', thumb: '100x100>' }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180923041448) do
+ActiveRecord::Schema.define(version: 20180917122632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20180923041448) do
 
   create_table "campaign_categories", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
-    t.datetime "created_at", default: "2018-09-20 14:08:05", null: false
-    t.datetime "updated_at", default: "2018-09-20 14:08:05", null: false
   end
 
   create_table "campaign_updates", force: :cascade do |t|
@@ -39,26 +39,26 @@ ActiveRecord::Schema.define(version: 20180923041448) do
     t.string "name"
     t.string "uri"
     t.text "about"
+    t.integer "goal"
     t.text "faq"
     t.string "card_description"
     t.integer "mode", default: 0
     t.integer "status", default: 0
+    t.integer "deadline"
+    t.string "location"
+    t.string "video"
+    t.string "video_image"
+    t.boolean "recommended"
+    t.string "video_id"
+    t.datetime "published_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "discarded_at"
-    t.string "location"
     t.bigint "user_id"
-    t.string "video"
-    t.string "video_image"
-    t.integer "deadline"
-    t.integer "goal"
     t.string "card_image_file_name"
     t.string "card_image_content_type"
     t.integer "card_image_file_size"
     t.datetime "card_image_updated_at"
-    t.boolean "recommended"
-    t.string "video_id"
-    t.datetime "published_date"
     t.bigint "campaign_category_id"
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["campaign_category_id"], name: "index_campaigns_on_campaign_category_id"
@@ -71,15 +71,15 @@ ActiveRecord::Schema.define(version: 20180923041448) do
     t.integer "amount"
     t.integer "gateway"
     t.boolean "anonymous"
+    t.integer "state"
+    t.jsonb "raw", default: {}
+    t.string "ref_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "campaign_id"
     t.bigint "reward_id"
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
-    t.integer "state"
-    t.jsonb "raw", default: {}
-    t.string "ref_id"
     t.index ["campaign_id"], name: "index_contributions_on_campaign_id"
     t.index ["reward_id"], name: "index_contributions_on_reward_id"
     t.index ["user_id"], name: "index_contributions_on_user_id"
@@ -88,38 +88,24 @@ ActiveRecord::Schema.define(version: 20180923041448) do
   create_table "faqs", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.bigint "campaign_id"
-    t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
-    t.datetime "created_at", default: "2018-09-20 14:08:05", null: false
-    t.datetime "updated_at", default: "2018-09-20 14:08:05", null: false
-    t.index ["campaign_id"], name: "index_faqs_on_campaign_id"
-  end
-
-  create_table "payments", force: :cascade do |t|
-    t.jsonb "raw", default: {}
-    t.integer "amount"
-    t.string "ref_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "contribution_id"
-    t.bigint "user_id"
+    t.bigint "campaign_id"
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
-    t.integer "state"
-    t.index ["contribution_id"], name: "index_payments_on_contribution_id"
-    t.index ["user_id"], name: "index_payments_on_user_id"
+    t.index ["campaign_id"], name: "index_faqs_on_campaign_id"
   end
 
   create_table "rewards", force: :cascade do |t|
     t.string "name"
+    t.integer "price"
     t.text "description"
     t.integer "total_reward"
     t.integer "claimed_reward"
     t.datetime "shipping_date"
+    t.boolean "limited"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "campaign_id"
-    t.boolean "limited"
-    t.integer "price"
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["campaign_id"], name: "index_rewards_on_campaign_id"
   end
@@ -141,14 +127,10 @@ ActiveRecord::Schema.define(version: 20180923041448) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
     t.string "name"
     t.string "image"
-    t.string "avatar_file_name"
-    t.string "avatar_content_type"
-    t.integer "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.string "provider"
+    t.string "uid"
     t.string "address"
     t.string "country"
     t.string "contact_number"
@@ -158,6 +140,10 @@ ActiveRecord::Schema.define(version: 20180923041448) do
     t.string "facebook"
     t.string "twitter"
     t.boolean "admin"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -171,7 +157,5 @@ ActiveRecord::Schema.define(version: 20180923041448) do
   add_foreign_key "contributions", "rewards"
   add_foreign_key "contributions", "users"
   add_foreign_key "faqs", "campaigns"
-  add_foreign_key "payments", "contributions"
-  add_foreign_key "payments", "users"
   add_foreign_key "rewards", "campaigns"
 end

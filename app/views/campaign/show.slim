@@ -1,9 +1,6 @@
 - content_for :body_class, "campaign-detail"
 main#main.site-main
-  .page-title.background-campaign
-    .container
-      h1 = @campaign.name.try(:capitalize)
-  .campaign-content
+  .campaign-content.mt-5
     .container
       .campaign
         .campaign-item.clearfix
@@ -13,13 +10,13 @@ main#main.site-main
             - else
               = image_tag @campaign.card_image
           .campaign-box
-            a.category href="#"  = @campaign.campaign_category.name.try(:capitalize)
+            a.category href="javascript:,"  = @campaign.campaign_category.name.try(:capitalize)
             h3 = @campaign.name
             .campaign-description
               p = @campaign.card_description.try(:capitalize)
             .campaign-author.clearfix
               .author-profile
-                a.author-icon href="#"
+                a.author-icon href="javascript:,"
                   = image_tag @campaign.user.avatar.url(:thumb) 
                 | by 
                 a.author-name href=("#{user_path(@campaign.user.uuid)}")  = @campaign.user.name.try(:capitalize)
@@ -32,18 +29,18 @@ main#main.site-main
               .process-info
                 .process-funded
                   span = number_with_precision(@campaign.goal, :precision => 2, :delimiter => ',')
-                  | funding goal
+                  | Funding Goal
                 .process-pledged
                   span = number_with_precision(@total_contributions, :precision => 2, :delimiter => ',')
-                  | pledged
+                  | Collected
                 .process-time
                   span = @backers.length
-                  | backers
+                  | Backers
                 .process-time
                   - unless @campaign.status == 'draft'
                     span = @campaign.campaign_status
                     - if @campaign.campaign_status.is_a? Integer 
-                      | days remaining
+                      | Days Remaining
             - unless @campaign.status == 'draft'
               .button
                 = form_tag(campaign_contribution_index_path(@campaign.uuid), method: 'post', class: 'campaign-price quantity', id: 'priceForm') do

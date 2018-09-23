@@ -1,8 +1,5 @@
 main#main.site-main
-  .page-title.background-campaign
-    .container
-      h1 News
-  .campaign-form.form-update
+  .campaign-form.form-update.mt-5
     .container
       = simple_form_for @news, url: campaign_news_path(params[:campaign_id], params[:id]), method: :put do |f|
         .field

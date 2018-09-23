@@ -4,7 +4,9 @@ class CreateContribution < ActiveRecord::Migration[5.1]
       t.integer :amount
       t.integer :gateway 
       t.boolean :anonymous
-      t.integer :state, default: 0
+      t.integer :state
+      t.jsonb :raw, default: {}
+      t.string :ref_id
       t.timestamps
 
     end

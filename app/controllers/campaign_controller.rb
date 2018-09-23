@@ -16,7 +16,7 @@ class CampaignController < ApplicationController
     @campaign = Campaign.find_by_uri(params[:permalink]).decorate
     @contributions = @campaign.contributions.where(state: 'success')
     @total_contributions = @contributions.sum(:amount)
-    @backers = @contributions.select('distinct on (user_id) *')
+    @backers = @contributions.select('distinct on (user_id) *').where(anonymous: false)
   end
 
   def create
