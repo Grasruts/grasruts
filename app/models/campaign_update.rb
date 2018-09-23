@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CampaignUpdate < ApplicationRecord
   belongs_to :campaign
   include Discard::Model

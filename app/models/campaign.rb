@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Campaign < ApplicationRecord
   include Discard::Model
   enum mode: %i[aon flexible]

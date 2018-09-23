@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class NewsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  
+
   def index
     @campaign = current_user.campaigns.find_by_uuid(params[:campaign_id])
     @news = @campaign.campaign_updates.kept
@@ -35,12 +37,13 @@ class NewsController < ApplicationController
   end
 
   def destroy
-   @news = CampaignUpdate.find_by_uuid params[:id]
-   @news.discard
-   redirect_back(fallback_location: root_path)
+    @news = CampaignUpdate.find_by_uuid params[:id]
+    @news.discard
+    redirect_back(fallback_location: root_path)
   end
 
   private
+
   def news_params
     params.require(:campaign_update).permit(:name, :description)
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RewardController < ApplicationController
   before_action :is_owner_of_campaign?
   before_action :authenticate_user!

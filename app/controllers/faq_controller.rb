@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class FaqController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @faqs = Faq.new
   end
@@ -36,6 +38,7 @@ class FaqController < ApplicationController
   end
 
   private
+
   def faq_params
     params.require(:faq).permit(:name, :description)
   end

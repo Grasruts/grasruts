@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class Reward < ApplicationRecord
   belongs_to :campaign
 
   has_many :contributions, dependent: :destroy
-    
+
   validates :name, presence: { message: 'Reward name is required' }
   validates :description, presence: { message: 'Reward Description is required' }
   validates :price, numericality: { only_integer: true, message: 'Price should be a number' }, presence: { message: 'Price is required' }
@@ -10,8 +12,6 @@ class Reward < ApplicationRecord
   validate :shipping_date_integrity
 
   def shipping_date_integrity
-    if shipping_date <= Date.today
-      errors.add(:shipping_date, "Shipping date can't be in the past")
-    end
+    errors.add(:shipping_date, "Shipping date can't be in the past") if shipping_date <= Date.today
   end
 end

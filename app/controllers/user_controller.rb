@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserController < ApplicationController
   before_action :authenticate_user!
   before_action :check_current_user, except: [:show]
@@ -10,9 +12,7 @@ class UserController < ApplicationController
     @user = current_user
     @user.attributes = user_param
     @user.save(context: :kyc)
-    unless @user.errors.messages.empty?
-      flash[:error] = @user.errors.messages.values.flatten
-    end
+    flash[:error] = @user.errors.messages.values.flatten unless @user.errors.messages.empty?
     redirect_back(fallback_location: root_path)
   end
 
@@ -25,9 +25,7 @@ class UserController < ApplicationController
   private
 
   def check_current_user
-    unless current_user.uuid == params[:id]
-      redirect_back(fallback_location: root_path)
-    end
+    redirect_back(fallback_location: root_path) unless current_user.uuid == params[:id]
   end
 
   def user_param

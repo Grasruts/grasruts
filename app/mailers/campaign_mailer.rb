@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CampaignMailer < ApplicationMailer
   def review_email(id)
     @campaign = Campaign.find_by id: id

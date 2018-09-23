@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -27,7 +29,6 @@ class User < ApplicationRecord
   validates :contact_number, presence: { message: 'Contact number is required' }, on: :contrib
   validates :country, presence: { message: 'Country is required' }, on: :contrib
   validates :email, uniqueness: { message: 'Email must be unique' }, on: :contrib
-
 
   validates :avatar, attachment_presence: { message: 'Image is required' }, on: :kyc
   validates_with AttachmentPresenceValidator, attributes: :avatar, on: :kyc

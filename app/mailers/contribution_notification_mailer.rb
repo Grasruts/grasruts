@@ -1,5 +1,6 @@
-class ContributionNotificationMailer < ApplicationMailer
+# frozen_string_literal: true
 
+class ContributionNotificationMailer < ApplicationMailer
   def notify_admin(id)
     @contribution = Contribution.find id
     mail(to: 'admin@gmail.com', subject: 'Grasruts: Campaign Contribution Notification')

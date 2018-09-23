@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CampaignController < ApplicationController
   before_action :authenticate_user!, except: %i[new froala_upload_image access_file show create]
   before_action :set_initial_section, except: %i[create index new froala_upload_image access_file publish show destroy]
@@ -38,9 +40,7 @@ class CampaignController < ApplicationController
     @campaign = Campaign.find_by_uuid params[:id]
     @campaign.attributes = campaign_param
     @campaign.save(context: params[:section].to_sym)
-    unless @campaign.errors.messages.empty?
-      flash[:error] = @campaign.errors.messages.values.flatten
-    end
+    flash[:error] = @campaign.errors.messages.values.flatten unless @campaign.errors.messages.empty?
     redirect_to edit_campaign_path(@campaign.uuid, section: params[:section])
   end
 
@@ -118,9 +118,7 @@ class CampaignController < ApplicationController
   end
 
   def set_initial_section
-    unless params.include? 'section'
-      redirect_to "#{request.original_url}?section=basic"
-    end
+    redirect_to "#{request.original_url}?section=basic" unless params.include? 'section'
   end
 
   def generate_code(number)

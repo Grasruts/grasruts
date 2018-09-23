@@ -1,0 +1,24 @@
+AllCops:
+  TargetRubyVersion: 2.5.1
+  Exclude:
+    - 'db/**/*'
+    - 'bundle/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'public/**/*'
+    - 'bin/**/*'
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+  IgnoredPatterns: ['(\A|\s)#']
+  Exclude:
+    - spec/**/*
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
