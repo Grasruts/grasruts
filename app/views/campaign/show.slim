@@ -37,7 +37,7 @@ main#main.site-main
                   span = number_with_precision(@total_contributions, :precision => 2, :delimiter => ',')
                   | pledged
                 .process-time
-                  span = @backers.size
+                  span = @backers.length
                   | backers
                 .process-time
                   - unless @campaign.status == 'draft'
@@ -91,30 +91,11 @@ main#main.site-main
                     th Name
                     th Donate Amount
                     th Date
-                  tr
-                    td Andrew
-                    td $100
-                    td June 25, 2017
-                  tr
-                    td Andrew
-                    td $60
-                    td December 25, 2017
-                  tr
-                    td Andrew
-                    td $70
-                    td November 25, 2017
-                  tr
-                    td Andrew
-                    td $90
-                    td February 25, 2017
-                  tr
-                    td Andrew
-                    td $30
-                    td January 25, 2017
-                  tr
-                    td Andrew
-                    td $80
-                    td June 15, 2017
+                  - @backers.each do |backer|
+                    tr
+                      td = backer.user.name
+                      td = backer.amount
+                      td = backer.created_at.to_date
               #faq.tabs
                 .faq-content
                   .container

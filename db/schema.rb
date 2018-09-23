@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180920140105) do
+ActiveRecord::Schema.define(version: 20180923041448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,9 @@ ActiveRecord::Schema.define(version: 20180920140105) do
     t.bigint "campaign_id"
     t.bigint "reward_id"
     t.uuid "uuid", default: -> { "gen_random_uuid()" }, null: false
+    t.integer "state"
+    t.jsonb "raw", default: {}
+    t.string "ref_id"
     t.index ["campaign_id"], name: "index_contributions_on_campaign_id"
     t.index ["reward_id"], name: "index_contributions_on_reward_id"
     t.index ["user_id"], name: "index_contributions_on_user_id"

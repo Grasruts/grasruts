@@ -43,21 +43,10 @@ class ContributionController < ApplicationController
     
     contribution = Contribution.find_by_uuid params[:contribution_id]
     contribution.gateway = Contribution.gateways['khalti']
+    contribution.raw = JSON.parse(response.body),
+    contribution.ref_id = params[:token],
+    contribution.state = Contribution.states['success']
     contribution.save
-    contribution.create_payment({
-      raw: JSON.parse(response.body),
-      amount: params[:amount],
-      ref_id: params[:token],
-      user_id: current_user.id,
-      state: Payment.states['success']
-    })
-    # payment = contribution.payment.new
-    # payment.raw = JSON.parse(response.body)
-    # payment.amount = params[:amount]
-    # payment.ref_id = params[:token]
-    # payment.user_id = current_user.id
-    # payment.state = Payment.states['success']
-    # payment.save!
   end
 
   def payment_success

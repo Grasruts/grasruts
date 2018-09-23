@@ -1,27 +1,27 @@
 | Campaign Name: 
 
-= link_to @payment.contribution.campaign.name, "http://www.grasruts.com/#{@payment.contribution.campaign.uri}"
+= link_to @contribution.campaign.name, "http://www.grasruts.com/#{@contribution.campaign.uri}"
 
 br
 
 | Amount: 
 
-= @payment.amount
+= @contribution.amount
 
 br
 
 | Contributed by: 
 
-= @payment.user.email
+= @contribution.user.email
 
 br
 
 | Gateway: 
 
-= @payment.contribution.gateway
+= @contribution.gateway
 
 br
 
 | Status: 
 
-= @payment.state
+= @contribution.state

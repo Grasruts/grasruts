@@ -8,6 +8,16 @@ class Contribution < ApplicationRecord
 
   before_validation :set_uuid, on: :create
 
+  after_commit :notify, on: :update 
+
+  private
+
+  def notify
+    unless state.nil?
+      ContributionNotificationWorker.perform_async(id)
+    end
+  end
+
   def set_uuid
     self.uuid = SecureRandom.uuid
   end

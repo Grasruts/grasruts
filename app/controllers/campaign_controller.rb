@@ -14,12 +14,9 @@ class CampaignController < ApplicationController
 
   def show
     @campaign = Campaign.find_by_uri(params[:permalink]).decorate
-    @payment = @campaign.contributions.select {|cs| cs.payment.state == 'success' unless cs.payment.nil?}
-    @total_contributions = 0
-    @backers = []
-    @payment.each { |p| @total_contributions += p.amount }
-    @payment.each { |p| @backers << p.user_id}
-    @backers.uniq!
+    @contributions = @campaign.contributions.where(state: 'success')
+    @total_contributions = @contributions.sum(:amount)
+    @backers = @contributions.select('distinct on (user_id) *')
   end
 
   def create

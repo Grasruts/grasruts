@@ -5,13 +5,9 @@ class HomePickupController < ApplicationController
   def create
     contribution = Contribution.find_by_uuid params[:contribution_id]
     contribution.gateway = Contribution.gateways['cash_pickup']
+    contribution.ref_id = SecureRandom.uuid,
+    contribution.state = Contribution.states['pending']
     contribution.save
-    contribution.create_payment({
-      amount: contribution.amount,
-      ref_id: SecureRandom.uuid,
-      user_id: current_user.id,
-      state: Payment.states['pending']
-    })
     redirect_to campaign_contribution_payment_success_path(params[:campaign_id], params[:contribution_id])
   end
 
