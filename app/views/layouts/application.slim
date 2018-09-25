@@ -39,7 +39,7 @@ html[lang="en"]
                       li
                         = link_to "Profile", user_path(current_user.uuid)
                       li
-                        a href="profile.html"  Backed Campaign
+                        = link_to "Backed Campaign", backed_campaign_path(current_user.uuid)
                       li
                         = link_to 'Created Campaigns', campaign_index_path
                       li

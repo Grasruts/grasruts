@@ -20,7 +20,10 @@ class UserController < ApplicationController
     @user = User.find_by_uuid params[:id]
   end
 
-  def destroy; end
+  def backed_campaign
+    @user = User.find_by_uuid params[:id]
+    @backed_campaigns = @user.contributions.select('distinct on (campaign_id) *').where(state: 'success')
+  end
 
   private
 

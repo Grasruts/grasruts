@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   get '/download_file/:name', to: 'campaign#access_file', as: :upload_access_file, name: /.*/
 
   resources :user
+  get '/user/:id/backed_campaign', to: 'user#backed_campaign', as: 'backed_campaign'
+
 
   get '/:permalink', to: 'campaign#show', as: :project_by_slug
 end

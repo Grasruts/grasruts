@@ -1,0 +1,25 @@
+main#main.site-main
+  .account-wrapper.mt-5
+    .container
+      .row
+        .col-lg-12
+          .account-content.backed-campaigns.account-table
+            h3.account-title Backed Campaigns
+            .account-main
+              table
+                thead
+                  tr
+                    th Campaign Name
+                    / th Donated Amount
+                    / th Payment Status
+                    / th Payment Date
+                    th Actions
+                tbody
+                  - @backed_campaigns.each do |backed|
+                    tr
+                      td = backed.campaign.name
+                      / td = backed.amount
+                      / td = backed.state
+                      / td = backed.updated_at.to_date
+                      td
+                        = link_to "View", project_by_slug_path(backed.campaign.uri)
