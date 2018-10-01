@@ -1,262 +1,222 @@
 main#main.site-main
-  .sideshow
-    .container
-      .sideshow-content
-        h1.wow.fadeInUp data-wow-delay=".2s"  Bring new ideas to life, anywhere
-        .sideshow-description.wow.fadeInUp data-wow-delay=".1s"  Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu teus.
-        .process.wow.fadeInUp data-scroll-nav="1" 
-          .raised
-            span
-          .process-info
-            .process-funded
-              span> 46%
-              | funded
-            .process-pledged
-              span> $46.000
-              | pledged
-            .process-backers
-              span> 32
-              | backers
-            .process-time
-              span> 21
-              | days ago
-        .button.wow.fadeInUp data-wow-delay="0.3s" 
-          a.btn-secondary href="#"  See Campaign
-          a.btn-primary href="#"  Buy Now
-      /! .sideshow-content
-  /! .sideshow
+  .tes
+    .sideshow style=("background-image: url(#{image_path('campaign-big-item')})")
+      .container
+        .sideshow-content
+          h1  How Can Crowdfunding Help You ?
+          .button
+            a.btn-primary href="#"  Read More
+    .sideshow style=("background-image: url(#{image_path('campaign-big-item')})")
+      .container
+        .sideshow-content
+          h1  Is Grasruts Legal In Nepal ?
+          .button
+            a.btn-primary href="#"  Read More
+    .sideshow style=("background-image: url(#{image_path('campaign-big-item')})")
+      .container
+        .sideshow-content
+          h1  A Year Of Crowdfunding In Nepal ?
+          .button
+            a.btn-primary href="#"  Read More
+    .sideshow
+      .container
+        .sideshow-content
+            h1  Bring somehting ideas to life, anywhere
+            .sideshow-description Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu teus.
+            .process data-scroll-nav="1" 
+              .raised
+                span
+              .process-info
+                .process-funded
+                  span> 46%
+                  | funded
+                .process-pledged
+                  span> $46.000
+                  | pledged
+                .process-backers
+                  span> 32
+                  | backers
+                .process-time
+                  span> 21
+                  | days ago
+            .button
+              a.btn-secondary href="#"  See Campaign
+              a.btn-primary href="#"  Buy Now
   .popular.campaign
     .container
-      h2.title What's Popular
-      .description Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+      h2.title Latest Campaign
       .campaign-content
         .row
-          .col-lg-4.col-md-6
-            .campaign-item
-              a.overlay href="campaign_detail.html"
-                = image_tag 'popular-01.jpg' 
-                span.ion-ios-search-strong
-              .campaign-box
+          - @campaigns.each do |campaign|
+            .col-lg-4.col-sm-6.col-6
+                .campaign-item
+                  a.overlay href="campaign_detail.html" 
+                    = image_tag campaign.card_image.url(:medium)
+                    span.ion-ios-search-strong
+                  .campaign-box
+                    = campaign.campaign_category.name.try(:capitalize)
+                    h3
+                      = link_to campaign.name.try(:capitalize), project_by_slug_path(campaign.uri)
+                    .campaign-description
+                      = campaign.card_description
+                    .campaign-author
+                      a.author-icon href=("#{user_path(campaign.user.uuid)}") 
+                        = image_tag campaign.user.avatar.url(:thumb)
+                      | by 
+                      = link_to campaign.user.name.try(:capitalize), user_path(campaign.user.uuid)
+                    .process
+                      .raised
+                        span style=("width: #{(campaign.total_contributions.to_f/campaign.goal.to_f)*100}%")
+                      .process-info
+                        .process-pledged
+                          span = campaign.total_contributions
+                          | Collected
+                        .process-funded
+                          span = "#{number_with_precision((campaign.total_contributions.to_f/campaign.goal.to_f)*100,precision: 2)}%"
+                          | Funded
+                        .process-time
+                          span = campaign.campaign_status
+                          - if campaign.campaign_status.is_a? Integer 
+                            | Days Remaining
+      /! .section-content
+  - if false 
+    .explore
+      .container
+        h2.title Explore Ideas
+        .description Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+        .explore-content
+          .row
+            .col-lg-3.col-md-4.col-sm-6.col-6
+              .explore-item
+                a.explore-overlay href="#" 
+                  = image_tag 'explore-01.jpg'
+                  span Design &amp; Art
+            .col-lg-3.col-md-4.col-sm-6.col-6
+              .explore-item
+                a.explore-overlay href="#" 
+                  = image_tag 'explore-02.jpg'
+                  span Film &amp; Video
+            .col-lg-3.col-md-4.col-sm-6.col-6
+              .explore-item
+                a.explore-overlay href="#" 
+                  = image_tag 'explore-03.jpg'
+                  span Book
+            .col-lg-3.col-md-4.col-sm-6.col-6
+              .explore-item
+                a.explore-overlay href="#" 
+                  = image_tag 'explore-04.jpg'
+                  span Performances
+            .col-lg-3.col-md-4.col-sm-6.col-6
+              .explore-item
+                a.explore-overlay href="#" 
+                  = image_tag 'explore-05.jpg'
+                  span Crafts
+            .col-lg-3.col-md-4.col-sm-6.col-6
+              .explore-item
+                a.explore-overlay href="#" 
+                  = image_tag 'explore-06.jpg'
+                  span Technology
+            .col-lg-3.col-md-4.col-sm-6.col-6
+              .explore-item
+                a.explore-overlay href="#" 
+                  = image_tag 'explore-07.jpg'
+                  span Food
+            .col-lg-3.col-md-4.col-sm-6.col-6
+              .explore-item
+                a.explore-overlay href="#" 
+                  = image_tag 'explore-08.jpg'
+                  span Game
+    .staff-picks
+      .container
+        .border-title
+          h2.title.left-title Staff Picks
+          .description.left-description Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        .staff-picks-content
+          .staff-picks-slider.slider-controls-top.owl-carousel
+            .staff-picks-item.clearfix
+              a.staff-picks-image href="campaign_detail.html" 
+                = image_tag "campaign-big-item.jpg"
+              .staff-picks-item-content.staff-picks-box
                 a.category href="#"  Design &amp; Art
                 h3
-                  a href="campaign_detail.html"  Poster MockUp Design
-                .campaign-description However hard he threw himself onto his right, he always rolled back to where he was.
-                .campaign-author
-                  a.author-icon href="#" 
-                    = image_tag 'author-01.png'
-                  | by
-                  a.author-name href="#"  Andrew Noah
+                  a href="campaign_detail.html"  Creative Furniture Designs
+                .staff-picks-description He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment.
+                .staff-picks-author
+                  .author-profile
+                    a.author-avatar href="#" 
+                      = image_tag "staff-picks-author.png"
+                    | by
+                    a.author-name href="#"  Andrew Noah
+                  .author-address
+                    span.ion-location
+                    | Melbourne, Victoria, AU
                 .process
                   .raised
                     span
                   .process-info
                     .process-pledged
-                      span> $610
+                      span> $10000
                       | pledged
                     .process-funded
-                      span> 73%
+                      span> 81%
                       | funded
                     .process-time
-                      span> 25
-                      | days ago
-          .col-lg-4.col-md-6
-            .campaign-item
-              a.overlay href="campaign_detail.html" 
-                = image_tag 'popular-02.jpg'
-                span.ion-ios-search-strong
-              .campaign-box
-                a.category href="#"  Book
-                h3
-                  a href="campaign_detail.html"  Svalbard, an arcticficial life
-                .campaign-description One morning, when Gregor Samsa woke from troubled dreams.
-                .campaign-author
-                  a.author-icon href="#" 
-                    = image_tag 'author-02.png'
-                  | by
-                  a.author-name href="#"  Samino
-                .process
-                  .raised
-                    span
-                  .process-info
-                    .process-pledged
-                      span> $3900
-                      | pledged
-                    .process-funded
-                      span> 69%
-                      | funded
-                    .process-time
-                      span> 17
-                      | days ago
-          .col-lg-4.col-md-6
-            .campaign-item
-              a.overlay href="campaign_detail.html" 
-                = image_tag 'popular-03.jpg'
-                span.ion-ios-search-strong
-              .campaign-box
-                a.category href="#"  Film &amp; Video
-                h3
-                  a href="campaign_detail.html"  Interestingly Unique Project
-                .campaign-description However hard he threw himself onto his right, he always rolled back to where he was.
-                .campaign-author
-                  a.author-icon href="#" 
-                    = image_tag 'author-03.png'
-                  | by
-                  a.author-name href="#"  Sabato Alterio
-                .process
-                  .raised
-                    span
-                  .process-info
-                    .process-pledged
-                      span> $1200
-                      | pledged
-                    .process-funded
-                      span> 110%
-                      | funded
+                      span> 37
+                      | backers
                     .process-time
                       span> 23
                       | days ago
-      /! .section-content
-  /! .popular
-  .explore
-    .container
-      h2.title Explore Ideas
-      .description Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
-      .explore-content
-        .row
-          .col-lg-3.col-md-4.col-sm-6.col-6
-            .explore-item
-              a.explore-overlay href="#" 
-                = image_tag 'explore-01.jpg'
-                span Design &amp; Art
-          .col-lg-3.col-md-4.col-sm-6.col-6
-            .explore-item
-              a.explore-overlay href="#" 
-                = image_tag 'explore-02.jpg'
-                span Film &amp; Video
-          .col-lg-3.col-md-4.col-sm-6.col-6
-            .explore-item
-              a.explore-overlay href="#" 
-                = image_tag 'explore-03.jpg'
-                span Book
-          .col-lg-3.col-md-4.col-sm-6.col-6
-            .explore-item
-              a.explore-overlay href="#" 
-                = image_tag 'explore-04.jpg'
-                span Performances
-          .col-lg-3.col-md-4.col-sm-6.col-6
-            .explore-item
-              a.explore-overlay href="#" 
-                = image_tag 'explore-05.jpg'
-                span Crafts
-          .col-lg-3.col-md-4.col-sm-6.col-6
-            .explore-item
-              a.explore-overlay href="#" 
-                = image_tag 'explore-06.jpg'
-                span Technology
-          .col-lg-3.col-md-4.col-sm-6.col-6
-            .explore-item
-              a.explore-overlay href="#" 
-                = image_tag 'explore-07.jpg'
-                span Food
-          .col-lg-3.col-md-4.col-sm-6.col-6
-            .explore-item
-              a.explore-overlay href="#" 
-                = image_tag 'explore-08.jpg'
-                span Game
-  /! .explore
-  .staff-picks
-    .container
-      .border-title
-        h2.title.left-title Staff Picks
-        .description.left-description Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      .staff-picks-content
-        .staff-picks-slider.slider-controls-top.owl-carousel
-          .staff-picks-item.clearfix
-            a.staff-picks-image href="campaign_detail.html" 
-              = image_tag "campaign-big-item.jpg"
-            .staff-picks-item-content.staff-picks-box
-              a.category href="#"  Design &amp; Art
-              h3
-                a href="campaign_detail.html"  Creative Furniture Designs
-              .staff-picks-description He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment.
-              .staff-picks-author
-                .author-profile
-                  a.author-avatar href="#" 
-                    = image_tag "staff-picks-author.png"
-                  | by
-                  a.author-name href="#"  Andrew Noah
-                .author-address
-                  span.ion-location
-                  | Melbourne, Victoria, AU
-              .process
-                .raised
-                  span
-                .process-info
-                  .process-pledged
-                    span> $10000
-                    | pledged
-                  .process-funded
-                    span> 81%
-                    | funded
-                  .process-time
-                    span> 37
-                    | backers
-                  .process-time
-                    span> 23
-                    | days ago
-          .staff-picks-item.clearfix
-            a.staff-picks-image href="campaign_detail.html" 
-              = image_tag "campaign-big-item.jpg"
-            .staff-picks-item-content.staff-picks-box
-              a.category href="#"  Design &amp; Art
-              h3
-                a href="campaign_detail.html"  Creative Furniture Designs
-              .staff-picks-description He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment.
-              .staff-picks-author
-                .author-profile
-                  a.author-avatar href="#" 
-                    = image_tag 'staff-picks-author.png'
-                  | by
-                  a.author-name href="#"  Andrew Noah
-                .author-address
-                  span.ion-location
-                  | Melbourne, Victoria, AU
-              .process
-                .raised
-                  span
-                .process-info
-                  .process-pledged
-                    span> $10000
-                    | pledged
-                  .process-funded
-                    span> 81%
-                    | funded
-                  .process-time
-                    span> 37
-                    | backers
-                  .process-time
-                    span> 23
-                    | days ago
-  .partners
-    .container
-      .partners-slider.owl-carousel
-        div
-          a href="#" 
-            = image_tag 'partner-01.png'
-        div
-          a href="#" 
-            = image_tag 'partner-02.png'
-        div
-          a href="#" 
-            = image_tag 'partner-03.png'
-        div
-          a href="#" 
-            = image_tag 'partner-04.png'
-        div
-          a href="#" 
-            = image_tag 'partner-05.png'
-        div
-          a href="#" 
-            = image_tag 'partner-06.png'
-  /! .partners
-/! .site-main
+            .staff-picks-item.clearfix
+              a.staff-picks-image href="campaign_detail.html" 
+                = image_tag "campaign-big-item.jpg"
+              .staff-picks-item-content.staff-picks-box
+                a.category href="#"  Design &amp; Art
+                h3
+                  a href="campaign_detail.html"  Creative Furniture Designs
+                .staff-picks-description He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment.
+                .staff-picks-author
+                  .author-profile
+                    a.author-avatar href="#" 
+                      = image_tag 'staff-picks-author.png'
+                    | by
+                    a.author-name href="#"  Andrew Noah
+                  .author-address
+                    span.ion-location
+                    | Melbourne, Victoria, AU
+                .process
+                  .raised
+                    span
+                  .process-info
+                    .process-pledged
+                      span> $10000
+                      | pledged
+                    .process-funded
+                      span> 81%
+                      | funded
+                    .process-time
+                      span> 37
+                      | backers
+                    .process-time
+                      span> 23
+                      | days ago
+    .partners
+      .container
+        .partners-slider.owl-carousel
+          div
+            a href="#" 
+              = image_tag 'partner-01.png'
+          div
+            a href="#" 
+              = image_tag 'partner-02.png'
+          div
+            a href="#" 
+              = image_tag 'partner-03.png'
+          div
+            a href="#" 
+              = image_tag 'partner-04.png'
+          div
+            a href="#" 
+              = image_tag 'partner-05.png'
+          div
+            a href="#" 
+              = image_tag 'partner-06.png'

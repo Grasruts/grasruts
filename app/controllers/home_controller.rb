@@ -9,7 +9,10 @@ class HomeController < ApplicationController
       session[:campaign_id] = nil
       redirect_to edit_campaign_path(campaign.id)
     end
+    @campaigns = Campaign.where(status: 'online').limit(4).decorate
   end
 
-  def explore; end
+  def explore
+    @campaigns = Campaign.where(status: ['online', 'success', 'fail']).decorate
+  end
 end

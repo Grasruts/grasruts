@@ -11,6 +11,8 @@ Primary use:    ThemeDunk.com
 @import "font-awesome";
 @import url(bootstrap/css/bootstrap.min.css);
 @import url(ionicons/css/ionicons.min.css);
+@import url(slick-carousel/slick/slick.css);
+@import url(slick-carousel/slick/slick-theme.css);
 @import url(owl-carousel/assets/owl.carousel.min.css);
 @import url(owl-carousel/assets/owl.theme.default.css);
 @import url(owl-carousel/assets/carousel.min.css);
@@ -335,186 +337,186 @@ textarea:focus {
 @keyframes preload-show-1 {
     from {
         transform: rotateZ(60deg) rotateY(-90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-hide-1 {
     to {
         transform: rotateZ(60deg) rotateY(-90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-cycle-1 {
     5% {
         transform: rotateZ(60deg) rotateY(90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
     10%,
     75% {
         transform: rotateZ(60deg) rotateY(0) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
     80%,
     100% {
         transform: rotateZ(60deg) rotateY(90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-show-2 {
     from {
         transform: rotateZ(120deg) rotateY(-90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-hide-2 {
     to {
         transform: rotateZ(120deg) rotateY(-90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-cycle-2 {
     10% {
         transform: rotateZ(120deg) rotateY(90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
     15%,
     70% {
         transform: rotateZ(120deg) rotateY(0) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
     75%,
     100% {
         transform: rotateZ(120deg) rotateY(90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-show-3 {
     from {
         transform: rotateZ(180deg) rotateY(-90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-hide-3 {
     to {
         transform: rotateZ(180deg) rotateY(-90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-cycle-3 {
     15% {
         transform: rotateZ(180deg) rotateY(90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
     20%,
     65% {
         transform: rotateZ(180deg) rotateY(0) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
     70%,
     100% {
         transform: rotateZ(180deg) rotateY(90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-show-4 {
     from {
         transform: rotateZ(240deg) rotateY(-90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-hide-4 {
     to {
         transform: rotateZ(240deg) rotateY(-90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-cycle-4 {
     20% {
         transform: rotateZ(240deg) rotateY(90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
     25%,
     60% {
         transform: rotateZ(240deg) rotateY(0) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
     65%,
     100% {
         transform: rotateZ(240deg) rotateY(90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-show-5 {
     from {
         transform: rotateZ(300deg) rotateY(-90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-hide-5 {
     to {
         transform: rotateZ(300deg) rotateY(-90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-cycle-5 {
     25% {
         transform: rotateZ(300deg) rotateY(90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
     30%,
     55% {
         transform: rotateZ(300deg) rotateY(0) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
     60%,
     100% {
         transform: rotateZ(300deg) rotateY(90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-show-6 {
     from {
         transform: rotateZ(360deg) rotateY(-90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-hide-6 {
     to {
         transform: rotateZ(360deg) rotateY(-90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
 @keyframes preload-cycle-6 {
     30% {
         transform: rotateZ(360deg) rotateY(90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
     35%,
     50% {
         transform: rotateZ(360deg) rotateY(0) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
     55%,
     100% {
         transform: rotateZ(360deg) rotateY(90deg) rotateX(0deg);
-        border-left-color: #00a6eb;
+        border-left-color: #7cc142;
     }
 }
 
@@ -545,7 +547,7 @@ textarea:focus {
     border-top: 1.125em solid transparent;
     border-right: none;
     border-bottom: 1em solid transparent;
-    border-left: 1.875em solid #00a6eb;
+    border-left: 1.875em solid #7cc142;
     position: absolute;
     top: 0px;
     left: 50%;
@@ -655,7 +657,7 @@ ul.socials-top li i{
     color: #6a6a6a;
 }
 ul.socials-top li:hover i{
-    color: #00a6eb;
+    color: #7cc142;
 }
 .site-header.fixed{
     position: fixed;
@@ -805,7 +807,6 @@ ul.socials-top li:hover i{
 .site-main .sideshow{
     position: relative;
     height: 674px;
-    background-image: url(asset-path("sideshow-img.jpg"));
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -823,7 +824,6 @@ ul.socials-top li:hover i{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    max-width: 570px;
 }
 .sideshow-content .button a{
     font-weight: 500;
@@ -877,7 +877,7 @@ ul.socials-top li:hover i{
     bottom: 0;
     border-radius: 25px;
     width: 46%;
-    background-color: #00a6eb;
+    background-color: #7cc142;
     display: block;
     -webkit-border-top-right-radius: 25px;
     -webkit-border-bottom-right-radius: 25px;
@@ -897,7 +897,7 @@ ul.socials-top li:hover i{
     content: "";
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
-    background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #00a6eb), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, #00a6eb), color-stop(.75, #00a6eb), color-stop(.75, transparent), to(transparent));
+    background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #7cc142), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, #7cc142), color-stop(.75, #7cc142), color-stop(.75, transparent), to(transparent));
     background-image: -webkit-linear-gradient(-45deg, #7CC142 25%, transparent 25%, transparent 50%, #7CC142 50%, #7CC142 75%, transparent 75%, transparent);
     background-image: -moz-linear-gradient(-45deg, #7CC142 25%, transparent 25%, transparent 50%, #7CC142 50%, #7CC142 75%, transparent 75%, transparent);
     background-image: -ms-linear-gradient(-45deg, #7CC142 25%, transparent 25%, transparent 50%, #7CC142 50%, #7CC142 75%, transparent 75%, transparent);
@@ -991,7 +991,7 @@ ul.socials-top li:hover i{
     -webkit-transform: translate(-50%, -50%) scale(0);
     transform: translate(-50%, -50%) scale(0);
     transition: all 300ms 0ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
-    color: #00a6eb;
+    color: #7cc142;
     text-align: center;
 }
 .campaign-item a.overlay:hover span,
@@ -1020,7 +1020,7 @@ ul.socials-top li:hover i{
     display: inline-block;
 }
 .campaign-box a.category:hover{
-    color: #00a6eb;
+    color: #7cc142;
 }
 .campaign-box h3{
     margin-bottom: 15px;
@@ -1053,7 +1053,7 @@ ul.socials-top li:hover i{
     color: #555555;
 }
 .campaign-box .campaign-author a:hover{
-    color: #00a6eb;
+    color: #7cc142;
 }
 .campaign-box .process-info{
     margin-bottom: 0px;
@@ -1137,7 +1137,7 @@ ul.menu-category li.active:before{
     position: absolute;
     left: -8px;
     top: 2px;;
-    background-color: #00a6eb;
+    background-color: #7cc142;
     border-radius: 50%;
     z-index: 9;
 }
@@ -1166,7 +1166,7 @@ ul.menu-category li.active:after{
     padding: 10px 20px 9px;
 }
 .tab-row ul.menu-category li.active{
-    background-color: #00a6eb;
+    background-color: #7cc142;
     border-radius: 3px;
 }
 .tab-row ul.menu-category li.active a{
@@ -1211,7 +1211,7 @@ ul.menu-category li.active:after{
 }
 .popular-project span{
     font-size: 70px;
-    color: #00a6eb;
+    color: #7cc142;
     line-height: 75px;
 }
 .popular-project h4{
@@ -1525,12 +1525,12 @@ ul.menu-category li.active:after{
 }
 .site-main .campaigns .latest-button a{
   background: none;
-  border: 2px solid #00a6eb;
-  color: #00a6eb;
+  border: 2px solid #7cc142;
+  color: #7cc142;
   line-height: 42px;
 }
 .site-main .campaigns .latest-button a:hover{
-  background-color: #00a6eb;
+  background-color: #7cc142;
   color: #fff;
 }
 /*------------------------------------------------------------------
@@ -1629,7 +1629,7 @@ ul.menu-category li.active:after{
   font-size: 12px;
 }
 .post-meta li:hover a{
-  color: #00a6eb;
+  color: #7cc142;
 }
 .post-meta li{
   margin-right: 28px;
@@ -1663,7 +1663,7 @@ ul.menu-category li.active:after{
   letter-spacing: normal;
 }
 .page-navigation span{
-  background-color: #00a6eb;
+  background-color: #7cc142;
   color: #fff;
 }
 .page-navigation a:last-child{
@@ -1712,7 +1712,7 @@ ul.menu-category li.active:after{
   color: #333;
 }
 .widget li:hover a{
-  color: #00a6eb;
+  color: #7cc142;
 }
 .widget-category li{
   border-bottom: 1px solid #ededed;
@@ -1761,7 +1761,7 @@ ul.menu-category li.active:after{
   font-size: 14px;
 }
 .entry-content ul.post-meta li:hover a{
-  color: #00a6eb;
+  color: #7cc142;
 }
 .entry-content p{
   color: #555555;
@@ -1810,7 +1810,7 @@ ul.menu-category li.active:after{
   color: #555;
 }
 .entry-footer .tags-links a:hover{
-  color: #00a6eb;
+  color: #7cc142;
 }
 .entry-footer .author-info{
   border-top: 1px solid #ededed;
@@ -1912,7 +1912,7 @@ ul.menu-category li.active:after{
   margin-bottom: 34px;
 }
 .main-404 .button .btn-secondary{
-  color: #00a6eb;
+  color: #7cc142;
   border-color: #0094d2;
 }
 .main-404 .button .btn-secondary:hover{
@@ -2026,7 +2026,7 @@ ul.menu-category li.active:after{
 }
 .team-info .socials li a:hover{
   background-color: #fff;
-  color: #00a6eb;
+  color: #7cc142;
 }
 .team-info .team-name{
   font-size: 16px;
@@ -2374,7 +2374,7 @@ form .create-account input[type="checkbox"]{
 .create-account .checkbox{
   display: block;
   position: absolute;
-  background-color: #00a6eb;
+  background-color: #7cc142;
   border-radius: 2px;
   height: 15px;
   width: 15px;
@@ -2477,14 +2477,14 @@ form .create-account input[type="checkbox"]{
     width: 5px;
     top: 3px;
     left: 3px;
-    background-color: #00a6eb;
+    background-color: #7cc142;
     margin: auto;
     transition: background 0.25s linear;
     -webkit-transition: background 0.25s linear;
   display: none;
 }
 .payment input[type=radio]:checked ~ .payment-check {
-  border: 2px solid #00a6eb;
+  border: 2px solid #7cc142;
 }
 .payment input[type=radio]:checked ~ .payment-check::before{
   display: block;
@@ -2594,7 +2594,7 @@ form .create-account input[type="checkbox"]{
   margin-right: 8px;
 }
 .widget-share li:hover a{
-  background-color: #00a6eb;
+  background-color: #7cc142;
   color: #fff;
 }
 .widget-share li a{
@@ -2901,9 +2901,9 @@ form .create-account input[type="checkbox"]{
   background-color: #f5f6f6;
 }
 .campaign-detail .button .btn-secondary{
-  border-color: #00a6eb;
+  border-color: #7cc142;
   background-color: initial;
-  color: #00a6eb;
+  color: #7cc142;
   font-weight: 500;
 }
 .campaign-detail .button .btn-secondary:hover{
@@ -3028,8 +3028,8 @@ form .create-account input[type="checkbox"]{
 .shop-slider .owl-controls .owl-buttons .owl-prev{
   border-radius: 0;
   background: none;
-  border: 1px solid #00a6eb;
-  color: #00a6eb;
+  border: 1px solid #7cc142;
+  color: #7cc142;
   opacity: 1;
   margin: -13px 0 0 0;
 }
@@ -3041,7 +3041,7 @@ form .create-account input[type="checkbox"]{
 .campaign-slider .owl-controls .owl-buttons .owl-prev:hover,
 .shop-slider .owl-controls .owl-buttons .owl-next:hover,
 .shop-slider .owl-controls .owl-buttons .owl-prev:hover{
-  background-color: #00a6eb;
+  background-color: #7cc142;
   color: #fff;
 }
 .campaign-slider .owl-controls .owl-buttons .owl-next,
@@ -3069,7 +3069,7 @@ form .create-account input[type="checkbox"]{
   margin-bottom: 35px;
 }
 .campaign-history .tabs-controls li.active{
-  border-bottom: 1px solid #00a6eb;
+  border-bottom: 1px solid #7cc142;
 }
 .campaign-history .tabs-controls li{
   list-style: none;
@@ -3112,7 +3112,7 @@ form .create-account input[type="checkbox"]{
   bottom: 0;
   left: 0;
   width: 155px;
-  background-color: #00a6eb;
+  background-color: #7cc142;
   display: block;
   height: 1px;
 }
@@ -3127,7 +3127,7 @@ form .create-account input[type="checkbox"]{
   padding: 40px 25px;
 }
 .support-campaign .plan a:focus{
-  background-color: #00a6eb;
+  background-color: #7cc142;
   color: #fff;
 }
 .support-campaign .plan a:focus:hover{
@@ -3190,7 +3190,7 @@ form .create-account input[type="checkbox"]{
   top: 10px;
 }
 #updates li:hover:before{
-  background-color: #00a6eb;
+  background-color: #7cc142;
 }
 #updates li p{
   margin-bottom: 5px;
@@ -3215,11 +3215,11 @@ form .create-account input[type="checkbox"]{
   width: 64px;
   display: block;
   text-align: center;
-  border: 2px solid #00a6eb;
+  border: 2px solid #7cc142;
   border-radius: 50%;
   line-height: 60px;
   font-size: 18px;
-  color: #00a6eb;
+  color: #7cc142;
   position: relative;
 }
 .item-work .item-icon span{
@@ -3264,7 +3264,7 @@ form .create-account input[type="checkbox"]{
   cursor: pointer;
 }
 #respond button{
-  background-color: #00a6eb;
+  background-color: #7cc142;
   padding: 0 20px;
 }
 .campaign-tabs button:last-child{
@@ -3274,8 +3274,8 @@ form .create-account input[type="checkbox"]{
   border-bottom: 2px solid #fff;
 }
 .campaign-tabs .button.is-checked{
-  color: #00a6eb;
-  border-bottom: 2px solid #00a6eb;
+  color: #7cc142;
+  border-bottom: 2px solid #7cc142;
 }
 .story{
   margin-bottom: 120px;
@@ -3305,7 +3305,7 @@ form .create-account input[type="checkbox"]{
   color: #fff;
 }
 .story-item .story-thumb h3 a:hover,.story-info .author-name:hover{
-  color: #00a6eb;
+  color: #7cc142;
 }
 .story-info{
   background-color: #f5f6f6;
@@ -3347,7 +3347,7 @@ form .create-account input[type="checkbox"]{
   margin-top: 15px;
 }
 .story-info .read-more:hover{
-    background-color: #00a6eb;
+    background-color: #7cc142;
 }
 .story-slider .owl-controls{
   margin-top: 40px;
@@ -3360,12 +3360,12 @@ form .create-account input[type="checkbox"]{
   margin-right: 0;
 }
 .story-slider .owl-controls .owl-dot.active span{
-  background-color: #00a6eb;
+  background-color: #7cc142;
 }
 .story-slider .owl-controls .owl-dot span{
   height: 12px;
   width: 12px;
-  border: 2px solid #00a6eb;
+  border: 2px solid #7cc142;
   display: block;
   border-radius: 50%;
 }
@@ -3517,8 +3517,8 @@ form .create-account input[type="checkbox"]{
   border-bottom: 2px solid #fff;
 }
 .campaigns-action .sort li.active a{
-  border-bottom: 2px solid #00a6eb;
-  color: #00a6eb;
+  border-bottom: 2px solid #7cc142;
+  color: #7cc142;
 }
 .campaigns-action .filter{
   float: right;
@@ -3542,7 +3542,7 @@ form .create-account input[type="checkbox"]{
   font-weight: 500;
 }
 .list-faq li span{
-  color: #00a6eb;
+  color: #7cc142;
   margin-right: 15px;
   font-size: 16px;
 }
@@ -3614,7 +3614,7 @@ form .create-account input[type="checkbox"]{
   margin-bottom: 6px;
 }
 .my-campaigns .campaign-category a:hover{
-  color: #00a6eb;
+  color: #7cc142;
 }
 .my-campaigns .campaign-title{
   font-size: 18px;
@@ -3724,7 +3724,7 @@ form .create-account input[type="checkbox"]{
   font-weight: 400;
 }
 .dashboard .payment-info p a:hover{
-  color: #00a6eb;
+  color: #7cc142;
 }
 .profile-box{
   margin-bottom: 60px;
@@ -3994,7 +3994,7 @@ form .create-account input[type="checkbox"]{
     font-weight: 400;
 }
 .site-footer .footer-menu .footer-menu-item li:hover a{
-    color: #00a6eb;
+    color: #7cc142;
 }
 .footer-menu-item.newsletter .newsletter-description{
     color: #f5f6f6;
@@ -4021,7 +4021,7 @@ form .create-account input[type="checkbox"]{
     top: 0;
     right: 0;
     border: 0;
-    background: #00a6eb;
+    background: #7cc142;
     bottom: 0;
     padding: 0 18px;
     border-radius: 3px;
@@ -4109,11 +4109,11 @@ form .create-account input[type="checkbox"]{
     font-size: 18px;
     vertical-align: middle;
     line-height: normal;
-    color: #00a6eb;
+    color: #7cc142;
     opacity: 1;
 }
 .site-footer .footer-copyright a.back-top:hover{
-    color: #00a6eb;
+    color: #7cc142;
 }
 /* Start a Campaign */
 .process-model {
@@ -4150,7 +4150,7 @@ form .create-account input[type="checkbox"]{
 }
 .process-model li.active,
 .process-model li.visited {
-    color: #00a6eb;
+    color: #7cc142;
 }
 .process-model li.active span,
 .process-model li.visited span,
@@ -4176,11 +4176,11 @@ form .create-account input[type="checkbox"]{
     width: auto;
 }
 .process-model li:nth-child(1).active span, .process-model li:nth-child(1).visited span{
-    border-color: #00a6eb;
+    border-color: #7cc142;
 }
 .process-model li.active span, .process-model li.visited span  {
     border-color: #6bd3ff;
-    background-color: #00a6eb;
+    background-color: #7cc142;
     transition: all 0.3s ease-in-out;
 }
 .process-model li p {
@@ -4251,7 +4251,7 @@ form .create-account input[type="checkbox"]{
 .field-light .light,
 .verification-main .light{
     margin-left: 5px;
-    color: #00a6eb;
+    color: #7cc142;
 }
 .verification-main .light{
     font-size: 14px;
@@ -4593,7 +4593,7 @@ border: 0;
     font-family: fontAwesome;
     position: absolute;
     top: -4px;
-    color: #00a6eb;
+    color: #7cc142;
 }
 .field-checkbox:after{
     content: '';
@@ -4619,9 +4619,9 @@ border: 0;
     margin-bottom: 40px;
 }
 .add-reward:hover{
-    background-color: #00a6eb;
+    background-color: #7cc142;
     color: #fff;
-    border-color: #00a6eb;
+    border-color: #7cc142;
 }
 .start-box{
     margin-top: 40px;
@@ -4649,28 +4649,28 @@ border: 0;
 /* Home Gradient */
 .home-gradient .btn-primary{
     background: #08aded;
-    background: linear-gradient(90deg, #20ccdf, #00a6eb);
+    background: linear-gradient(90deg, #20ccdf, #7cc142);
 }
 .home-gradient .btn-secondary{
     border: 0;
     line-height: 42px;
     border: 2px solid #20ccdf;
-    border-image-source: linear-gradient(90deg, #20ccdf, #00a6eb);
+    border-image-source: linear-gradient(90deg, #20ccdf, #7cc142);
     border-image-slice: 2;
     position: relative;
 }
 .home-gradient .btn-primary:hover,
 .home-gradient .btn-secondary:hover{
-    background: linear-gradient(90deg, #20ccdf, #00a6eb);
+    background: linear-gradient(90deg, #20ccdf, #7cc142);
 }
 .home-gradient .campaign-item a.overlay,
 .home-gradient .post a.overlay{
     background: #08aded;
-    background: linear-gradient(90deg, #20ccdf, #00a6eb);
+    background: linear-gradient(90deg, #20ccdf, #7cc142);
 }
 .home-gradient .item-work .item-icon{
     border: 0;
-    background: linear-gradient(90deg, #20ccdf, #00a6eb);
+    background: linear-gradient(90deg, #20ccdf, #7cc142);
 }
 .home-gradient .item-work .item-icon:before{
     position: absolute;
@@ -4684,13 +4684,13 @@ border: 0;
 }
 .home-gradient .item-work .item-icon i{
     position: relative;
-    background: -webkit-linear-gradient(90deg, #20ccdf, #00a6eb);
+    background: -webkit-linear-gradient(90deg, #20ccdf, #7cc142);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .home-gradient #newsletterForm button{
     background: #08aded;
-    background: linear-gradient(90deg, #20ccdf, #00a6eb);
+    background: linear-gradient(90deg, #20ccdf, #7cc142);
 }
 #thumbbox img,
 #thumbbox1 img,

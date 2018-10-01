@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CampaignDecorator < Draper::Decorator
+class HomeDecorator < Draper::Decorator
   include Draper::LazyHelpers
   delegate_all
 

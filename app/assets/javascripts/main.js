@@ -1,3 +1,10 @@
+$(document).ready(function(){
+  $('.tes').slick({
+    arrows: false,
+    dots: true,
+    autoplay: true
+  });
+});
 function  readURL(input,thumbimage) {
  	if  (input.files && input.files[0]) { 
  	  var  reader = new FileReader();

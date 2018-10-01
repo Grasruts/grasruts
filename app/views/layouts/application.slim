@@ -74,25 +74,21 @@ html[lang="en"]
                   h3 Our company
                   ul
                     li
-                      a href="#"  About us
-                    li
-                      a href="#"  How It Works
+                      a href="http://blogs.grasruts.com/grasruts-history/"  About us
                     li
                       a href="#"  Jobs
                     li
-                      a href="#"  Press
+                      a href="http://blogs.grasruts.com/category/press/"  Press
               .col-lg-3.col-sm-4.col-4
                 .footer-menu-item
                   h3 Campaign
                   ul
                     li
-                      a href="#"  Start Your Campaign
+                      = link_to 'Start a campaign', new_campaign_path
                     li
-                      a href="#"  Trust &amp; Safety
+                      a href="http://blogs.grasruts.com/terms-of-use/"  Terms of Use
                     li
-                      a href="#"  Terms of Use
-                    li
-                      a href="#"  Privacy Policy
+                      a href="http://blogs.grasruts.com/privacy-policy/"  Privacy Policy
               .col-lg-3.col-sm-4.col-4
                 .footer-menu-item
                   h3 Explore
@@ -107,43 +103,44 @@ html[lang="en"]
                       a href="#"  Food
               .col-lg-3.col-sm-12.col-12
                 .footer-menu-item.newsletter
-                  h3 Newsletter
-                  .newsletter-description Private, secure, spam-free
-                  form#newsletterForm action="s" method="POST" 
-                    input name="s" placeholder=("Enter your email...") type="text" value="" /
-                    button type="submit" value="" 
-                      span.ion-android-drafts
+                  - if false
+                    h3 Newsletter
+                    .newsletter-description Private, secure, spam-free
+                    form#newsletterForm action="s" method="POST" 
+                      input name="s" placeholder=("Enter your email...") type="text" value="" /
+                      button type="submit" value="" 
+                        span.ion-android-drafts
                   .follow
                     h3 Follow us
                     ul
                       li.facebook
-                        a href="../../www.facebook.com/default.htm" target="_Blank" 
+                        a href="https://www.facebook.com/grasruts/" target="_Blank" 
                           i.fa.fa-facebook aria-hidden="true" 
                       li.twitter
-                        a href="../../www.twitter.com/default.htm" target="_Blank" 
+                        a href="https://twitter.com/grasruts" target="_Blank" 
                           i.fa.fa-twitter aria-hidden="true" 
                       li.instagram
-                        a href="../../www.instagram.com/default.htm" target="_Blank" 
-                          i.fa.fa-instagram aria-hidden="true" 
-            .footer-top
-              p.payment-img
-                = image_tag 'assets/payment-methods.png'
-              .footer-top-right
-                .dropdow.field-select
-                  select name="s" 
-                    option value=""  $ US Dollar (USD)
-                    option value=""  £ Pound Sterling (GBP)
-                    option value=""  € Euro (EUR)
-                .dropdow.field-select
-                  select name="s" 
-                    option value=""  English
-                    option value=""  Greek (Ελληνικά)
-                    option value=""  Deutsch (German)
-                    option value=""  العربية (Arabic)
+                        a href="https://www.instagram.com/the_grasruts/" target="_Blank" 
+                          i.fa.fa-instagram aria-hidden="true"
+            - if false 
+              .footer-top
+                p.payment-img
+                  = image_tag 'assets/payment-methods.png'
+                .footer-top-right
+                  .dropdow.field-select
+                    select name="s" 
+                      option value=""  $ US Dollar (USD)
+                      option value=""  £ Pound Sterling (GBP)
+                      option value=""  € Euro (EUR)
+                  .dropdow.field-select
+                    select name="s" 
+                      option value=""  English
+                      option value=""  Greek (Ελληνικά)
+                      option value=""  Deutsch (German)
+                      option value=""  العربية (Arabic)
         /! .footer-menu
         .footer-copyright
           .container
-            p.copyright 2018 by ideapress. All Rights Reserved.
             a.back-top href="#" 
               | Back to top
               span.ion-android-arrow-up

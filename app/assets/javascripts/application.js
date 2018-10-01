@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require popper/popper.js
 //= require bootstrap/js/bootstrap.min.js
+//= require slick-carousel/slick/slick.min.js
 //= require owl-carousel/owl.carousel.min.js
 //= require owl-carousel/carousel.min.js
 //= require jquery.countdown/jquery.countdown.min.js

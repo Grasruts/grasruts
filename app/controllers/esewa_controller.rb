@@ -18,8 +18,8 @@ class EsewaController < ApplicationController
     if Nokogiri::XML(resp.body).text.strip == 'Success'
       contribution = Contribution.find_by_uuid params[:contribution_id]
       contribution.gateway = Contribution.gateways['esewa']
-      contribution.ref_id = SecureRandom.uuid,
-                            contribution.state = Contribution.states['success']
+      contribution.ref_id = SecureRandom.uuid
+      contribution.state = Contribution.states['success']
       contribution.save
       redirect_to campaign_contribution_payment_success_path(params[:campaign_id], params[:contribution_id])
     end

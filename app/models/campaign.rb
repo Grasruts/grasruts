@@ -2,6 +2,8 @@
 
 class Campaign < ApplicationRecord
   include Discard::Model
+  include PgSearch
+
   enum mode: %i[aon flexible]
   enum status: %i[draft pending online rejected success fail]
 
@@ -38,7 +40,12 @@ class Campaign < ApplicationRecord
   # validates :user, presence: {message:'KYC cant be empty'}, on: :publish
   # validates_associated :user, on: :publish
   validates :rewards, presence: { message: 'Rewards cant be empty' }, on: :publish
+
   after_update :save_video_id, if: :video_changed?
+
+  pg_search_scope :search_by_campaign, against: [:name, :uri], :using => {
+                    :tsearch => {:any_word => true}
+                  }
 
   private
 

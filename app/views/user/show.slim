@@ -25,5 +25,5 @@ main#main.site-main
                     strong About Me:
                     .profile-text
                       p = sanitize @user.about
-            - if current_user.id == @user.id          
-              = link_to 'Edit Profile', edit_user_path(current_user.uuid), class: 'btn-primary'
+            - if user_signed_in? && current_user.id == @user.id          
+              = link_to 'Edit Profile', edit_user_path(@user.uuid), class: 'btn-primary'

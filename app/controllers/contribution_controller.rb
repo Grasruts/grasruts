@@ -46,8 +46,8 @@ class ContributionController < ApplicationController
     contribution = Contribution.find_by_uuid params[:contribution_id]
     contribution.gateway = Contribution.gateways['khalti']
     contribution.raw = JSON.parse(response.body),
-                       contribution.ref_id = params[:token],
-                       contribution.state = Contribution.states['success']
+    contribution.ref_id = params[:token],
+    contribution.state = Contribution.states['success']
     contribution.save
   end
 
@@ -58,7 +58,7 @@ class ContributionController < ApplicationController
   private
 
   def contribution_param
-    params.require(:contribution).permit(:amount, :anonymous, :user_id, :reward_id, :campaign_id)
+    params.require(:contribution).permit(:amount, :anonymous, :user_id, :reward_id, :campaign_id, :gateway, :state, :raw, :ref_id)
   end
 
   def user_param

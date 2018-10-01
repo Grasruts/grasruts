@@ -158,5 +158,13 @@ main#main.site-main
                   - if reward.limited
                     .plan-desc
                       | Limited 
-                      = "(0 of 5 Available)"
-                  .backer 2 backer
+                      = "(#{@campaign.occupied_rewards(reward.id)} of #{reward.total_reward} Available)"
+                  / .backer 2 backer
+                  - if reward.limited && @campaign.occupied_rewards(reward.id) >= reward.total_reward
+                  - else 
+                    .button
+                      = form_tag(campaign_contribution_index_path(@campaign.uuid), method: 'post', class: 'campaign-price quantity', id: 'priceForm') do
+                        = hidden_field_tag("contribution[amount]", reward.price)
+                        = hidden_field_tag("contribution[reward_id]", reward.id)
+                        = button_tag('Donate this campaign', class: 'btn-primary')
+

@@ -8,5 +8,5 @@ An open source crowdfunding platform for Nepal.
 - rake db:create
 - rake db:migrate
 - rake db:seed
-- Run your redis server
-- bundle exec sidekiq
+- npm install
+- foreman start
