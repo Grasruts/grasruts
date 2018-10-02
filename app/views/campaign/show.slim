@@ -34,7 +34,7 @@ main#main.site-main
                   span = number_with_precision(@total_contributions, :precision => 2, :delimiter => ',')
                   | Collected
                 .process-time
-                  span = @backers.length
+                  span = @total_contributors
                   | Backers
                 .process-time
                   - unless @campaign.status == 'draft'
@@ -88,9 +88,9 @@ main#main.site-main
                     th Name
                     th Donate Amount
                     th Date
-                  - @backers.each do |backer|
+                  - @contributions.each do |backer|
                     tr
-                      td = backer.user.name
+                      td = backer.anonymous ? 'Anonymous' : backer.user.name
                       td = backer.amount
                       td = backer.created_at.to_date
               #faq.tabs
