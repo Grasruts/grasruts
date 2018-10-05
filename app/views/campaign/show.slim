@@ -40,7 +40,7 @@ main#main.site-main
                   - unless @campaign.status == 'draft'
                     span = @campaign.campaign_status
                     - if @campaign.campaign_status.is_a? Integer 
-                      | Days Remaining
+                      | Days Left
             - unless @campaign.status == 'draft'
               .button
                 = form_tag(campaign_contribution_index_path(@campaign.uuid), method: 'post', class: 'campaign-price quantity', id: 'priceForm') do
