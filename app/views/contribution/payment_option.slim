@@ -3,34 +3,35 @@
 main#main.site-main
   .campaign-form.form-update.mt-5
     .container
-      .field
-        label Esewa
-        form action="#{ENV['ESEWA_API_URL']}" method="POST" 
-          input name="tAmt" type="hidden" value="#{@contribution.amount}" /
-          input name="amt" type="hidden" value="#{{@contribution.amount}}" /
-          input name="txAmt" type="hidden" value="0" /
-          input name="psc" type="hidden" value="0" /
-          input name="pdc" type="hidden" value="0" /
-          input name="scd" type="hidden" value="#{ENV['ESEWA_SERVICE_CODE']}" /
-          input value="#{@campaign.uri}-#{Time.now.to_i}"  name='pid' type='hidden'
-          input name="su" type="hidden" value="#{campaign_contribution_esewa_success_url(params[:campaign_id], params[:contribution_id])}" /
-          input name="fu" type="hidden" value="#{campaign_contribution_esewa_failure_url(params[:campaign_id], params[:contribution_id])}" /
-          input type="submit" value="Pay with Esewa" /
+      form action="#{ENV['ESEWA_API_URL']}" method="POST" 
+        input name="tAmt" type="hidden" value="#{@contribution.amount}" /
+        input name="amt" type="hidden" value="#{{@contribution.amount}}" /
+        input name="txAmt" type="hidden" value="0" /
+        input name="psc" type="hidden" value="0" /
+        input name="pdc" type="hidden" value="0" /
+        input name="scd" type="hidden" value="#{ENV['ESEWA_SERVICE_CODE']}" /
+        input value="#{@campaign.uri}-#{Time.now.to_i}"  name='pid' type='hidden'
+        input name="su" type="hidden" value="#{campaign_contribution_esewa_success_url(params[:campaign_id], params[:contribution_id])}" /
+        input name="fu" type="hidden" value="#{campaign_contribution_esewa_failure_url(params[:campaign_id], params[:contribution_id])}" /
+        button.btn.btn-primary.btn-block type="submit"
+          | Pay with Esewa   
+      br
+      form#disabled-form
+        button.btn.btn-primary#khalti_payment.btn-block href='javascript:,'
+          | Pay with Khalti
+      br
+      form#disabled-form
+        button.btn.btn-primary.btn-block data-target="#cashPickup" data-toggle="modal" type="button" 
+          | Cash Pickup
 
-      .field
-        label Khalti
-        a.btn#khalti_payment href='javascript:'
-          | Khalti
-      .field
-        label Home Pickup
-        button.btn.btn-primary data-target="#homePickup" data-toggle="modal" type="button" 
-          | Launch demo modal
 
-#homePickup.modal.fade aria-hidden="true" aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1" 
+
+
+#cashPickup.modal.fade aria-hidden="true" aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1" 
   .modal-dialog role="document" 
     .modal-content
       .modal-header
-        h5#exampleModalLabel.modal-title Home Pickup
+        h5#exampleModalLabel.modal-title Cash Pickup
         button.close aria-label="Close" data-dismiss="modal" type="button" 
           span aria-hidden="true"  &times;
       .modal-body
@@ -41,6 +42,7 @@ main#main.site-main
 
 = content_for :javascript_footer do
   javascript:
+    $('#disabled-form').submit(false);
     var config = {
               "publicKey": "#{ENV['KHALTI_PUBLIC_KEY']}",
               "productIdentity": "#{@campaign.uri}",
