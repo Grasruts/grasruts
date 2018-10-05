@@ -18,7 +18,7 @@ main#main.site-main
                   .author-info
                     p = "Joined On: #{@user.created_at.to_date}"
                     p = link_to 'Facebook', @user.facebook
-                    p = link_to 'Twitter', @user.twitter
+                    p = link_to 'Twitter', "https://www.twitter.com/#{@user.twitter}"
               .profile-box
                 ul
                   li

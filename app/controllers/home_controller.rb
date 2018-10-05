@@ -13,6 +13,6 @@ class HomeController < ApplicationController
   end
 
   def explore
-    @campaigns = Campaign.where(status: ['online', 'success', 'fail']).decorate
+    @campaigns = Campaign.includes(:campaign_category, :user).where(status: ['online', 'success', 'fail']).decorate
   end
 end
