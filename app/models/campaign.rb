@@ -43,9 +43,9 @@ class Campaign < ApplicationRecord
 
   after_update :save_video_id, if: :video_changed?
 
-  pg_search_scope :search_by_campaign, against: [:name, :uri], :using => {
-                    :tsearch => {:any_word => true}
-                  }
+  pg_search_scope :search_by_campaign, against: %i[name uri], using: {
+    tsearch: { any_word: true }
+  }
 
   private
 

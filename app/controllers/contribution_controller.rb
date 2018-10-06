@@ -42,13 +42,25 @@ class ContributionController < ApplicationController
     request = Net::HTTP::Post.new(uri.request_uri, headers)
     request.set_form_data('token' => params[:token], 'amount' => params[:amount])
     response = https.request(request)
+    if JSON.parse(response.body)['idx'].present?
+      uri = URI.parse("https://khalti.com/api/merchant-transaction/#{JSON.parse(response.body)['idx']}/")
+      request = Net::HTTP::Get.new(uri)
+      request['Authorization'] = "Key #{ENV['KHALTI_SECRET_KEY']}"
 
-    contribution = Contribution.find_by_uuid params[:contribution_id]
-    contribution.gateway = Contribution.gateways['khalti']
-    contribution.raw = JSON.parse(response.body),
-    contribution.ref_id = params[:token],
-    contribution.state = Contribution.states['success']
-    contribution.save
+      req_options = {
+        use_ssl: uri.scheme == 'https'
+      }
+
+      res = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+        http.request(request)
+      end
+      contribution = Contribution.find_by_uuid params[:contribution_id]
+      contribution.gateway = Contribution.gateways['khalti']
+      contribution.raw = JSON.parse(response.body),
+                         contribution.ref_id = params[:token],
+                         contribution.state = Contribution.states['success']
+      contribution.save
+    end
   end
 
   def payment_success

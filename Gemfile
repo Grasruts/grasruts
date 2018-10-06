@@ -40,7 +40,8 @@ gem 'pg_search'
 gem 'simple_form'
 gem 'video_info'
 gem 'rails_admin', '~> 1.3'
-gem "roo", "~> 2.7.0"
+gem 'roo', '~> 2.7.0'
+gem 'sentry-raven'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'

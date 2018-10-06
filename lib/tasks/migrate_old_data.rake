@@ -1,5 +1,6 @@
-namespace :migrate_old_data do
+# frozen_string_literal: true
 
+namespace :migrate_old_data do
   desc 'seed user data'
   task user: :environment do
     xlsx = Roo::Spreadsheet.open('old grasruts data.xlsx')
