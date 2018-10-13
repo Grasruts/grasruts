@@ -45,6 +45,8 @@ gem 'sentry-raven'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'rubocop'
@@ -64,6 +66,20 @@ group :development do
   gem 'rails-erd'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+   # Using sidekiq
+  gem 'capistrano-sidekiq'
+
+  # Use capistrano for deployment
+  gem 'capistrano'
+
+  # rails specific Capistrano functions
+  gem 'capistrano-rails'
+
+  # intregrate bundler with capistrano
+  gem 'capistrano-bundler'
+
+  # if your are using rvm
+  gem 'capistrano-rbenv'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
