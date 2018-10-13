@@ -13,7 +13,8 @@ gem 'sass-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'unicorn'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -45,10 +46,13 @@ gem 'sentry-raven'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'rubocop'
   gem 'selenium-webdriver'
+  gem 'puma', '~> 3.7'
 end
 
 group :development do
@@ -64,6 +68,20 @@ group :development do
   gem 'rails-erd'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+   # Using sidekiq
+  gem 'capistrano-sidekiq'
+
+  # Use capistrano for deployment
+  gem 'capistrano'
+
+  # rails specific Capistrano functions
+  gem 'capistrano-rails'
+
+  # intregrate bundler with capistrano
+  gem 'capistrano-bundler'
+
+  # if your are using rbenv
+  gem 'capistrano-rbenv'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

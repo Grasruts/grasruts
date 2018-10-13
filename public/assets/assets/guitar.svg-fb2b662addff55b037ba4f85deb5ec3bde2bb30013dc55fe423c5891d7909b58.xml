@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g stroke-width="2" transform="translate(0, 0)"><path fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M23.9,35.414
+	c1.562-1.562,4.095-1.562,5.657,0L30.971,34c4.686-4.686,4.686-12.284,0-16.971s-12.284-4.686-16.971,0l-1.414,1.414
+	c1.562,1.562,1.562,4.095,0,5.657c-1.562,1.562-4.095,1.562-5.657,0l-1.414,1.414c-4.686,4.686-4.686,12.284,0,16.971
+	s12.284,4.686,16.971,0l1.414-1.414C22.337,39.509,22.337,36.976,23.9,35.414z" stroke-linejoin="miter"></path>
+<circle data-color="color-2" fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="24" cy="24" r="3" stroke-linejoin="miter"></circle>
+<line data-color="color-2" fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="11.172" y1="34" x2="14" y2="36.828" stroke-linejoin="miter"></line>
+<rect data-color="color-2" x="35.456" y="4.544" transform="matrix(0.7071 0.7071 -0.7071 0.7071 17.598 -25.397)" fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" width="8" height="8" stroke-linejoin="miter"></rect>
+<line data-color="color-2" fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="36.627" y1="11.373" x2="26.121" y2="21.879" stroke-linejoin="miter"></line></g></svg>

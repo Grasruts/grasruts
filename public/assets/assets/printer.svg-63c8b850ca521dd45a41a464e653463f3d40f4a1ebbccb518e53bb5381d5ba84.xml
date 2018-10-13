@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48"><g stroke-width="2" transform="translate(0, 0)"><path fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M12,36H2V21
+	c0-4.971,4.029-9,9-9h26c4.971,0,9,4.029,9,9v15H36" stroke-linejoin="miter"></path>
+<polyline data-color="color-2" fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points="
+	12,7 12,2 36,2 36,7 " stroke-linejoin="miter"></polyline>
+<rect data-color="color-2" x="12" y="27" fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" width="24" height="19" stroke-linejoin="miter"></rect>
+<circle data-color="color-2" data-stroke="none" fill="#00a6eb" cx="36.5" cy="19.5" r="1.5" stroke-linejoin="miter" stroke-linecap="square"></circle>
+<line data-color="color-2" fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="18" y1="33" x2="30" y2="33" stroke-linejoin="miter"></line>
+<line data-color="color-2" fill="none" stroke="#00a6eb" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="18" y1="40" x2="30" y2="40" stroke-linejoin="miter"></line></g></svg>
