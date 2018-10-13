@@ -13,7 +13,8 @@ gem 'sass-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'unicorn'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -51,6 +52,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'rubocop'
   gem 'selenium-webdriver'
+  gem 'puma', '~> 3.7'
 end
 
 group :development do
@@ -78,7 +80,7 @@ group :development do
   # intregrate bundler with capistrano
   gem 'capistrano-bundler'
 
-  # if your are using rvm
+  # if your are using rbenv
   gem 'capistrano-rbenv'
 end
 

@@ -6,6 +6,8 @@ namespace :migrate_old_data do
     xlsx = Roo::Spreadsheet.open('old grasruts data.xlsx')
     user_wb = xlsx.sheet('user')
     user_wb.each_row_streaming(pad_cells: true, offset: 1) do |row|
+      puts row
+      puts "=============================================================="
       User.create!(
         email: row[1],
         name: row[2],
@@ -40,7 +42,7 @@ namespace :migrate_old_data do
         published_date: Time.now,
         created_at: row[7].value,
         updated_at: row[8].value,
-        user_id: 1,
+        user_id: 417,
         campaign_category_id: 1
       )
     end
