@@ -16,7 +16,7 @@ set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
 
 server '18.217.128.244', user: 'deploy', roles: %w{web app db}, primary: true
 
-set :deploy_to, "grasruts"
+set :deploy_to, "/home/deploy/grasruts"
 
 # dont try and infer something as important as environment from
 # stage name.
