@@ -52,6 +52,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'puma', '~> 3.7'
+  gem 'rubocop'
 end
 
 group :development do
