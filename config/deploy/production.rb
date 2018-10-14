@@ -20,7 +20,7 @@ set :deploy_to, "/home/deploy/grasruts"
 
 # dont try and infer something as important as environment from
 # stage name.
-set :rails_env, :production
+set :rails_env, 'production'
 
 # number of unicorn workers, this will be reflected in
 # the unicorn.rb and the monit configs
