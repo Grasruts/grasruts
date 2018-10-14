@@ -2,7 +2,7 @@ set :application, 'grasruts'
 set :deploy_user, 'deploy'
 
 # setup repo details
-set :repo_url, 'git clone git@bitbucket.org:suss_buzz/grasruts.git'
+set :repo_url, 'git@bitbucket.org:suss_buzz/grasruts.git'
 set :pty,	false
 # setup rbenv.
 set :rbenv_type, :user

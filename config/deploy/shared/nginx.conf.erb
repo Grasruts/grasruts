@@ -1,127 +1,57 @@
 upstream unicorn {
-        server unix:/tmp/unicorn.<%= fetch(:full_app_name) %>.sock fail_timeout=0;
+  server unix:/tmp/unicorn.<%= fetch(:full_app_name) %>.sock fail_timeout=0;
 }
+
 server {
-        server_name <%= fetch(:server_name) %>;
-        root <%= fetch(:deploy_to) %>/current/public;
+  server_name <%= fetch(:server_name) %>;
+  listen 80;
+  root <%= fetch(:deploy_to) %>/current/public;
 
-        location ^~ /assets/ {
-                gzip_static on;
-                expires max;
-                add_header Cache-Control public;
-        }
+  location ^~ /assets/ {
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+  }
 
-        try_files $uri/index.html $uri @unicorn;
-        location @unicorn {
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header   X-Forwarded-Proto https;
-                proxy_set_header Host $http_host;
-                proxy_redirect off;
-                proxy_pass http://unicorn;
-        }
+  try_files $uri/index.html $uri @unicorn;
+  location @unicorn {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://unicorn;
+  }
 
-        error_page 500 502 503 504 /500.html;
-        client_max_body_size 4G;
-        keepalive_timeout 10;
-
-        listen 443 ssl;
-        ssl_certificate /etc/letsencrypt/live/<%= fetch(:domain) %>/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/<%= fetch(:domain) %>/privkey.pem;
-        include /etc/letsencrypt/options-ssl-nginx.conf;
-        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+  error_page 500 502 503 504 /500.html;
+  client_max_body_size 4G;
+  keepalive_timeout 10;
 }
 
 <% if fetch(:enable_ssl) %>
 server {
-        server_name <%= fetch(:server_name) %>;
-        listen 443;
-        root <%= fetch(:deploy_to) %>/current/public;
-
-        location ^~ /assets/ {
-                gzip_static on;
-                expires max;
-                add_header Cache-Control public;
-        }
-
-        try_files $uri/index.html $uri @unicorn;
-        location @unicorn {
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header   X-Forwarded-Proto https;
-                proxy_set_header Host $http_host;
-                proxy_redirect off;
-                proxy_pass http://unicorn;
-        }
-
-        error_page 500 502 503 504 /500.html;
-        client_max_body_size 4G;
-        keepalive_timeout 10;
-        ssl on;
-        ssl_certificate <%= fetch(:deploy_to) %>/shared/ssl_cert.crt;
-        ssl_certificate_key <%= fetch(:deploy_to) %>/shared/ssl_private_key.key;
-}#
-<% end %>
-
-<% if fetch(:stage) == :production %>
-server {
-  root /product/static_site;
-  server_name <%= fetch(:static_server_name) %>;
-  index index.html index.htm;
-
-  location / {
-    try_files $uri $uri/ =404;
-  }
-  error_page 404 /404.html;
-  error_page 500 502 503 504 /50x.html;
-  location = /50x.html {
-    root /usr/share/nginx/html;
-  }
-
-  listen 443 ssl; # managed by Certbot
-  ssl_certificate /etc/letsencrypt/live/<%= fetch(:domain) %>/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/<%= fetch(:domain) %>/privkey.pem;
-  include /etc/letsencrypt/options-ssl-nginx.conf;
-  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-
-}
-
-server {
-  if ($host = <%= fetch(:domain) %>) {
-    return 301 https://$host$request_uri;
-  }
-
-  if ($host = <%= fetch(:www_domain) %>) {
-    return 301 https://$host$request_uri;
-  }
-
-
-  listen 80;
   server_name <%= fetch(:server_name) %>;
-  return 404;
+  listen 443;
+  root <%= fetch(:deploy_to) %>/current/public;
 
-}
+  location ^~ /assets/ {
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+  }
 
-server {
-    if ($host = <%= fetch(:server_name) %>) {
-        return 301 https://$host$request_uri;
-    }
+  try_files $uri/index.html $uri @unicorn;
+  location @unicorn {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto https;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://unicorn;
+  }
 
-    server_name <%= fetch(:server_name) %>;
-    listen 80;
-    return 404;
-}
-
-<% end %>
-<% if fetch(:stage) == :staging %>
-server {
-if ($host = <%= fetch(:domain)%>) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-
-    server_name <%= fetch(:domain)%>;
-    listen 80;
-    return 404; # managed by Certbot
-
-
-}
+  error_page 500 502 503 504 /500.html;
+  client_max_body_size 4G;
+  keepalive_timeout 10;
+  ssl on;
+  ssl_certificate <%= fetch(:deploy_to) %>/shared/ssl_cert.crt;
+  ssl_certificate_key <%= fetch(:deploy_to) %>/shared/ssl_private_key.key;
+}#
 <% end %>

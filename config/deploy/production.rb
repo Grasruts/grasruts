@@ -14,7 +14,7 @@ set :www_domain, "www.grasruts.com"
 # at filepaths
 set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
 
-server '18.222.249.70', user: 'deploy', roles: %w{web app db}, primary: true
+server '18.217.128.244', user: 'deploy', roles: %w{web app db}, primary: true
 
 set :deploy_to, "grasruts"
 
