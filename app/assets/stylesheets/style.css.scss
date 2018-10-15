@@ -7,17 +7,17 @@ Primary use:    ThemeDunk.com
 -------------------------------------------------------------------*/
 
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700&amp;subset=latin-ext');
-@import url(wow/css/animate.css);
+@import url(wow/css/animate.scss);
 @import "font-awesome";
-@import url(bootstrap/css/bootstrap.min.css);
-@import url(ionicons/css/ionicons.min.css);
-@import url(slick-carousel/slick/slick.css);
-@import url(slick-carousel/slick/slick-theme.css);
-@import url(owl-carousel/assets/owl.carousel.min.css);
-@import url(owl-carousel/assets/owl.theme.default.css);
-@import url(owl-carousel/assets/carousel.min.css);
-@import url(bxslider/jquery.bxslider.min.css);
-@import url(magicsuggest/magicsuggest-min.css);
+@import url(bootstrap/css/bootstrap.min.scss);
+@import url(ionicons/css/ionicons.min.scss);
+@import url(slick-carousel/slick/slick.scss);
+@import url(slick-carousel/slick/slick-theme.scss);
+@import url(owl-carousel/assets/owl.carousel.min.scss);
+@import url(owl-carousel/assets/owl.theme.default.scss);
+@import url(owl-carousel/assets/carousel.min.scss);
+@import url(bxslider/jquery.bxslider.min.scss);
+@import url(magicsuggest/magicsuggest-min.scss);
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
