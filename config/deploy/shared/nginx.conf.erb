@@ -34,11 +34,8 @@ server {
 }
 
 server {
-  if ($host = <%= fetch(:domain)%>) {
-    return 301 https://$host$request_uri;
-  } # managed by Certbot
-
   server_name <%= fetch(:domain)%> <%= fetch(:www_domain)%>;
   listen 80;
-  return 404; # managed by Certbot
+  return 301 https://$host$request_uri;
+  # return 404; # managed by Certbot
 }
