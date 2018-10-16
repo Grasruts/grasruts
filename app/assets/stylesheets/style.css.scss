@@ -7,17 +7,17 @@ Primary use:    ThemeDunk.com
 -------------------------------------------------------------------*/
 
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700&amp;subset=latin-ext');
-@import url(wow/css/animate.scss);
+@import url(asset-path('wow/css/animate.scss'));
 @import "font-awesome";
-@import url(bootstrap/css/bootstrap.min.scss);
-@import url(ionicons/css/ionicons.min.scss);
-@import url(slick-carousel/slick/slick.scss);
-@import url(slick-carousel/slick/slick-theme.scss);
-@import url(owl-carousel/assets/owl.carousel.min.scss);
-@import url(owl-carousel/assets/owl.theme.default.scss);
-@import url(owl-carousel/assets/carousel.min.scss);
-@import url(bxslider/jquery.bxslider.min.scss);
-@import url(magicsuggest/magicsuggest-min.scss);
+@import url(asset-path('bootstrap/css/bootstrap.min.scss'));
+@import url(asset-path('ionicons/css/ionicons.min.scss'));
+@import url(asset-path('slick-carousel/slick/slick.scss'));
+@import url(asset-path('slick-carousel/slick/slick-theme.scss'));
+@import url(asset-path('owl-carousel/assets/owl.carousel.min.scss'));
+@import url(asset-path('owl-carousel/assets/owl.theme.default.scss'));
+@import url(asset-path('owl-carousel/assets/carousel.min.scss'));
+@import url(asset-path('bxslider/jquery.bxslider.min.scss'));
+@import url(asset-path('magicsuggest/magicsuggest-min.scss'));
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
