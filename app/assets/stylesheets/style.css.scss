@@ -7,35 +7,35 @@ Primary use:    ThemeDunk.com
 -------------------------------------------------------------------*/
 
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700&amp;subset=latin-ext');
-@import url(asset-path('wow/css/animate.scss'));
+@import 'wow/css/animate.scss';
 // @import "font-awesome";
-@import url(asset-path('bootstrap/css/bootstrap.min.scss'));
-@import url(asset-path('ionicons/css/ionicons.min.scss'));
-@import url(asset-path('slick-carousel/slick/slick.scss'));
-@import url(asset-path('slick-carousel/slick/slick-theme.scss'));
-@import url(asset-path('owl-carousel/assets/owl.carousel.min.scss'));
-@import url(asset-path('owl-carousel/assets/owl.theme.default.scss'));
-@import url(asset-path('owl-carousel/assets/carousel.min.scss'));
-@import url(asset-path('bxslider/jquery.bxslider.min.scss'));
-@import url(asset-path('magicsuggest/magicsuggest-min.scss'));
+@import 'bootstrap/css/bootstrap.min.scss';
+@import 'ionicons/css/ionicons.min.scss';
+@import 'slick-carousel/slick/slick.scss';
+@import 'slick-carousel/slick/slick-theme.scss';
+@import 'owl-carousel/assets/owl.carousel.min.scss';
+@import 'owl-carousel/assets/owl.theme.default.scss';
+@import 'owl-carousel/assets/carousel.min.scss';
+@import 'bxslider/jquery.bxslider.min.scss';
+@import 'magicsuggest/magicsuggest-min.scss';
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
 @import "froala_editor.min";
 @import "froala_style.min";
-@import url(asset-path('plugins/char_counter.min.css'));
-@import url(asset-path('plugins/code_view.min.css'));
-@import url(asset-path('plugins/colors.min.css'));
-@import url(asset-path('plugins/emoticons.min.css'));
-@import url(asset-path('plugins/file.min.css'));
-@import url(asset-path('plugins/fullscreen.min.css'));
-@import url(asset-path('plugins/help.min.css'));
-@import url(asset-path('plugins/image.min.css'));
-@import url(asset-path('plugins/line_breaker.min.css'));
-@import url(asset-path('plugins/quick_insert.min.css'));
-@import url(asset-path('plugins/special_characters.min.css'));
-@import url(asset-path('plugins/table.min.css'));
+@import 'plugins/char_counter.min.css');
+@import 'plugins/code_view.min.css');
+@import 'plugins/colors.min.css');
+@import 'plugins/emoticons.min.css');
+@import 'plugins/file.min.css');
+@import 'plugins/fullscreen.min.css');
+@import 'plugins/help.min.css');
+@import 'plugins/image.min.css');
+@import 'plugins/line_breaker.min.css');
+@import 'plugins/quick_insert.min.css');
+@import 'plugins/special_characters.min.css');
+@import 'plugins/table.min.css');
 
 /*------------------------------------------------------------------
 [Table of contents]
