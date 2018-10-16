@@ -8,6 +8,7 @@ Primary use:    ThemeDunk.com
 
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700&amp;subset=latin-ext');
 @import 'wow/css/animate.scss';
+// @import "font-awesome";
 @import 'bootstrap/css/bootstrap.min.scss';
 @import 'ionicons/css/ionicons.min.scss';
 @import 'slick-carousel/slick/slick.scss';
@@ -23,7 +24,18 @@ Primary use:    ThemeDunk.com
 
 @import "froala_editor.min";
 @import "froala_style.min";
-
+@import url(asset-path('plugins/char_counter.min.css'));
+@import url(asset-path('plugins/code_view.min.css'));
+@import url(asset-path('plugins/colors.min.css'));
+@import url(asset-path('plugins/emoticons.min.css'));
+@import url(asset-path('plugins/file.min.css'));
+@import url(asset-path('plugins/fullscreen.min.css'));
+@import url(asset-path('plugins/help.min.css'));
+@import url(asset-path('plugins/image.min.css'));
+@import url(asset-path('plugins/line_breaker.min.css'));
+@import url(asset-path('plugins/quick_insert.min.css'));
+@import url(asset-path('plugins/special_characters.min.css'));
+@import url(asset-path('plugins/table.min.css'));
 
 /*------------------------------------------------------------------
 [Table of contents]
