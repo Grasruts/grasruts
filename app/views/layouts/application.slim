@@ -76,13 +76,14 @@ html[lang="en"]
 
 
             /! .main-menu
-            .search-icon
-              a.ion-ios-search-strong href="#" 
-              .form-search
-              form#searchForm action="#" method="POST" 
-                input name="search" placeholder="Search..." type="text" value="" /
-                button type="submit" value="" 
-                  span.ion-ios-search-strong
+            - if false
+              .search-icon
+                a.ion-ios-search-strong href="#" 
+                .form-search
+                form#searchForm action="#" method="POST" 
+                  input name="search" placeholder="Search..." type="text" value="" /
+                  button type="submit" value="" 
+                    span.ion-ios-search-strong
             - unless user_signed_in?
               .login.login-button
                 = link_to('Login', new_user_session_path, class: 'btn-primary')
