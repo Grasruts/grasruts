@@ -9,7 +9,7 @@ class HomeController < ApplicationController
       session[:campaign_id] = nil
       redirect_to edit_campaign_path(campaign.id)
     end
-    @campaigns = Campaign.where(status: 'online').limit(4).decorate
+    @campaigns = Campaign.includes(:campaign_category, :user).where(status: 'online').limit(4).decorate
   end
 
   def explore

@@ -1921,8 +1921,8 @@ ul.menu-category li.active:after{
 3.5. About us / #about-us
 -------------------------------------------------------------------*/
 .top-site{
-  background-image: url('images/top-site-about.jpg');
-  height: 860px;
+  background-image: url(image-path('top-site-about.jpg'));
+  height: 500px;
   background-size: cover;
   background-position: center center;
   position: relative;
@@ -1938,7 +1938,7 @@ ul.menu-category li.active:after{
 }
 .top-site .container{
   position: absolute;
-  top: 286px;
+  top: 170px;
   left: 0;
   right: 0;
 }
