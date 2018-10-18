@@ -3,7 +3,7 @@ main#main.site-main
   .campaign-content.mt-5
     .container
       .campaign
-        .campaign-item.clearfix
+        .clearfix
           .campaign-image.embed-responsive.embed-responsive-16by9.mt-5
             - if @campaign.video_id
               iframe.embed-responsive-item frameborder="0" src=("http://www.youtube.com/embed/#{@campaign.video_id}")
