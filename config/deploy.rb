@@ -13,7 +13,7 @@ set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rben
 set :keep_releases, 3
 
 # files we want symlinking to specific entries in shared
-set :linked_files, %w{config/database.yml config/secrets.yml config/application.yml config/sidekiq.yml}
+set :linked_files, %w{config/database.yml config/secrets.yml config/application.yml config/sidekiq.yml .env}
 
 # dirs we want symlinking to shared
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
