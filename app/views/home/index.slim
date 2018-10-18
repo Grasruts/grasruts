@@ -26,7 +26,7 @@ main#main.site-main
           - @campaigns.each do |campaign|
             .col-lg-4.col-sm-6.col-6
                 .campaign-item
-                  a.overlay href="campaign_detail.html"
+                  a.overlay href=("#{project_by_slug_path(campaign.uri)}")
                     = image_tag campaign.card_image.url(:medium)
                     span.ion-ios-search-strong
                   .campaign-box

@@ -997,6 +997,7 @@ ul.socials-top li:hover i{
 .post a.overlay{
   position: relative;
   overflow: hidden;
+  height: 180px;
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -1040,6 +1041,7 @@ ul.socials-top li:hover i{
 }
 .campaign-item .campaign-box{
     padding: 16px 25px 21px;
+    height: 250px;
 }
 .campaign-box .raised{
     height: 6px;
@@ -2078,6 +2080,7 @@ ul.menu-category li.active:after{
 }
 .statics-content .statics-item{
   text-align: center;
+  height: 150px;
   background-color: #f5f6f6;
   border-radius: 3px;
   padding: 40px 20px;

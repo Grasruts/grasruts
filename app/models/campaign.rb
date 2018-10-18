@@ -12,7 +12,8 @@ class Campaign < ApplicationRecord
   has_many :faqs, dependent: :destroy
   has_many :contributions
 
-  has_attached_file :card_image, styles: { medium: '300x300>', thumb: '100x100>' }
+  has_attached_file :card_image, styles: { medium: '370x240>', thumb: '100x100>' },convert_options: {
+    thumb: '-quality 75 -strip' }
   validates_attachment_content_type :card_image, content_type: /\Aimage\/.*\z/
 
   belongs_to :user, optional: true
