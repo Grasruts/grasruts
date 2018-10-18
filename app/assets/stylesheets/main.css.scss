@@ -6,7 +6,6 @@ Assigned to:    Andrew Noah
 Primary use:    ThemeDunk.com
 -------------------------------------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700&amp;subset=latin-ext');
 @import 'wow/css/animate.scss';
 // @import "font-awesome";
 @import 'bootstrap/css/bootstrap.min.scss';
@@ -37,6 +36,24 @@ Primary use:    ThemeDunk.com
 @import url(asset-path('plugins/special_characters.min.css'));
 @import url(asset-path('plugins/table.min.css'));
 
+@font-face {
+  font-family: 'proxima-nova';
+  src: url('https://s3.amazonaws.com/catarse.fonts/fonts/ProximaNova-Bold.woff');
+  font-weight: 700; 
+  font-style: normal;
+}
+@font-face {
+  font-family: 'proxima-nova';
+  src: url('https://s3.amazonaws.com/catarse.fonts/fonts/ProximaNova-Semibold.woff');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'proxima-nova';
+  src: url('https://s3.amazonaws.com/catarse.fonts/fonts/ProximaNova-Regular.woff');
+  font-weight: 400;
+  font-style: normal;
+}
 /*------------------------------------------------------------------
 [Table of contents]
 
@@ -86,9 +103,15 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     vertical-align: baseline;
 }
 body{
+    // font-size: 14px;
+    // color: #555555;
+    // font-family: 'Krub', sans-serif;
+    // font-weight: normal;
+
+    font-family: proxima-nova, sans-serif;
+    color: #3f4752;
     font-size: 14px;
-    color: #555555;
-    font-family: 'Rubik', sans-serif;
+    line-height: 20px;
     font-weight: 400;
 }
 h1,
@@ -233,8 +256,9 @@ textarea:focus {
     background-color: #89c754;
 }
 .title{
-    text-align: center;
-    font-size: 26px;
+  font-weight: normal;
+    font-size: 23px;
+    line-height: 200%;
     margin-bottom: 15px;
 }
 .description{
@@ -824,12 +848,19 @@ ul.socials-top li:hover i{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    width: 50%;
 }
-.sideshow-content .button a{
-    font-weight: 500;
+
+.container-elements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .sideshow-content h1{
-    font-size: 46px;
+    font-size: 64px;
+    line-height: 100%;
+    text-align: center;
     color: #fff;
     margin-bottom: 25px;
 }
@@ -952,20 +983,22 @@ ul.socials-top li:hover i{
     margin-right: 80px !important;
 }
 .campaign{
-    padding-top: 120px;
+    padding-top: 20px;
 }
 .campaign-item{
-    background: #f5f6f6;
-    border-radius: 2px 2px 2px 2px;
-    -moz-border-radius: 2px 2px 2px 2px;
-    -webkit-border-radius: 2px 2px 2px 2px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 0 6px 0 rgba(121,128,139,0.22);
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 .campaign-item a.overlay,
 .post a.overlay{
-    position: relative;
-    overflow: hidden;
-  transition: all 0.35s ease-in-out;
-  background-color: #7cc142;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: 50% 50%;
 }
 .campaign-item a.overlay *,
 .featured-places-item a.featured-places-image *,

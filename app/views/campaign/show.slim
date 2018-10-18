@@ -77,8 +77,9 @@ main#main.site-main
                 a href="#"  FAQ
               li data-tab="updates" 
                 a href="#"  Updates
-              li data-tab="comment" 
-                a href="#"  Comments
+              - if false
+                li data-tab="comment" 
+                  a href="#"  Comments
             .campaign-content
               #campaign.tabs.active
                 = sanitize @campaign.about
@@ -112,34 +113,35 @@ main#main.site-main
                       h3 = news.name.try(:capitalize)
                       .desc
                         p = sanitize news.description
-              #comment.tabs.comment-area
-                h3.comments-title 1 Comment
-                ol.comments-list
-                  li.comment.clearfix
-                    .comment-body
-                      .comment-avatar
-                        = image_tag 'comment.jpg'
-                      .comment-info
-                        header.comment-meta
-                        cite.comment-author Jordan B. Goodale
-                        .comment-inline
-                          span.comment-date 2 days ago
-                          a.comment-reply href="#"  Reply
-                        .comment-content
-                          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Equidem e Cn. Sequitur disserendi ratio cognitioque naturae; Nunc vides, quid faciat. Duo Reges: constructio interrete. Memini vero, inquam; Quis Aristidem non mortuum diligit?
-                #respond.comment-respond
-                  h3#reply-title.comment-reply-title Leave A Comment?
-                  form#commentForm action="#" 
-                    .field-textarea
-                      textarea placeholder=("Your Comment") rows="8" 
-                    .row
-                      .col-md-4.field
-                        input name="s" placeholder=("Your Name") type="text" value="" /
-                      .col-md-4.field
-                        input name="s" placeholder=("Your Email") type="text" value="" /
-                      .col-md-4.field
-                        input name="s" placeholder="Website" type="text" value="" /
-                    button.btn-primary type="submit" value=("Send Messager")  Post Comment
+              - if false
+                #comment.tabs.comment-area
+                  h3.comments-title 1 Comment
+                  ol.comments-list
+                    li.comment.clearfix
+                      .comment-body
+                        .comment-avatar
+                          = image_tag 'comment.jpg'
+                        .comment-info
+                          header.comment-meta
+                          cite.comment-author Jordan B. Goodale
+                          .comment-inline
+                            span.comment-date 2 days ago
+                            a.comment-reply href="#"  Reply
+                          .comment-content
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Equidem e Cn. Sequitur disserendi ratio cognitioque naturae; Nunc vides, quid faciat. Duo Reges: constructio interrete. Memini vero, inquam; Quis Aristidem non mortuum diligit?
+                  #respond.comment-respond
+                    h3#reply-title.comment-reply-title Leave A Comment?
+                    form#commentForm action="#" 
+                      .field-textarea
+                        textarea placeholder=("Your Comment") rows="8" 
+                      .row
+                        .col-md-4.field
+                          input name="s" placeholder=("Your Name") type="text" value="" /
+                        .col-md-4.field
+                          input name="s" placeholder=("Your Email") type="text" value="" /
+                        .col-md-4.field
+                          input name="s" placeholder="Website" type="text" value="" /
+                      button.btn-primary type="submit" value=("Send Messager")  Post Comment
         .col-lg-4
           .support.support-campaign
             h3.support-campaign-title Back this Campaign

@@ -1,47 +1,23 @@
 main#main.site-main
   .tes
     .sideshow style=("background-image: url(#{image_path('bg-hero-start.jpg')})")
-      .container
-        .sideshow-content
-          h1  How Can Crowdfunding Help You ?
+      .container.container-elements
+        .sideshow-content.text-center
+          h1 How Can Crowdfunding Help You ?
           .button
             a.btn-primary href="#"  Read More
     .sideshow style=("background-image: url(#{image_path('bg-hero-start.jpg')})")
-      .container
-        .sideshow-content
+      .container.container-elements
+        .sideshow-content.text-center
           h1  Is Grasruts Legal In Nepal ?
           .button
             a.btn-primary href="#"  Read More
     .sideshow style=("background-image: url(#{image_path('bg-hero-start.jpg')})")
-      .container
-        .sideshow-content
+      .container.container-elements
+        .sideshow-content.text-center
           h1  A Year Of Crowdfunding In Nepal ?
           .button
             a.btn-primary href="#"  Read More
-    .sideshow
-      .container
-        .sideshow-content
-            h1  Bring somehting ideas to life, anywhere
-            .sideshow-description Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu teus.
-            .process data-scroll-nav="1" 
-              .raised
-                span
-              .process-info
-                .process-funded
-                  span> 46%
-                  | funded
-                .process-pledged
-                  span> $46.000
-                  | pledged
-                .process-backers
-                  span> 32
-                  | backers
-                .process-time
-                  span> 21
-                  | days ago
-            .button
-              a.btn-secondary href="#"  See Campaign
-              a.btn-primary href="#"  Buy Now
   .popular.campaign
     .container
       h2.title Latest Campaign
@@ -50,7 +26,9 @@ main#main.site-main
           - @campaigns.each do |campaign|
             .col-lg-4.col-sm-6.col-6
                 .campaign-item
-                  = image_tag campaign.card_image.url(:medium)
+                  a.overlay href="campaign_detail.html"
+                    = image_tag campaign.card_image.url(:medium)
+                    span.ion-ios-search-strong
                   .campaign-box
                     = campaign.campaign_category.name.try(:capitalize)
                     h3
