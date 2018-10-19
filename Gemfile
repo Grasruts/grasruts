@@ -29,7 +29,6 @@ gem 'sidekiq'
 # gem 'sidekiq-scheduler'
 gem 'slim-rails'
 gem 'wysiwyg-rails'
-# gem 'elasticemail', git: "git://github.com/klebervirgilio/elasticemail.git"
 # gem 'chartkick'
 gem 'country_select', '~> 3.1'
 gem 'discard', '~> 1.0'
