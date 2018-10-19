@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class CampaignController < ApplicationController
-  before_action :authenticate_user!, except: %i[new froala_upload_image access_file show create]
-  before_action :set_initial_section, except: %i[create index new froala_upload_image access_file publish show destroy]
-  before_action :is_owner_of_campaign?, except: %i[create index new froala_upload_image access_file show]
+  before_action :authenticate_user!, except: %i[new show create]
+  before_action :set_initial_section, except: %i[create index new publish show destroy]
+  before_action :is_owner_of_campaign?, except: %i[create index new show]
 
   def index
     @campaigns = current_user.campaigns.kept.order(created_at: :desc).includes(:campaign_category).decorate
@@ -76,25 +76,6 @@ class CampaignController < ApplicationController
     @campaign = Campaign.find_by_uuid params[:id]
     @faqs = @campaign.faqs
     render 'campaign/edit'
-  end
-
-  def froala_upload_image
-    FileUtils.mkdir_p(Rails.root.join('public/uploads/files'))
-    ext = File.extname(params[:file].original_filename)
-    file_name = "#{SecureRandom.urlsafe_base64}#{ext}"
-    path = Rails.root.join('public/uploads/files/', file_name)
-
-    File.open(path, 'wb') { |f| f.write(params[:file].read) }
-    view_file = Rails.root.join('/download_file/', file_name).to_s
-    render json: { link: view_file }.to_json
-  end
-
-  def access_file
-    if File.exist?(Rails.root.join('public', 'uploads', 'files', params[:name]))
-      send_data File.read(Rails.root.join('public', 'uploads', 'files', params[:name])), disposition: 'attachment'
-    else
-      render nothing: true
-    end
   end
 
   def publish

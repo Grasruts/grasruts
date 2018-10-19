@@ -7,7 +7,6 @@ Primary use:    ThemeDunk.com
 -------------------------------------------------------------------*/
 
 @import 'wow/css/animate.scss';
-// @import "font-awesome";
 @import 'bootstrap/css/bootstrap.min.scss';
 @import 'ionicons/css/ionicons.min.scss';
 @import 'slick-carousel/slick/slick.scss';
@@ -18,23 +17,7 @@ Primary use:    ThemeDunk.com
 @import 'bxslider/jquery.bxslider.min.scss';
 @import 'magicsuggest/magicsuggest-min.scss';
 
-@import "font-awesome-sprockets";
 @import "font-awesome";
-
-@import "froala_editor.min";
-@import "froala_style.min";
-@import url(asset-path('plugins/char_counter.min.css'));
-@import url(asset-path('plugins/code_view.min.css'));
-@import url(asset-path('plugins/colors.min.css'));
-@import url(asset-path('plugins/emoticons.min.css'));
-@import url(asset-path('plugins/file.min.css'));
-@import url(asset-path('plugins/fullscreen.min.css'));
-@import url(asset-path('plugins/help.min.css'));
-@import url(asset-path('plugins/image.min.css'));
-@import url(asset-path('plugins/line_breaker.min.css'));
-@import url(asset-path('plugins/quick_insert.min.css'));
-@import url(asset-path('plugins/special_characters.min.css'));
-@import url(asset-path('plugins/table.min.css'));
 
 @font-face {
   font-family: 'proxima-nova';
@@ -3792,7 +3775,7 @@ form .create-account input[type="checkbox"]{
 3.17. Create A Campaign
 -------------------------------------------------------------------*/
 .campaign-form form{
-  max-width: 570px;
+  max-width: 800px;
   margin: 0 auto;
 }
 .campaign-form form h4{
@@ -3806,7 +3789,7 @@ form .create-account input[type="checkbox"]{
   font-weight: 400;
   margin-bottom: 10px;
 }
-.campaign-form form span{
+.campaign-form form .label-desc{
   margin-top: 5px;
   display: block;
 }

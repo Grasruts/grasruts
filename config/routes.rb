@@ -2,6 +2,7 @@
 
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -32,9 +33,6 @@ Rails.application.routes.draw do
   get '/campaign/:id/news', to: 'campaign#news', as: 'campaign_news_list'
   get '/campaign/:id/faq', to: 'campaign#faq', as: 'campaign_faq_list'
   put '/campaign/:id/publish', to: 'campaign#publish', as: 'campaign_publish'
-
-  post '/campaign/froala/upload_image', to: 'campaign#froala_upload_image', as: :froala_upload_image
-  get '/download_file/:name', to: 'campaign#access_file', as: :upload_access_file, name: /.*/
 
   resources :user
   get '/user/:id/backed_campaign', to: 'user#backed_campaign', as: 'backed_campaign'
