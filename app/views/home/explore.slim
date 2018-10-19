@@ -70,7 +70,8 @@ main#main.site-main
           - @campaigns.each do |campaign|
             .col-lg-4.col-sm-6.col-6
                 .campaign-item
-                  = image_tag campaign.card_image.url(:medium)
+                  a.overlay href=("#{project_by_slug_path(campaign.uri)}")
+                    = image_tag campaign.card_image.url(:medium)
                   .campaign-box
                     = campaign.campaign_category.name.try(:capitalize)
                     h3
