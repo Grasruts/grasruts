@@ -6,7 +6,7 @@ main#main.site-main
         .clearfix
           .campaign-image.embed-responsive.embed-responsive-16by9.mt-5
             - if @campaign.video_id
-              iframe.embed-responsive-item frameborder="0" src=("http://www.youtube.com/embed/#{@campaign.video_id}")
+              iframe.embed-responsive-item frameborder="0" src=("https://www.youtube.com/embed/#{@campaign.video_id}")
             - else
               = image_tag @campaign.card_image
           .campaign-box
