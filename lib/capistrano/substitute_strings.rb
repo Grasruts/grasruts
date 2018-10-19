@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # we often want to refer to variables which
 # are defined in subsequent stage files. This
 # let's us use the {{var}} to represent fetch(:var)

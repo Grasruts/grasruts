@@ -35,6 +35,7 @@ gem 'discard', '~> 1.0'
 gem 'dotenv-rails'
 gem 'draper'
 gem 'paperclip', '~> 6.0.0'
+gem 'aws-sdk-s3', '~> 1'
 gem 'pg_search'
 # gem 'pundit'
 gem 'simple_form'
@@ -67,7 +68,7 @@ group :development do
   gem 'rails-erd'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-   # Using sidekiq
+  # Using sidekiq
   gem 'capistrano-sidekiq'
 
   # Use capistrano for deployment

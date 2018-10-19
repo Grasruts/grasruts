@@ -1,10 +1,10 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe "Campaign Listings", :type => :request do
+require 'rails_helper'
+
+RSpec.describe 'Campaign Listings', type: :request do
   it 'list recent four online campaigns' do
     get '/'
-    
-    
   end
 
   it 'list all online success failed campaign' do

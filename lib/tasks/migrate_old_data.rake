@@ -7,7 +7,7 @@ namespace :migrate_old_data do
     user_wb = xlsx.sheet('user')
     user_wb.each_row_streaming(pad_cells: true, offset: 1) do |row|
       puts row
-      puts "=============================================================="
+      puts '=============================================================='
       User.create!(
         email: row[1],
         name: row[2],
