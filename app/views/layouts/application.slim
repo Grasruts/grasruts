@@ -25,7 +25,7 @@ html[lang="en"]
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'GOOGLE_ANALYTICS_ID', 'GOOGLE_ANALYTICS_URL');
+        ga('create', "#{ENV['GOOGLE_ANALYTICS_ID']}", "#{ENV['GOOGLE_ANALYTICS_URL']}");
         ga('require', 'ecommerce');
         ga('send', 'pageview');
 
