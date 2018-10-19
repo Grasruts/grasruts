@@ -11,6 +11,9 @@ RailsAdmin.config do |config|
 
   ## == Cancan ==
   # config.authorize_with :cancan
+  config.authorize_with do
+    redirect_to main_app.root_path unless user_signed_in? && current_user.admin?
+  end
 
   ## == Pundit ==
   # config.authorize_with :pundit
