@@ -44,7 +44,7 @@ main#main.site-main
   javascript:
     $('#disabled-form').submit(false);
     var config = {
-              "publicKey": "123",
+              "publicKey": "#{ENV['KHALTI_PUBLIC_KEY']}",
               "productIdentity": "#{@campaign.uri}",
               "productName": "#{@campaign.name}",
               "productUrl": "https://www.grasruts.com/#{@campaign.uri}",
