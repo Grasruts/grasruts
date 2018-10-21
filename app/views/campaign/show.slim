@@ -38,6 +38,8 @@ main#main.site-main
                   | Backers
                 .process-time
                   - unless @campaign.status == 'draft'
+                    - if @campaign.campaign_status.is_a? String
+                      | Status:
                     span = @campaign.campaign_status
                     - if @campaign.campaign_status.is_a? Integer 
                       | Days Left
