@@ -4,6 +4,7 @@ class CampaignController < ApplicationController
   before_action :authenticate_user!, except: %i[new show create]
   before_action :set_initial_section, except: %i[create index new publish show destroy]
   before_action :is_owner_of_campaign?, except: %i[create index new show]
+  # before_action :check_campaign_exists, only: %i[show]
 
   def index
     @campaigns = current_user.campaigns.kept.order(created_at: :desc).includes(:campaign_category).decorate
@@ -15,7 +16,7 @@ class CampaignController < ApplicationController
   end
 
   def show
-    @campaign = Campaign.find_by_uri(params[:permalink]).decorate
+    @campaign = Campaign.find_by_uri!(params[:permalink]).decorate
     @contributions = @campaign.contributions.includes(:user).where(state: 'success')
     @total_contributions = @contributions.sum(:amount)
     @total_contributors = @contributions.select('distinct on (user_id) *').length
@@ -105,5 +106,13 @@ class CampaignController < ApplicationController
   def generate_code(number)
     charset = Array('A'..'Z') + Array('a'..'z')
     Array.new(number) { charset.sample }.join
+  end
+
+  def check_campaign_exists
+    @campaign = Campaign.find_by_uri(params[:permalink])
+    if @campaign.nil?
+      raise ActionController::RoutingError.new('Not Found')
+    end
+
   end
 end
