@@ -4,63 +4,78 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+    html { box-sizing: border-box; }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    *,
+    *::before,
+    *::after { box-sizing: inherit; }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    body * {
+      margin: 0;
+      padding: 0;
+    }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+    body {
+      font: normal 100%/1.15 "Merriweather", serif;
+      background-color: #7ed0f2;
+      color: #fff;
+    }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    .wrapper {
+      position: relative;
+      max-width: 1298px;
+      height: auto;
+      margin: 2em auto 0 auto;
+    }
+
+    /* https://www.flaticon.com/authors/vectors-market */
+    /* https://www.flaticon.com/authors/icomoon */
+    .box {
+      max-width: 70%;
+      min-height: auto;
+      margin: 0 auto;
+      padding: 1em 1em;
+      text-align: center;
+      background: url("https://www.dropbox.com/s/xq0841cp3icnuqd/flame.png?raw=1") no-repeat top 10em center/128px 128px,
+                  transparent url("https://www.dropbox.com/s/w7qqrcvhlx3pwnf/desktop-pc.png?raw=1") no-repeat top 13em center/128px 128px;
+    }
+
+    h1, p:not(:last-of-type) { text-shadow: 0 0 6px #216f79; }
+
+    h1 {
+      margin: 0 0 1rem 0;
+      font-size: 8em;
+    }
+
+    p {
+      margin-bottom: 0.5em;
+      font-size: 3em;
+    }
+
+    p:first-of-type { margin-top: 4em; }
+
+    p > a {
+      border-bottom: 1px dashed #216f79;
+      font-style: italic;
+      text-decoration: none;
+      color: #216f79;
+    }
+
+    p > a:hover { text-shadow: 0 0 6px #216f79; }
+
+    p img { vertical-align: bottom; }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
+  
+<div class="wrapper">
+<div class="box">
+<h1>500</h1>
+<p>Sorry, something went wrong on our side. Our developers have been notified. Please try again later</p>
+<p>&#58;&#40;</p>
+</div>
+</div>
 </body>
 </html>
