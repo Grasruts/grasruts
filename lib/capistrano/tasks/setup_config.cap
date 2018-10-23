@@ -26,6 +26,8 @@ namespace :deploy do
       symlinks = fetch(:symlinks)
 
       symlinks.each do |symlink|
+        puts symlink
+        puts "============="
         sudo "ln -nfs #{shared_path}/config/#{symlink[:source]} #{sub_strings(symlink[:link])}"
       end
     end
