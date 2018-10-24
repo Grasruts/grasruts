@@ -11,7 +11,7 @@ main#main.site-main
                   .campaign-box
                     = campaign.campaign_category.name.try(:capitalize)
                     h3
-                      = link_to campaign.name.try(:capitalize), edit_campaign_path(campaign.uuid)
+                      = link_to campaign.name.try(:capitalize), edit_campaign_path(campaign.uuid), title: campaign.name.try(:capitalize)
                     .campaign-description
                       = campaign.card_description
                     .campaign-author

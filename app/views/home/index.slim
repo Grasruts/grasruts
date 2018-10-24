@@ -33,7 +33,7 @@ main#main.site-main
                   .campaign-box
                     = campaign.campaign_category.name.try(:capitalize)
                     h3
-                      = link_to campaign.name.try(:capitalize), project_by_slug_path(campaign.uri)
+                      = link_to campaign.name.try(:capitalize), project_by_slug_path(campaign.uri), title: campaign.name.try(:capitalize)
                     .campaign-description
                       = campaign.card_description
                     .campaign-author
