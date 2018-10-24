@@ -5,7 +5,9 @@ class VideoInfoExtractorWorker
 
   def perform(id)
     campaign = Campaign.find id
-    video = VideoInfo.new(campaign.video)
-    campaign.update(video_id: video.video_id)
+    unless(campaign.video.blank?)
+      video = VideoInfo.new(campaign.video)
+      campaign.update(video_id: video.video_id)
+    end
   end
 end
