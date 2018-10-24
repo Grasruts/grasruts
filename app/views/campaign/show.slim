@@ -21,11 +21,12 @@ main#main.site-main
     .container
       .campaign
         .clearfix
-          .campaign-image.embed-responsive.embed-responsive-16by9.mt-5
-            - unless @campaign.video_id.blank?
+          - unless @campaign.video_id.blank?
+            .campaign-image.embed-responsive.embed-responsive-16by9.mt-5
               iframe.embed-responsive-item frameborder="0" src=("https://www.youtube.com/embed/#{@campaign.video_id}")
-            - else
-              = image_tag @campaign.card_image
+          - else
+            .campaign-image
+              = image_tag @campaign.card_image, class: 'img-fluid'
           .campaign-box
             a.category href="javascript:,"  = @campaign.campaign_category.name.try(:capitalize)
             h3 = @campaign.name
