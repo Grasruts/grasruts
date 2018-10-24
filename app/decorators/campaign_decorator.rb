@@ -28,6 +28,6 @@ class CampaignDecorator < Draper::Decorator
   end
 
   def occupied_rewards(id)
-    object.contributions.where(reward_id: id).size
+    object.contributions.where(state: 1).where(reward_id: id).size
   end
 end
