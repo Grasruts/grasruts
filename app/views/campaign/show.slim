@@ -26,7 +26,7 @@ main#main.site-main
               iframe.embed-responsive-item frameborder="0" src=("https://www.youtube.com/embed/#{@campaign.video_id}")
           - else
             .campaign-image
-              = image_tag @campaign.card_image(:medium), class: 'img-fluid'
+              = image_tag @campaign.card_image, class: 'img-fluid'
           .campaign-box
             a.category href="javascript:,"  = @campaign.campaign_category.name.try(:capitalize)
             h3 = @campaign.name
@@ -182,8 +182,7 @@ main#main.site-main
                       | Limited 
                       = "(#{@campaign.occupied_rewards(reward.id)} of #{reward.total_reward} Available)"
                   / .backer 2 backer
-                  - if reward.limited && @campaign.occupied_rewards(reward.id) >= reward.total_reward
-                  - else 
+                  - if @campaign.status == 'online'
                     .button
                       = form_tag(campaign_contribution_index_path(@campaign.uuid), method: 'post', class: 'campaign-price quantity', id: 'priceForm') do
                         = hidden_field_tag("contribution[amount]", reward.price)
