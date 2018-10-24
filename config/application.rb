@@ -16,6 +16,8 @@ module Grasruts
     config.to_prepare do
       VideoInfo.provider_api_keys = { youtube: ENV['YOUTUBE_KEY'], vimeo: ENV['VIMEO_KEY'] }
     end
+    config.time_zone = 'Kathmandu'
+    config.active_record.default_timezone = :local # Or :utc
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

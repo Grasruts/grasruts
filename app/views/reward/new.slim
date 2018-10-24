@@ -4,33 +4,27 @@ main#main.site-main
       = simple_form_for @reward, url: campaign_reward_index_path, method: :post do |f|
         .field
           label Name
-          span.label-desc
-            | some description goes here
           = f.input :name, label: false
         .field
           label Price
-          span.label-desc
-            | some description goes here
           = f.input :price, label: false
         .field
           label Description
-          span.label-desc
-            | some description goes here
           = f.input :description, as: :text, label: false
         .field
           label Limit Availability
           span.label-desc
-            | some description goes here
+            | Will this reward be limited?
           = f.input :limited, as: :select, label: false, input_html: {id: 'limit_reward'}
         .field.total_reward
           label Total Reward
           span.label-desc
-            | some description goes here
+            | How many of this reward do you have?
           = f.input :total_reward, label: false
         .field
           label Shipping date
           span.label-desc
-            | some description goes here
+            | When will this reward be shipped to the contributors?
           .row
             .col-sm
               = select_month(Date.today, prefix: 'reward')

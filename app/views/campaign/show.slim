@@ -26,7 +26,7 @@ main#main.site-main
               iframe.embed-responsive-item frameborder="0" src=("https://www.youtube.com/embed/#{@campaign.video_id}")
           - else
             .campaign-image
-              = image_tag @campaign.card_image, class: 'img-fluid'
+              = image_tag @campaign.card_image(:medium), class: 'img-fluid'
           .campaign-box
             a.category href="javascript:,"  = @campaign.campaign_category.name.try(:capitalize)
             h3 = @campaign.name
