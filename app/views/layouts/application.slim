@@ -6,23 +6,23 @@ html[lang="en"]
     meta[name="viewport" content="width=device-width, initial-scale=1"]
 
     - if content_for? :meta_tags
-
+      = yield :meta_tags
     - else
       meta content="Grasruts is Nepal's first legally registered crowdfunding platform. You can raise funds for ideas that you believe in." name="description" 
       meta content="Grasruts is Nepal's first legally registered crowdfunding platform. You can raise funds for ideas that you believe in." property="og:description"
-      meta content="https://s3.us-east-2.amazonaws.com/grasruts/logo_small_fb_grp.png" property="og:image" /
-      meta content="website" property="og:type" /
-      meta content="Grasruts | Home" property="og:title" /
-      meta content="en_US" property="og:locale" /
-      meta content="https://www.grasruts.com/" property="og:url" /
-      meta content="351589295233969" property="fb:app_id" /
-      meta content="@grasruts" property="twitter:site" /
-      meta content="" property="twitter:site:id" /
-      meta content="summary_large_image" property="twitter:card" /
-      meta content="https://www.grasruts.com/" property="twitter:url" /
-      meta content="Grasruts" property="twitter:text:title" /
-      meta content="https://s3.us-east-2.amazonaws.com/grasruts/logo_small_fb_grp.png" property="twitter:image" /
-      meta content="Grasruts is Nepal's first legally registered crowdfunding platform. You can raise funds for ideas that you believe in." property="twitter:description" /
+      meta content="https://s3.us-east-2.amazonaws.com/grasruts/logo_small_fb_grp.png" property="og:image"
+      meta content="website" property="og:type"
+      meta content="Grasruts | Home" property="og:title"
+      meta content="en_US" property="og:locale"
+      meta content="https://www.grasruts.com/" property="og:url"
+      meta content="351589295233969" property="fb:app_id"
+      meta content="@grasruts" property="twitter:site"
+      meta content="" property="twitter:site:id"
+      meta content="summary_large_image" property="twitter:card"
+      meta content="https://www.grasruts.com/" property="twitter:url"
+      meta content="Grasruts" property="twitter:text:title"
+      meta content="https://s3.us-east-2.amazonaws.com/grasruts/logo_small_fb_grp.png" property="twitter:image"
+      meta content="Grasruts is Nepal's first legally registered crowdfunding platform. You can raise funds for ideas that you believe in." property="twitter:description"
     title= content_for(:title) 
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'

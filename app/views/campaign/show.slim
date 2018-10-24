@@ -1,4 +1,21 @@
 - content_for :body_class, "campaign-detail"
+- content_for :title, "Grasruts | #{@campaign.name}" 
+- content_for :meta_tags do
+  meta content=("#{@campaign.card_description}") name="description" 
+  meta content=("#{@campaign.card_description}") property="og:description"
+  meta content=("#{@campaign.card_image}") property="og:image"
+  meta content="website" property="og:type"
+  meta content="Grasruts | #{@campaign.name}" property="og:title"
+  meta content="en_US" property="og:locale"
+  meta content="https://www.grasruts.com/#{@campaign.uri}" property="og:url"
+  meta content="351589295233969" property="fb:app_id"
+  meta content="@grasruts" property="twitter:site"
+  meta content="" property="twitter:site:id"
+  meta content="summary_large_image" property="twitter:card"
+  meta content="https://www.grasruts.com/#{@campaign.uri}" property="twitter:url"
+  meta content="Grasruts" property="twitter:text:title"
+  meta content=("#{@campaign.card_image}") property="twitter:image"
+  meta content=("#{@campaign.card_description}") property="twitter:description"
 main#main.site-main
   .campaign-content.mt-5
     .container
