@@ -9,10 +9,10 @@ class HomeController < ApplicationController
       session[:campaign_id] = nil
       redirect_to edit_campaign_path(campaign.id)
     end
-    @campaigns = Campaign.includes(:campaign_category, :user).where(status: 'online').limit(4).order(created_at: desc).decorate
+    @campaigns = Campaign.includes(:campaign_category, :user).where(status: 'online').limit(4).order(created_at: :desc).decorate
   end
 
   def explore
-    @campaigns = Campaign.includes(:campaign_category, :user).where(status: %w[online success fail]).order(created_at: desc).decorate
+    @campaigns = Campaign.includes(:campaign_category, :user).where(status: %w[online success fail]).order(created_at: :desc).decorate
   end
 end
