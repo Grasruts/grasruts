@@ -4,7 +4,6 @@ class CampaignController < ApplicationController
   before_action :authenticate_user!, except: %i[new show create]
   before_action :set_initial_section, except: %i[create index new publish show destroy]
   before_action :is_owner_of_campaign?, except: %i[create index new show]
-  # before_action :check_campaign_exists, only: %i[show]
 
   def index
     @campaigns = current_user.campaigns.kept.order(created_at: :desc).includes(:campaign_category).decorate
@@ -33,12 +32,12 @@ class CampaignController < ApplicationController
   end
 
   def edit
-    @campaign = Campaign.find_by_uuid params[:id]
+    @campaign = Campaign.find_by_uuid! params[:id]
     @campaign.update(user_id: current_user.id)
   end
 
   def update
-    @campaign = Campaign.find_by_uuid params[:id]
+    @campaign = Campaign.find_by_uuid! params[:id]
     @campaign.attributes = campaign_param
     @campaign.save(context: params[:section].to_sym)
     flash[:error] = @campaign.errors.messages.values.flatten unless @campaign.errors.messages.empty?
@@ -46,7 +45,7 @@ class CampaignController < ApplicationController
   end
 
   def destroy
-    @campaign = Campaign.find_by_uuid params[:id]
+    @campaign = Campaign.find_by_uuid! params[:id]
     if @campaign.status == 'online'
       @campaign.discard
     else
@@ -56,31 +55,31 @@ class CampaignController < ApplicationController
   end
 
   def rewards
-    @campaign = Campaign.find_by_uuid params[:id]
+    @campaign = Campaign.find_by_uuid! params[:id]
     @rewards = @campaign.try(:rewards)
     render 'campaign/edit'
   end
 
   def kyc
     @user = current_user
-    @campaign = Campaign.find_by_uuid params[:id]
+    @campaign = Campaign.find_by_uuid! params[:id]
     render 'campaign/edit'
   end
 
   def news
-    @campaign = Campaign.find_by_uuid params[:id]
+    @campaign = Campaign.find_by_uuid! params[:id]
     @news = @campaign.campaign_updates.kept
     render 'campaign/edit'
   end
 
   def faq
-    @campaign = Campaign.find_by_uuid params[:id]
+    @campaign = Campaign.find_by_uuid! params[:id]
     @faqs = @campaign.faqs
     render 'campaign/edit'
   end
 
   def publish
-    @campaign = Campaign.find_by_uuid params[:id]
+    @campaign = Campaign.find_by_uuid! params[:id]
     @campaign.status = Campaign.statuses[:online]
     @campaign.published_date = Time.now
     @campaign.save(context: %i[basic financing description project_card publish])
@@ -106,12 +105,5 @@ class CampaignController < ApplicationController
   def generate_code(number)
     charset = Array('A'..'Z') + Array('a'..'z')
     Array.new(number) { charset.sample }.join
-  end
-
-  def check_campaign_exists
-    @campaign = Campaign.find_by_uri(params[:permalink])
-    if @campaign.nil?
-      raise ActionController::RoutingError.new('Not Found')
-    end
   end
 end

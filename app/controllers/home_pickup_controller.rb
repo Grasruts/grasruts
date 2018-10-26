@@ -4,7 +4,7 @@ class HomePickupController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    contribution = Contribution.find_by_uuid params[:contribution_id]
+    contribution = Contribution.find_by_uuid! params[:contribution_id]
     contribution.gateway = Contribution.gateways['cash_pickup']
     contribution.ref_id = SecureRandom.uuid
     contribution.state = Contribution.states['pending']

@@ -4,19 +4,19 @@ class ContributionController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @campaign = Campaign.find_by_uuid params[:campaign_id]
+    @campaign = Campaign.find_by_uuid! params[:campaign_id]
     param = contribution_param.merge(campaign_id: @campaign.id)
     @contribution = current_user.contributions.create(param)
     redirect_to edit_campaign_contribution_path(params[:campaign_id], @contribution.uuid)
   end
 
   def edit
-    @contribution = Contribution.find_by_uuid params[:id]
+    @contribution = Contribution.find_by_uuid! params[:id]
     @user = current_user
   end
 
   def update
-    @contribution = Contribution.find_by_uuid(params[:id]).update(contribution_param)
+    @contribution = Contribution.find_by_uuid!(params[:id]).update(contribution_param)
     @user = current_user
     @user.attributes = user_param
     @user.save(context: :contrib)
@@ -28,8 +28,8 @@ class ContributionController < ApplicationController
   end
 
   def payment_option
-    @campaign = Campaign.find_by_uuid params[:campaign_id]
-    @contribution = Contribution.find_by_uuid(params[:contribution_id])
+    @campaign = Campaign.find_by_uuid! params[:campaign_id]
+    @contribution = Contribution.find_by_uuid!(params[:contribution_id])
   end
 
   def khalti_verification
@@ -54,7 +54,7 @@ class ContributionController < ApplicationController
       res = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
         http.request(request)
       end
-      contribution = Contribution.find_by_uuid params[:contribution_id]
+      contribution = Contribution.find_by_uuid! params[:contribution_id]
       contribution.gateway = Contribution.gateways['khalti']
       contribution.raw = JSON.parse(response.body),
                          contribution.ref_id = params[:token],
@@ -64,7 +64,7 @@ class ContributionController < ApplicationController
   end
 
   def payment_success
-    @campaign = Campaign.find_by_uuid params[:campaign_id]
+    @campaign = Campaign.find_by_uuid! params[:campaign_id]
   end
 
   private

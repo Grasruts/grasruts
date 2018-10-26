@@ -26,7 +26,7 @@ class EsewaController < ApplicationController
   end
 
   def failure
-    campaign = Campaign.find_by_uuid params[:campaign_id]
+    campaign = Campaign.find_by_uuid! params[:campaign_id]
     redirect_to project_by_slug_path campaign.uri
   end
 end
