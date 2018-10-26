@@ -113,6 +113,5 @@ class CampaignController < ApplicationController
     if @campaign.nil?
       raise ActionController::RoutingError.new('Not Found')
     end
-
   end
 end
