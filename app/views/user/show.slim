@@ -1,4 +1,4 @@
-- content_for :title, "Grasruts | #{@user.name}"
+- content_for :title, "Grasruts | #{@user.try(:name)}"
 main#main.site-main
   .account-wrapper.mt-5
     .container

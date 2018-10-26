@@ -3,7 +3,7 @@
 class UserController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :check_current_user, except: [:show]
-  before_action :check_user_exist, only: [:show]
+  # before_action :check_user_exist, only: [:show]
 
   def edit
     @user = User.find_by_uuid params[:id]
@@ -36,10 +36,10 @@ class UserController < ApplicationController
     params.require(:user).permit(:name, :email, :country, :city, :address, :contact_number, :pan, :facebook, :twitter, :avatar, :about)
   end
 
-  def check_user_exists
-    @user = User.find_by_uuid(params[:id])
-    if @user.nil?
-      raise ActionController::RoutingError.new('Not Found')
-    end
-  end
+  # def check_user_exists
+  #   @user = User.find_by_uuid(params[:id])
+  #   if @user.nil?
+  #     raise ActionController::RoutingError.new('Not Found')
+  #   end
+  # end
 end
