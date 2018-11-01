@@ -53,11 +53,11 @@ set(:executable_config_files, %w[
 set(:symlinks, [
       {
         source: 'nginx.conf',
-        link: "/etc/nginx/sites-enabled/{{full_app_name}}"
+        link: '/etc/nginx/sites-enabled/{{full_app_name}}'
       },
       {
         source: 'unicorn_init.sh',
-        link: "/etc/init.d/unicorn_{{full_app_name}}"
+        link: '/etc/init.d/unicorn_{{full_app_name}}'
       },
       {
         source: 'log_rotation',

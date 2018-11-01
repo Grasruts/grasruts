@@ -1,0 +1,16 @@
+main#main.site-main
+  .container
+    .main-content
+      .form-login
+        h2 Resend confirmation instructions
+        .inline.clearfix
+          p
+            | Already a member?
+            = link_to "Log in", new_session_path(resource_name)
+        = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { id: 'loginForm', class: 'clearfix', method: 'post'}) do |f|
+          .field
+            = f.input :email, required: true, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+          .inline.clearfix
+            = f.button :submit, "Resend Confirmation Email", class: 'btn-primary'
+
+

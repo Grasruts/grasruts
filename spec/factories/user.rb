@@ -9,8 +9,8 @@ FactoryBot.define do
     country { 'NP' }
     contact_number { 981_981_981_981 }
     city { 'Kathmandu' }
-    password 'password'
-    password_confirmation 'password'
+    password { 'password' }
+    password_confirmation { 'password' }
     admin { false }
   end
 end
