@@ -3,6 +3,7 @@
 class CampaignController < ApplicationController
   before_action :authenticate_user!, except: %i[new show create]
   before_action :set_initial_section, except: %i[create index new publish show destroy]
+  before_action :set_campaign_owner, only: %i[edit]
   before_action :is_owner_of_campaign?, except: %i[create index new show]
 
   def index
@@ -22,18 +23,12 @@ class CampaignController < ApplicationController
   end
 
   def create
-    if user_signed_in?
-      @campaign = current_user.campaigns.create(name: params[:campaign][:name], campaign_category_id: params[:campaign][:campaign_category_id], uri: generate_code(10))
-    else
-      @campaign = Campaign.create(name: params[:campaign][:name], campaign_category_id: params[:campaign][:campaign_category_id], uri: generate_code(10))
-      session[:campaign_id] = @campaign.uuid
-    end
+    @campaign = Campaign.create(name: params[:campaign][:name], campaign_category_id: params[:campaign][:campaign_category_id], uri: generate_code(10))
+    session[:campaign_id] = @campaign.uuid
     redirect_to edit_campaign_path(@campaign.uuid)
   end
 
   def edit
-    @campaign = Campaign.find_by_uuid! params[:id]
-    @campaign.update(user_id: current_user.id)
   end
 
   def update
@@ -105,5 +100,16 @@ class CampaignController < ApplicationController
   def generate_code(number)
     charset = Array('A'..'Z') + Array('a'..'z')
     Array.new(number) { charset.sample }.join
+  end
+
+  def set_campaign_owner
+    if session[:campaign_id]
+      @campaign = Campaign.find_by_uuid! session[:campaign_id]
+    else
+      @campaign = Campaign.find_by_uuid! params[:id]
+    end
+    @campaign.user_id = current_user.id
+    @campaign.save
+    session[:campaign_id] = nil
   end
 end

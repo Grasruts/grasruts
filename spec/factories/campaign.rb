@@ -2,30 +2,18 @@
 
 FactoryBot.define do
   factory :campaign do
-    name
-    uri
-    about
-    goal
-    faq
-    card_description
-    mode
-    status
-    deadline
-    location
-    video
-    video_image
-    recommended
-    video_id
-    published_date
-    created_at
-    updated_at
-    discarded_at
-    user_id
-    card_image_file_name
-    card_image_content_type
-    card_image_file_size
-    card_image_updated_at
-    campaign_category_id
-    uuid
+    name 'Campaign 1'
+    uri 'campaign_1'
+    about 'about'
+    goal 20000
+    card_description "abc"
+    mode 0
+    status 2
+    deadline 2
+    location 'asdf'
+    video 'https://www.youtube.com/watch?v=GrlAInfP990'
+    published_date Time.now
+    user
+    campaign_category
   end
 end

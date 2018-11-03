@@ -13,4 +13,17 @@ FactoryBot.define do
     password_confirmation { 'password' }
     admin { false }
   end
+
+  factory :admin, class: User do
+    name { 'Sushant' }
+    email  { 'admin@gmail.com' }
+    provider { 'email' }
+    address { 'kaldhara' }
+    country { 'NP' }
+    contact_number { 981_981_981_981 }
+    city { 'Kathmandu' }
+    password { 'password' }
+    password_confirmation { 'password' }
+    admin { true }
+  end
 end
