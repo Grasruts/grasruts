@@ -75,9 +75,7 @@ class CampaignController < ApplicationController
 
   def publish
     @campaign = Campaign.find_by_uuid! params[:id]
-    @campaign.status = Campaign.statuses[:online]
-    @campaign.published_date = Time.now
-    @campaign.save(context: %i[basic financing description project_card publish])
+    @campaign.publish
     unless @campaign.errors.messages.empty?
       flash[:error] = @campaign.errors.messages.values.flatten
       return redirect_back(fallback_location: root_path)

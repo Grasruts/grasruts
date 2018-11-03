@@ -4,7 +4,7 @@ main#main.site-main
     .container
       .row
         .col-lg-3
-          = render partial: 'sidebar', locals: {section: 'profile'}
+          = render partial: 'sidebar', locals: {section: 'profile', uuid: @user.uuid}
         .col-lg-9
           .account-content.dashboard
             h3.account-title Profile

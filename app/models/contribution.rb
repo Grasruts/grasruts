@@ -11,6 +11,13 @@ class Contribution < ApplicationRecord
   # before_validation :set_uuid, on: :create
   after_commit :notify, on: :update
 
+  def publish
+    self.gateway = Contribution.gateways['cash_pickup']
+    self.ref_id = SecureRandom.uuid
+    self.state = Contribution.states['pending']
+    self.save
+  end
+
   private
 
   def notify

@@ -57,6 +57,12 @@ class Campaign < ApplicationRecord
     Campaign.includes(:campaign_category, :user).where(status: 'online').limit(4).order(created_at: :desc)
   end
 
+  def publish
+    self.status = Campaign.statuses[:online]
+    self.published_date = Time.now
+    self.save(context: %i[basic financing description project_card publish])
+  end
+
   private
 
   def save_video_id
