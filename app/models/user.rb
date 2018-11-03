@@ -53,4 +53,9 @@ class User < ApplicationRecord
       end
     end
   end
+
+  def update_kyc(user_param)
+    self.attributes = user_param
+    self.save(context: :kyc)
+  end
 end

@@ -4,15 +4,6 @@ class CampaignDecorator < Draper::Decorator
   include Draper::LazyHelpers
   delegate_all
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
-
   def campaign_status
     unless object.status == 'draft'
       days_remaining = (object.published_date.to_date + object.deadline - Date.today).to_i
@@ -29,5 +20,9 @@ class CampaignDecorator < Draper::Decorator
 
   def occupied_rewards(id)
     object.contributions.where(state: 1).where(reward_id: id).size
+  end
+
+  def limited_reward_left?(reward)
+    reward.limited && (occupied_rewards(reward.id) < reward.total_reward)
   end
 end

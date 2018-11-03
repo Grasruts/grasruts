@@ -60,27 +60,13 @@
       to see more useful Rails Best Practices.
     </p>
     <p>
-        Found 80 warnings.
+        Found 79 warnings.
     </p>
     <table>
           <tr>
               <td>
                 <input type="checkbox" class="error-type" id="LawOfDemeterReview" value="LawOfDemeterReview"
                 />&nbsp;<label for="LawOfDemeterReview">Law Of Demeter</label>
-              </td>
-              <td>
-                <input type="checkbox" class="error-type" id="RemoveUnusedMethodsInModelsReview" value="RemoveUnusedMethodsInModelsReview"
-                />&nbsp;<label for="RemoveUnusedMethodsInModelsReview">Remove Unused Methods In Models</label>
-              </td>
-              <td>
-                <input type="checkbox" class="error-type" id="SimplifyRenderInViewsReview" value="SimplifyRenderInViewsReview"
-                />&nbsp;<label for="SimplifyRenderInViewsReview">Simplify Render In Views</label>
-              </td>
-          </tr>
-          <tr>
-              <td>
-                <input type="checkbox" class="error-type" id="MoveCodeIntoModelReview" value="MoveCodeIntoModelReview"
-                />&nbsp;<label for="MoveCodeIntoModelReview">Move Code Into Model</label>
               </td>
               <td>
                 <input type="checkbox" class="error-type" id="ReplaceComplexCreationWithFactoryMethodReview" value="ReplaceComplexCreationWithFactoryMethodReview"
@@ -117,6 +103,16 @@
               <td>
                 <input type="checkbox" class="error-type" id="RemoveTrailingWhitespaceCheck" value="RemoveTrailingWhitespaceCheck"
                 />&nbsp;<label for="RemoveTrailingWhitespaceCheck">Remove Trailing Whitespace</label>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                <input type="checkbox" class="error-type" id="RemoveUnusedMethodsInModelsReview" value="RemoveUnusedMethodsInModelsReview"
+                />&nbsp;<label for="RemoveUnusedMethodsInModelsReview">Remove Unused Methods In Models</label>
+              </td>
+              <td>
+                <input type="checkbox" class="error-type" id="SimplifyRenderInViewsReview" value="SimplifyRenderInViewsReview"
+                />&nbsp;<label for="SimplifyRenderInViewsReview">Simplify Render In Views</label>
               </td>
           </tr>
         <tr>
@@ -270,15 +266,6 @@
               <a href='https://rails-bestpractices.com/posts/2010/07/24/the-law-of-demeter/' target='_blank'>law of demeter</a>
             </td>
           </tr>
-          <tr class="MoveCodeIntoModelReview">
-            <td class='filename'>
-                app/views/campaign/show.slim
-            </td>
-            <td class='line'>186</td>
-            <td class='message'>
-              <a href='https://rails-bestpractices.com/posts/2010/07/24/move-code-into-model/' target='_blank'>move code into model (reward use_count > 2)</a>
-            </td>
-          </tr>
           <tr class="MoveModelLogicIntoModelReview">
             <td class='filename'>
                 app/controllers/esewa_controller.rb
@@ -328,7 +315,7 @@
             <td class='filename'>
                 app/controllers/campaign_controller.rb
             </td>
-            <td class='line'>39</td>
+            <td class='line'>34</td>
             <td class='message'>
               <a href='https://rails-bestpractices.com/posts/2010/07/21/move-model-logic-into-the-model/' target='_blank'>move model logic into model (@campaign use_count > 4)</a>
             </td>
@@ -337,7 +324,7 @@
             <td class='filename'>
                 app/controllers/campaign_controller.rb
             </td>
-            <td class='line'>81</td>
+            <td class='line'>76</td>
             <td class='message'>
               <a href='https://rails-bestpractices.com/posts/2010/07/21/move-model-logic-into-the-model/' target='_blank'>move model logic into model (@campaign use_count > 4)</a>
             </td>
@@ -349,15 +336,6 @@
             <td class='line'>6</td>
             <td class='message'>
               <a href='https://rails-bestpractices.com/posts/2010/07/21/move-model-logic-into-the-model/' target='_blank'>move model logic into model (contribution use_count > 4)</a>
-            </td>
-          </tr>
-          <tr class="MoveModelLogicIntoModelReview">
-            <td class='filename'>
-                app/controllers/user_controller.rb
-            </td>
-            <td class='line'>11</td>
-            <td class='message'>
-              <a href='https://rails-bestpractices.com/posts/2010/07/21/move-model-logic-into-the-model/' target='_blank'>move model logic into model (@user use_count > 4)</a>
             </td>
           </tr>
           <tr class="OveruseRouteCustomizationsReview">
@@ -601,6 +579,15 @@
             <td class='line'>35</td>
             <td class='message'>
               <a href='https://rails-bestpractices.com/posts/2010/07/19/use-model-association/' target='_blank'>use model association (for contribution)</a>
+            </td>
+          </tr>
+          <tr class="UseModelAssociationReview">
+            <td class='filename'>
+                app/controllers/campaign_controller.rb
+            </td>
+            <td class='line'>105</td>
+            <td class='message'>
+              <a href='https://rails-bestpractices.com/posts/2010/07/19/use-model-association/' target='_blank'>use model association (for @campaign)</a>
             </td>
           </tr>
           <tr class="UseModelAssociationReview">

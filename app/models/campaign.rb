@@ -49,6 +49,14 @@ class Campaign < ApplicationRecord
     tsearch: { any_word: true }
   }
 
+  def self.published_campaigns
+    Campaign.includes(:campaign_category, :user).where(status: %w[online success fail]).order(created_at: :desc)
+  end
+
+  def self.online_campaigns
+    Campaign.includes(:campaign_category, :user).where(status: 'online').limit(4).order(created_at: :desc)
+  end
+
   private
 
   def save_video_id

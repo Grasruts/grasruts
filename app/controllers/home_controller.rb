@@ -2,10 +2,10 @@
 
 class HomeController < ApplicationController
   def index
-    @campaigns = Campaign.includes(:campaign_category, :user).where(status: 'online').limit(4).order(created_at: :desc).decorate
+    @campaigns = Campaign.online_campaigns.decorate
   end
 
   def explore
-    @campaigns = Campaign.includes(:campaign_category, :user).where(status: %w[online success fail]).order(created_at: :desc).decorate
+    @campaigns = Campaign.published_campaigns.decorate
   end
 end

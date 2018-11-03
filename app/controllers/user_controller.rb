@@ -10,8 +10,7 @@ class UserController < ApplicationController
 
   def update
     @user = current_user
-    @user.attributes = user_param
-    @user.save(context: :kyc)
+    @user.update_kyc(user_param)
     flash[:error] = @user.errors.messages.values.flatten unless @user.errors.messages.empty?
     redirect_back(fallback_location: root_path)
   end

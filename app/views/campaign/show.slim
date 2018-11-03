@@ -183,7 +183,7 @@ main#main.site-main
                       = "(#{@campaign.occupied_rewards(reward.id)} of #{reward.total_reward} Available)"
                   / .backer 2 backer
                   - if @campaign.status == 'online'
-                    - if reward.limited && (@campaign.occupied_rewards(reward.id) < reward.total_reward)
+                    - if @campaign.limited_reward_left?(reward)
                       .button
                         = form_tag(campaign_contribution_index_path(@campaign.uuid), method: 'post', class: 'campaign-price quantity', id: 'priceForm') do
                           = hidden_field_tag("contribution[amount]", reward.price)
