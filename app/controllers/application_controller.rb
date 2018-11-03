@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def is_owner_of_campaign?
     id = params[:controller] == 'campaign' ? params[:id] : params[:campaign_id]
-    redirect_back(fallback_location: root_path) unless current_user.campaigns.find_by_uuid!(id)
+    redirect_back(fallback_location: root_path) unless current_user.campaigns.find_by_uuid(id)
   end
 
   private
