@@ -31,14 +31,18 @@
 $(document).ready(function(){
   if($('#limit_reward').val() == 'false' || $('#limit_reward').val() == ''){
     $('.total_reward').hide();
+    $('#reward_total_reward').prop('required', false);
   } else{
     $('.total_reward').show();
+    $('#reward_total_reward').prop('required', true);
   }
   $('#limit_reward').on('change', function(){
     if ($(this).val() == 'true'){
         $('.total_reward').show();
+        $('#reward_total_reward').prop('required', true);
     } else {
         $('.total_reward').hide();
+        $('#reward_total_reward').prop('required', false);
     }
   });
 });
