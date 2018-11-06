@@ -23,6 +23,6 @@ class CampaignDecorator < Draper::Decorator
   end
 
   def limited_reward_left?(reward)
-    reward.limited && (occupied_rewards(reward.id) < reward.total_reward)
+    reward.limited && !reward.total_reward.nil? && (occupied_rewards(reward.id) < reward.total_reward)
   end
 end

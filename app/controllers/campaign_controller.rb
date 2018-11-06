@@ -80,7 +80,7 @@ class CampaignController < ApplicationController
       flash[:error] = @campaign.errors.messages.values.flatten
       return redirect_back(fallback_location: root_path)
     end
-    flash[:success] = 'You campaign is now online and ready to receive contributions'
+    flash[:success] = 'Your campaign is now online and ready to receive contributions'
     CampaignPublishRequestWorker.perform_async(params[:id])
     redirect_to project_by_slug_path(@campaign.uri)
   end
