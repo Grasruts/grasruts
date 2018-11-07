@@ -25,7 +25,7 @@ main#main.site-main
                         span style=("width: #{(campaign.total_contributions.to_f/campaign.goal.to_f)*100}%")
                       .process-info
                         .process-pledged
-                          span = campaign.total_contributions
+                          span = "Rs #{campaign.npr_currency_format(campaign.total_contributions)}"
                           | Collected
                         .process-funded
                           span = "#{number_with_precision((campaign.total_contributions.to_f/campaign.goal.to_f)*100,precision: 2)}%"

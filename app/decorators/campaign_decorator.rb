@@ -13,6 +13,10 @@ class CampaignDecorator < Draper::Decorator
     end
   end
 
+  def npr_currency_format(amt)
+    amt.to_s.gsub(/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/, "\\1,")
+  end
+
   def total_contributions
     @contributions = object.contributions.where(state: 'success')
     @total_contributions = @contributions.sum(:amount)

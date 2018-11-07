@@ -46,10 +46,10 @@ main#main.site-main
                 span style=("width: #{(@total_contributions.to_f/@campaign.goal.to_f)*100}%")
               .process-info
                 .process-funded
-                  span = number_with_precision(@campaign.goal, :precision => 2, :delimiter => ',')
+                  span = "Rs #{@campaign.npr_currency_format(@campaign.goal)}"
                   | Funding Goal
                 .process-pledged
-                  span = number_with_precision(@total_contributions, :precision => 2, :delimiter => ',')
+                  span = "Rs #{@campaign.npr_currency_format(@total_contributions)}"
                   | Collected
                 .process-time
                   span = @total_contributors
@@ -168,7 +168,7 @@ main#main.site-main
             - @campaign.rewards.each do |reward|
               .plan
                 a href="javascript:void(0)" 
-                  h4 = "Rs #{reward.price}"
+                  h4 = "Rs #{@campaign.npr_currency_format(reward.price)}"
                   .plan-desc
                     p = reward.name
                   .plan-desc
