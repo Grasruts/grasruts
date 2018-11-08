@@ -19,6 +19,7 @@ require 'simplecov'
 SimpleCov.start 'rails'
 
 require 'factory_bot'
+require 'database_cleaner'
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   # rspec-expectations config goes here. You can use an alternate
@@ -42,6 +43,17 @@ RSpec.configure do |config|
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
   end
 
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will

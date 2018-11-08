@@ -60,7 +60,7 @@ class Campaign < ApplicationRecord
   def publish
     self.status = Campaign.statuses[:online]
     self.published_date = Time.now
-    self.save!(context: %i[basic financing description project_card publish])
+    self.save(context: %i[basic financing description project_card publish])
   end
 
   private

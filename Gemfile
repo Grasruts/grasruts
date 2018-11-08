@@ -48,6 +48,7 @@ group :development, :test do
   gem 'puma', '~> 3.7'
   gem 'rubocop'
   gem 'rubocop-rspec'
+  gem 'database_cleaner'
 end
 
 group :development do
