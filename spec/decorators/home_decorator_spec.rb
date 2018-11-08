@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-RSpec.describe "HomeDecorator" do
+RSpec.describe HomeDecorator do
   let(:user) { create :user }
   let(:campaign_category) { create :campaign_category }
   let(:online_campaign) { create :online_campaign, user_id: user.id, campaign_category_id: campaign_category.id}
@@ -9,5 +9,4 @@ RSpec.describe "HomeDecorator" do
   it "should print campaign status" do
     expect(online_campaign.decorate.campaign_status).to eq(2)
   end
-
 end
