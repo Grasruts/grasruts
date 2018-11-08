@@ -10,14 +10,19 @@ RSpec.describe Campaign, :type => :model do
     let(:rejected_campaign) { create :rejected_campaign, user_id: user.id, campaign_category_id: campaign_category.id}
     let(:success_campaign) { create :success_campaign, user_id: user.id, campaign_category_id: campaign_category.id}
     let(:failed_campaign) { create :failed_campaign, user_id: user.id, campaign_category_id: campaign_category.id}
+    let(:reward) { create :reward, campaign_id: draft_campaign.id }
     
-    it "list published campaigns [online, success, fail]" do
+    before do
       draft_campaign
       pending_campaign
       online_campaign
       rejected_campaign
       success_campaign
       failed_campaign
+      reward
+    end
+
+    it "list published campaigns [online, success, fail]" do
       expect(Campaign.published_campaigns).to eq([failed_campaign, success_campaign, online_campaign])
     end
 

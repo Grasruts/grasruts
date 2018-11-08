@@ -13,6 +13,9 @@ FactoryBot.define do
     location { 'asdf' }
     video { 'https://www.youtube.com/watch?v=GrlAInfP990' }
     published_date { Time.now }
+    card_image_file_name { 'image.png' }
+    # card_image_content_type { 'application/pdf' }
+    card_image_file_size { 1024 }
   end
 
   factory :pending_campaign, class: Campaign do
@@ -27,6 +30,9 @@ FactoryBot.define do
     location { 'asdf' }
     video { 'https://www.youtube.com/watch?v=GrlAInfP990' }
     published_date { Time.now }
+    card_image_file_name { 'image.png' }
+    # card_image_content_type { 'application/pdf' }
+    card_image_file_size { 1024 }
   end
 
   factory :online_campaign, class: Campaign do
@@ -41,6 +47,9 @@ FactoryBot.define do
     location { 'asdf' }
     video { 'https://www.youtube.com/watch?v=GrlAInfP990' }
     published_date { Time.now }
+    card_image_file_name { 'image.png' }
+    # card_image_content_type { 'application/pdf' }
+    card_image_file_size { 1024 }
   end
 
   factory :rejected_campaign, class: Campaign do
@@ -55,6 +64,9 @@ FactoryBot.define do
     location { 'asdf' }
     video { 'https://www.youtube.com/watch?v=GrlAInfP990' }
     published_date { Time.now }
+    card_image_file_name { 'image.png' }
+    # card_image_content_type { 'application/pdf' }
+    card_image_file_size { 1024 }
   end
 
   factory :success_campaign, class: Campaign do
@@ -69,6 +81,9 @@ FactoryBot.define do
     location { 'asdf' }
     video { 'https://www.youtube.com/watch?v=GrlAInfP990' }
     published_date { Time.now }
+    card_image_file_name { 'image.png' }
+    # card_image_content_type { 'application/pdf' }
+    card_image_file_size { 1024 }
   end
 
   factory :failed_campaign, class: Campaign do
@@ -83,5 +98,8 @@ FactoryBot.define do
     location { 'asdf' }
     video { 'https://www.youtube.com/watch?v=GrlAInfP990' }
     published_date { Time.now }
+    card_image_file_name { 'image.png' }
+    # card_image_content_type { 'application/pdf' }
+    card_image_file_size { 1024 }
   end
 end
