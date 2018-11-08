@@ -73,7 +73,7 @@ main#main.site-main
                         .process-funded
                           span = "#{number_with_precision((campaign.total_contributions.to_f/campaign.goal.to_f)*100,precision: 2)}%"
                           | Funded
-                        .process-time
+                        .all-process-time
                           - if campaign.campaign_status.is_a? String
                             | Status:
                           span = campaign.campaign_status
