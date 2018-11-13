@@ -127,6 +127,7 @@ GEM
       countries (~> 2.0)
       sort_alphabetical (~> 1.0)
     crass (1.0.4)
+    database_cleaner (1.7.0)
     debug_inspector (0.0.3)
     devise (4.5.0)
       bcrypt (~> 3.0)
@@ -463,6 +464,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   ckeditor
   country_select (~> 3.1)
+  database_cleaner
   devise
   discard (~> 1.0)
   dotenv-rails
