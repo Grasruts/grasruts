@@ -150,6 +150,7 @@ GEM
       activesupport (~> 5.0)
       request_store (~> 1.0)
     erubi (1.7.1)
+    esewa (0.1.0)
     execjs (2.7.0)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
@@ -469,6 +470,7 @@ DEPENDENCIES
   discard (~> 1.0)
   dotenv-rails
   draper
+  esewa
   factory_bot_rails
   font-awesome-rails
   foreman

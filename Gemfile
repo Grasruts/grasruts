@@ -17,7 +17,7 @@ gem 'unicorn'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-
+gem 'esewa'
 gem 'devise'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
